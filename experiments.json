@@ -1,0 +1,1528 @@
+{
+  "batch": 4,
+  "date": "2026-10-16",
+  "ideas_attempted": 50,
+  "confirmed_discrepancies": 21,
+  "passing_control_cases": 29,
+  "additional_control_variants": 1,
+  "next_idea_number": 51,
+  "scope": "Four batches of region-coverage experiments, ending with twenty ideas in batch 4. Failing counts are sample counts, not counts of independent or previously unknown compiler bugs. Passing means selected executable-token counts match for these inputs.",
+  "environment": {
+    "stable": "rustc 1.98.1 (48a229cea 2026-09-01), LLVM 22.1.8",
+    "nightly": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19), LLVM 23.1.0; installed snapshot, not freshly updated",
+    "cargo_llvm_cov": "0.6.16",
+    "profile": "dev, unoptimized",
+    "edition": "2024",
+    "rust_version": "1.98",
+    "tracing": "0.1.44",
+    "tracing_attributes": "0.1.31",
+    "additional_dependencies_batch3": {
+      "async-trait": "0.1.92",
+      "thiserror": "2.0.20",
+      "thiserror-impl": "2.0.20",
+      "syn_added_alongside_2.x": "3.0.8"
+    },
+    "additional_dependencies_batch4": {
+      "tokio": "1.53.2",
+      "tokio-macros": "2.7.2",
+      "futures": "0.3.34",
+      "log": "0.4.34"
+    }
+  },
+  "successful_techniques": [
+    "Keep each idea in its own package and assert runtime results in main before interpreting coverage.",
+    "Use std::pin::pin!, Waker::noop(), and explicit poll calls for deterministic futures without an async runtime. Case 09 deliberately polls twice; this driver is not a general executor.",
+    "Compare selected executable tokens against LLVM file segments and retain per-function code regions. Distinguish missing mappings from zero execution counts.",
+    "For tracing, keep an otherwise identical source without the attribute as a control; the runner enforces that equality.",
+    "Use distinct counts on adjacent short-circuit operands to expose accidental count merging.",
+    "Include deliberately untaken expressions to check that zero-count mappings remain visible.",
+    "Use cargo-llvm-cov default cleaning and sequential runs to prevent cumulative profiles.",
+    "Record source, expectation, and lockfile hashes alongside exact compiler versions; retain passing examples as a reusable library.",
+    "Use a Cell side effect plus a runtime assertion to prove that a supposedly uncovered expression actually ran, or that supposedly covered code did not run.",
+    "Use disjoint or-pattern alternatives and drive only the second alternative to make missing guard execution visible as a zero count.",
+    "Catch a conditional panic from a unit-returning callee to expose coverage falsely attributed to its unexecuted continuation.",
+    "For confirmed discrepancies, retain cargo-llvm-cov annotated text as well as the JSON arrays to independently check the probe reader.",
+    "Before adding workspace members, preserve the previous Cargo.lock so historical evidence hashes remain verifiable; run cargo check --offline to register new members before --locked assessments.",
+    "Use a side effect in an expression duplicated by a macro, or a guard retried for overlapping alternatives, to measure lost execution multiplicity.",
+    "Exercise implicit failure edges as well as explicit calls: bounds checks during aggregate construction and compiler-inserted destructors.",
+    "For process-exit reproducers, assert the driver state before exit and panic if the supposedly non-returning path returns. Inspect never-taken sibling arms for implausible counts.",
+    "Check user-authored expressions embedded in derive attributes, transformed async traits, and thread-local initializers; compare to plain/native equivalents where available.",
+    "Label related failures rather than interpreting each failing sample as a separate underlying bug.",
+    "Retain close passing comparisons: slice versus enum or-pattern guards (34/35), exclusive versus repeated macro arguments (41/33), and LazyLock versus thread-local initialization (43/27).",
+    "Use explicit polling and Cell assertions to distinguish future construction from polling in select and try_join macros (36/37).",
+    "Install an enabled logger and verify the formatted record before evaluating coverage of logging arguments (42).",
+    "Probe the executable condition expression rather than the if keyword; keyword gaps alone do not establish missing execution coverage.",
+    "Retry a OnceLock after a caught initializer panic to distinguish correct initializer counts from excess continuation counts (44).",
+    "Use a failing parse inside try_fold to check both the callback count and the successful continuation count (47).",
+    "Hash supporting source files in the ledger when the runner only captures main.rs, as with the cross-file macro in case 32."
+  ],
+  "interpretation_notes": [
+    "Expected execution counts were derived from inputs before coverage assessment. Source anchors were refined to executable expressions rather than let/return syntax.",
+    "Cases 04 and 10 initially appeared missing when probing the return keyword. Their returned values are correctly mapped. Keyword omission alone is not counted as a bug.",
+    "No tracing subscriber is installed; enabled-subscriber behaviour remains untested.",
+    "Batch 1 found no confirmed spurious counters. No claim is made about every non-executable token, branch coverage, release optimization, or untested inputs.",
+    "The async tracing discrepancy reproduces a known issue; this batch does not establish its compiler-level cause or discover a new independent bug.",
+    "Batch 2 found two incorrect-count samples with opposite effects: case 13 marks unexecuted code covered, and case 18 marks executed code uncovered. Both reproduce with stable features on both installed compilers.",
+    "Source-annotated LLVM reports independently confirm the discrepant lines; neither result depends only on the custom token comparator.",
+    "New workspace members change Cargo.lock without changing external dependency versions. Lockfile snapshots for each batch are retained under evidence/.",
+    "Batch 3 completed exactly ten new ideas and confirmed eight failing samples on both installed compilers. Two samples passed. No nightly language features were needed.",
+    "Case 21 is a count discrepancy (2 executions versus 1), not a false uncovered line. Case 22 also undercounts a repeated guard.",
+    "Cases 23 and 30 extend the known unwind limitation to implicit bounds checks and implicit drop calls. Case 24 exits normally via process::exit and does not unwind.",
+    "Case 24 preserves the exported value 9223372036854775807 exactly; the separate LLVM text renderer shows 18.4E. Both contradict the expected zero count. No claim is made here about the origin of that export/rendering representation difference.",
+    "Cases 25, 26 and 27 require mappings for user-written expressions inside macros. They do not require generated boilerplate itself to be instrumented, and the exact compiler versus macro-library responsibility has not been established.",
+    "A formatting change to the untaken arm in case 22 required changing its source anchor from 10, to 10; its expected execution count remained zero.",
+    "Batch 4 completed exactly twenty ideas (31-50), with five failures in each ten-idea group. All selected counts agree on the recorded stable and installed nightly; no nightly language features were needed.",
+    "Batch 4 contributes ten failing samples: two extend macro/guard counting cases, and eight exercise the known unwind-counting family. This does not establish ten independent bugs.",
+    "Cases 33 and 44 have incorrect positive counts without falsely uncovered lines. Case 35 falsely reports an executed guard as zero. The other seven new failures falsely credit unexecuted code.",
+    "Cases 31-40 use batch4-first10.Cargo.lock; cases 41-50 use batch4.Cargo.lock. Each new entry specifies its evidence lockfile snapshot."
+  ],
+  "prior_art": [
+    {
+      "url": "https://github.com/rust-lang/rust/issues/131119",
+      "relevance": "Existing tracing coverage report; case 01 reproduces missing async body regions."
+    },
+    {
+      "url": "https://doc.rust-lang.org/rustc/instrument-coverage.html",
+      "relevance": "Region and function coverage definitions and LLVM export workflow."
+    },
+    {
+      "url": "https://github.com/rust-lang/rust/issues/78544",
+      "relevance": "Explains the known inaccurate counting of statements after a call that unwinds; directly applicable to case 13."
+    },
+    {
+      "url": "https://doc.rust-lang.org/reference/expressions/match-expr.html#match-guards",
+      "relevance": "A guard runs after a successful pattern match. Disjoint Ok and Err alternatives avoid repeated matches for one input in case 18."
+    },
+    {
+      "url": "https://github.com/rust-lang/rust/issues/124732",
+      "relevance": "Compile-time execution is separate from runtime coverage. Case 17 deliberately expects no runtime count from the const evaluation."
+    },
+    {
+      "url": "https://github.com/rust-lang/rust/issues/164153",
+      "relevance": "Selected the process-exit/non-returning-function counter-expression idea; case 24 reproduces the incorrect sibling-arm counts."
+    },
+    {
+      "url": "https://github.com/rust-lang/rust/issues/123567",
+      "relevance": "Selected a user-written conditional inside a thiserror attribute; case 25 reproduces missing mappings with thiserror 2.0.20."
+    },
+    {
+      "url": "https://github.com/rust-lang/rust/issues/142291",
+      "relevance": "Motivated the multiline logging-argument experiment. Case 42 passes its executable-expression probes with an enabled logger; it does not reproduce the literal-only example in that issue."
+    }
+  ],
+  "experiments": [
+    {
+      "number": 1,
+      "case": "failing/01_tracing_async",
+      "idea": "Async tracing with await and Result propagation",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Poll fetch(0) and fetch(1) to completion; expect Err(\"missing\") and Ok(\"row\").",
+      "finding": "The call before ? and the success continuation have no mapping despite executing. Removing only the tracing attribute restores counts 2 and 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/01_tracing_async.json",
+          "matching_probes": 0,
+          "total_probes": 2
+        },
+        "nightly": {
+          "path": "evidence/nightly/01_tracing_async.json",
+          "matching_probes": 0,
+          "total_probes": 2
+        }
+      }
+    },
+    {
+      "number": 2,
+      "case": "passing/02_tracing_sync",
+      "idea": "Synchronous tracing with an untaken alternative",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call classify(0); expect 10. Do not call the else path.",
+      "finding": "Condition and taken expression count 1; untaken expression has an explicit count of 0.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/02_tracing_sync.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/nightly/02_tracing_sync.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 3,
+      "case": "passing/03_question_mark",
+      "idea": "Question-mark early propagation",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call convert(Err(\"missing\")) and convert(Ok(4)); expect Err(\"missing\") and Ok(5).",
+      "finding": "The operand counts 2 and the success continuation counts 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/03_question_mark.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        },
+        "nightly": {
+          "path": "evidence/nightly/03_question_mark.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        }
+      }
+    },
+    {
+      "number": 4,
+      "case": "passing/04_let_else",
+      "idea": "Let-else return and continuation",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call extract(None) and extract(Some(4)); expect 10 and 5.",
+      "finding": "Scrutinee counts 2; returned value and success expression each count 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/04_let_else.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/nightly/04_let_else.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 5,
+      "case": "passing/05_match_guard",
+      "idea": "Match guard, fallback and unvisited arm",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call classify(Some(4)) and classify(Some(1)); expect 14 and 21. Never pass None.",
+      "finding": "Guard counts 2; guarded and fallback bodies each count 1; None arm has count 0.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/05_match_guard.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/nightly/05_match_guard.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 6,
+      "case": "passing/06_short_circuit",
+      "idea": "Nested short-circuit operands",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call choose with (false,false,false), (true,true,false), and (true,false,false).",
+      "finding": "Left, middle and right operands count 3, 2 and 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/06_short_circuit.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/nightly/06_short_circuit.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 7,
+      "case": "passing/07_macro_expression",
+      "idea": "Declarative macro expression arguments",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call evaluate(true); expect 11. Never evaluate the false expression.",
+      "finding": "Invocation condition and true argument count 1; false argument has count 0.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/07_macro_expression.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/nightly/07_macro_expression.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 8,
+      "case": "passing/08_iterator_closure",
+      "idea": "Iterator filter_map closure",
+      "status": "passing-control",
+      "inputs_and_assertions": "Sum transformed positives in [-1,2,3]; expect 7.",
+      "finding": "Predicate counts 3, Some expression counts 2, and None expression counts 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/08_iterator_closure.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/nightly/08_iterator_closure.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 9,
+      "case": "passing/09_async_suspend",
+      "idea": "Future suspension and resumption",
+      "status": "passing-control",
+      "inputs_and_assertions": "Manually poll the future twice; expect Pending then Ready(5).",
+      "finding": "Initialisation and continuation each count 1; poll closure condition counts 2; Pending and Ready expressions each count 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/09_async_suspend.json",
+          "matching_probes": 6,
+          "total_probes": 6
+        },
+        "nightly": {
+          "path": "evidence/nightly/09_async_suspend.json",
+          "matching_probes": 6,
+          "total_probes": 6
+        }
+      }
+    },
+    {
+      "number": 10,
+      "case": "passing/10_drop_return",
+      "idea": "Implicit destructor on two return paths",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call work(true) and work(false); expect 10 and 20, then assert two drops.",
+      "finding": "Constructor counts 2, return values each count 1, and destructor body counts 2.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/stable/10_drop_return.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/nightly/10_drop_return.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 11,
+      "batch": 2,
+      "case": "passing/11_async_unpolled",
+      "idea": "Constructed async function never polled",
+      "status": "passing-control",
+      "inputs_and_assertions": "Construct and drop never_polled(&runs); assert runs is still 0.",
+      "finding": "Both body expressions have explicit zero-count coverage mappings.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/11_async_unpolled.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/11_async_unpolled.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        }
+      }
+    },
+    {
+      "number": 12,
+      "batch": 2,
+      "case": "passing/12_async_cancel",
+      "idea": "Future cancelled while pending",
+      "status": "passing-control",
+      "inputs_and_assertions": "Poll once, observe Pending, drop the future, and assert before=1 and after=0.",
+      "finding": "The pre-await expression counts 1; the continuation after await has count 0.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/12_async_cancel.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/12_async_cancel.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 13,
+      "batch": 2,
+      "case": "failing/13_unwind_continuation",
+      "idea": "Continuation after a panicking call",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the intentional panic from work and assert its post-call Cell remains 0.",
+      "finding": "False positive: after.set on line 14 has count 1 although it never executes.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/13_unwind_continuation.json",
+          "matching_probes": 1,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch2-stable/13_unwind_continuation.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/13_unwind_continuation.json",
+          "matching_probes": 1,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch2-nightly/13_unwind_continuation.txt"
+        }
+      },
+      "classification": "Incorrect coverage count: unexecuted source reported covered; known unwind limitation.",
+      "related_issue": "https://github.com/rust-lang/rust/issues/78544",
+      "notes": "The panic diagnostic on stderr is expected. catch_unwind handles it, the assertions pass, and the program exits successfully. The callee returns () rather than !, so the continuation is reachable for other inputs."
+    },
+    {
+      "number": 14,
+      "batch": 2,
+      "case": "passing/14_unused_closure",
+      "idea": "Constructed closure never invoked",
+      "status": "passing-control",
+      "inputs_and_assertions": "Construct build(&runs) without invoking the returned closure; assert runs=0.",
+      "finding": "The uninvoked closure body retains explicit zero-count mappings.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/14_unused_closure.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/14_unused_closure.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        }
+      }
+    },
+    {
+      "number": 15,
+      "batch": 2,
+      "case": "passing/15_nested_macro",
+      "idea": "Nested declarative macro forwarding",
+      "status": "passing-control",
+      "inputs_and_assertions": "Pass a condition and alternatives through two macro expansions; assert select(true)=12.",
+      "finding": "Condition and taken argument count 1; untaken argument has count 0.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/15_nested_macro.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/15_nested_macro.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 16,
+      "batch": 2,
+      "case": "passing/16_let_chain",
+      "idea": "Let chain with two patterns and two boolean checks",
+      "status": "passing-control",
+      "inputs_and_assertions": "Use five inputs that stop at each successive condition or reach the body.",
+      "finding": "The conditions count 5, 4, 3, 2; success body counts 1 and fallback counts 4.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/16_let_chain.json",
+          "matching_probes": 6,
+          "total_probes": 6
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/16_let_chain.json",
+          "matching_probes": 6,
+          "total_probes": 6
+        }
+      }
+    },
+    {
+      "number": 17,
+      "batch": 2,
+      "case": "passing/17_const_runtime",
+      "idea": "Const fn evaluated at compile time and runtime",
+      "status": "passing-control",
+      "inputs_and_assertions": "Evaluate choose(false) as a const and choose(black_box(true)) at runtime; assert 22 and 11.",
+      "finding": "Runtime coverage correctly counts only the true arm; compile-time evaluation does not count as runtime execution.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/17_const_runtime.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/17_const_runtime.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 18,
+      "batch": 2,
+      "case": "failing/18_or_pattern_guard",
+      "idea": "Guard shared by disjoint or-pattern alternatives",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Call choose(Err(7), &checks); assert result=17 and checks=1.",
+      "finding": "False negative: the guard side effect on line 7 and comparison on line 8 each have count 0 despite executing once. The selected arm body correctly counts 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/18_or_pattern_guard.json",
+          "matching_probes": 3,
+          "total_probes": 5,
+          "annotated_source": "evidence/batch2-stable/18_or_pattern_guard.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/18_or_pattern_guard.json",
+          "matching_probes": 3,
+          "total_probes": 5,
+          "annotated_source": "evidence/batch2-nightly/18_or_pattern_guard.txt"
+        }
+      },
+      "classification": "Incorrect coverage count: executed source reported uncovered.",
+      "notes": "The alternatives are disjoint; Err(7) matches only the second alternative, so the guard runs exactly once. An explicit Cell assertion independently proves that execution. No claim is made that this is a previously unreported compiler bug or that its exact compiler-level cause is established."
+    },
+    {
+      "number": 19,
+      "batch": 2,
+      "case": "passing/19_labelled_continue",
+      "idea": "Labelled continue from nested loops",
+      "status": "passing-control",
+      "inputs_and_assertions": "Run a triangular nested loop; continue the outer loop when i==j; assert total=3.",
+      "finding": "Condition counts 6; increment counts 3; code after the inner loop has count 0.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/19_labelled_continue.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/19_labelled_continue.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 20,
+      "batch": 2,
+      "case": "passing/20_async_trait",
+      "idea": "Native async trait method with await and ?",
+      "status": "passing-control",
+      "inputs_and_assertions": "Poll both error and success calls to completion; assert their results and two method entries.",
+      "finding": "Entry counts 2, alternatives each count 1, and success continuation counts 1.",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch2-stable/20_async_trait.json",
+          "matching_probes": 5,
+          "total_probes": 5
+        },
+        "nightly": {
+          "path": "evidence/batch2-nightly/20_async_trait.json",
+          "matching_probes": 5,
+          "total_probes": 5
+        }
+      }
+    },
+    {
+      "number": 21,
+      "batch": 3,
+      "case": "failing/21_repeated_macro_argument",
+      "idea": "Repeated expression argument in macro_rules",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Invoke twice! once and assert its Cell side effect happened twice.",
+      "finding": "The user expression executes twice but its mapped count is 1.",
+      "classification": "incorrect-count",
+      "notes": "Repeated source expressions through declarative macro expansion.",
+      "related_samples": [],
+      "references": [],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/21_repeated_macro_argument.json",
+          "matching_probes": 0,
+          "total_probes": 1,
+          "annotated_source": "evidence/batch3-stable/21_repeated_macro_argument.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/21_repeated_macro_argument.json",
+          "matching_probes": 0,
+          "total_probes": 1,
+          "annotated_source": "evidence/batch3-nightly/21_repeated_macro_argument.txt"
+        }
+      }
+    },
+    {
+      "number": 22,
+      "batch": 3,
+      "case": "failing/22_overlapping_or_guard",
+      "idea": "Overlapping alternatives retry a failed guard",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Match 1 against 1 | _ with a false guard; assert two guard side effects and fallback result 20.",
+      "finding": "The guard executes twice but its side effect and false expression each count 1.",
+      "classification": "incorrect-count",
+      "notes": "Related to case 18, now with repeated execution rather than only the second disjoint alternative.",
+      "related_samples": [
+        18
+      ],
+      "references": [
+        "https://doc.rust-lang.org/reference/expressions/match-expr.html#match-guards"
+      ],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/22_overlapping_or_guard.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch3-stable/22_overlapping_or_guard.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/22_overlapping_or_guard.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch3-nightly/22_overlapping_or_guard.txt"
+        }
+      }
+    },
+    {
+      "number": 23,
+      "batch": 3,
+      "case": "failing/23_bounds_partial_tuple",
+      "idea": "Bounds check aborts partial tuple construction",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the bounds panic from the middle tuple element; assert before=1 and after=0.",
+      "finding": "The later tuple element never executes, but after.set is reported with count 1.",
+      "classification": "false-positive",
+      "notes": "Related to case 13: an implicit bounds-check panic interrupts evaluation of an aggregate.",
+      "related_samples": [
+        13
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/23_bounds_partial_tuple.json",
+          "matching_probes": 2,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-stable/23_bounds_partial_tuple.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/23_bounds_partial_tuple.json",
+          "matching_probes": 2,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-nightly/23_bounds_partial_tuple.txt"
+        }
+      }
+    },
+    {
+      "number": 24,
+      "batch": 3,
+      "case": "failing/24_exit_counter_underflow",
+      "idea": "Process exit before a function returns",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Assert exactly three step calls immediately before process::exit(0). Any return from run instead panics.",
+      "finding": "An unexecuted recoverable arm exports count 9223372036854775807; an unexecuted return arm counts 1. The annotated report renders the recoverable arm as 18.4E.",
+      "classification": "incorrect-count-and-false-positive",
+      "notes": "Process-exit reproducer of the incomplete-function counter-expression issue; there is no unwinding in this case.",
+      "related_samples": [],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/164153"
+      ],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/24_exit_counter_underflow.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch3-stable/24_exit_counter_underflow.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/24_exit_counter_underflow.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch3-nightly/24_exit_counter_underflow.txt"
+        }
+      }
+    },
+    {
+      "number": 25,
+      "batch": 3,
+      "case": "failing/25_derive_expression",
+      "idea": "User-authored expression inside a thiserror derive attribute",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Format Failure(true) and assert the selected text.",
+      "finding": "The condition, selected string, and untaken string in the attribute have no coverage mappings.",
+      "classification": "missing-mapping",
+      "notes": "Coverage gap for user-authored expressions inside generated derive code; generated boilerplate itself is not part of the expectation.",
+      "related_samples": [],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/123567"
+      ],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/25_derive_expression.json",
+          "matching_probes": 0,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-stable/25_derive_expression.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/25_derive_expression.json",
+          "matching_probes": 0,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-nightly/25_derive_expression.txt"
+        }
+      }
+    },
+    {
+      "number": 26,
+      "batch": 3,
+      "case": "failing/26_async_trait_macro",
+      "idea": "Async trait method transformed by async-trait",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Poll an error call and a success call to completion; assert both results and two Cell increments.",
+      "finding": "All five checked body expressions have no mapping; the method signature is counted.",
+      "classification": "missing-mapping",
+      "notes": "Compare passing native async-trait case 20. Related to the macro-transformed async body gap in case 01, without tracing.",
+      "related_samples": [
+        1,
+        20
+      ],
+      "references": [],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/26_async_trait_macro.json",
+          "matching_probes": 0,
+          "total_probes": 5,
+          "annotated_source": "evidence/batch3-stable/26_async_trait_macro.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/26_async_trait_macro.json",
+          "matching_probes": 0,
+          "total_probes": 5,
+          "annotated_source": "evidence/batch3-nightly/26_async_trait_macro.txt"
+        }
+      }
+    },
+    {
+      "number": 27,
+      "batch": 3,
+      "case": "failing/27_thread_local_initializer",
+      "idea": "Runtime initializer inside thread_local",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Read the thread-local value twice; assert both values and exactly one atomic initialization increment.",
+      "finding": "The executed initializer side effect and Cell construction have no mappings, while VALUE.with counts 2.",
+      "classification": "missing-mapping",
+      "notes": "Macro-generated initialization hides user-authored runtime expressions; this is not compile-time initialization.",
+      "related_samples": [],
+      "references": [],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/27_thread_local_initializer.json",
+          "matching_probes": 1,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-stable/27_thread_local_initializer.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/27_thread_local_initializer.json",
+          "matching_probes": 1,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-nightly/27_thread_local_initializer.txt"
+        }
+      }
+    },
+    {
+      "number": 28,
+      "batch": 3,
+      "case": "passing/28_const_generic_branches",
+      "idea": "Different const-generic instantiations take complementary arms",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call choose::<true> and choose::<false>; assert results 11 and 22 and two entries.",
+      "finding": "Entry and condition counts are 2; each branch counts 1 after aggregation.",
+      "classification": "passing-control",
+      "notes": "Selected token counts agree across these two instantiations; summary coverage is not exhaustively assessed.",
+      "related_samples": [],
+      "references": [],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/28_const_generic_branches.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/28_const_generic_branches.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 29,
+      "batch": 3,
+      "case": "passing/29_async_closure_cancel",
+      "idea": "Async closure cancelled while pending",
+      "status": "passing-control",
+      "inputs_and_assertions": "Poll the closure future once and drop it; assert before=1 and after=0.",
+      "finding": "Pre-await expression counts 1 and the unexecuted continuation counts 0.",
+      "classification": "passing-control",
+      "notes": "Extends passing cancellation case 12 from async functions to lending async closures.",
+      "related_samples": [
+        12
+      ],
+      "references": [],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/29_async_closure_cancel.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/29_async_closure_cancel.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 30,
+      "batch": 3,
+      "case": "failing/30_panicking_drop",
+      "idea": "Implicit scope-exit destructor panics",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the destructor panic; assert drops=1 and after=0.",
+      "finding": "The statement following the scope never executes but is reported with count 1.",
+      "classification": "false-positive",
+      "notes": "Related to case 13: compiler-inserted drop glue unwinds instead of an explicit source call.",
+      "related_samples": [
+        13,
+        23
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch3-stable/30_panicking_drop.json",
+          "matching_probes": 2,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-stable/30_panicking_drop.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch3-nightly/30_panicking_drop.json",
+          "matching_probes": 2,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch3-nightly/30_panicking_drop.txt"
+        }
+      }
+    },
+    {
+      "number": 31,
+      "batch": 4,
+      "case": "passing/31_macro_function_body",
+      "idea": "Function body supplied to a declarative macro",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call generated once; assert result 42 and one atomic increment.",
+      "finding": "Both user-supplied body expressions count 1.",
+      "classification": "passing-control",
+      "notes": "The macro generates the function item while preserving coverage of the supplied body.",
+      "related_samples": [],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/31_macro_function_body.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/31_macro_function_body.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        }
+      }
+    },
+    {
+      "number": 32,
+      "batch": 4,
+      "case": "passing/32_cross_file_macro",
+      "idea": "Declarative macro defined in another source file",
+      "status": "passing-control",
+      "inputs_and_assertions": "Call choose(false); assert result 24.",
+      "finding": "The condition counts 1, the untaken expression 0, and the selected expression 1.",
+      "classification": "passing-control",
+      "notes": "The definition is in src/macros.rs; its hash is recorded separately because the runner hashes src/main.rs.",
+      "related_samples": [
+        7,
+        15
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/32_cross_file_macro.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/32_cross_file_macro.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      },
+      "supporting_source_sha256": {
+        "passing/32_cross_file_macro/src/macros.rs": "58bdfe8014141d3a31417c79d95886e9cac78ec0566e3719c61840853fbc272d"
+      }
+    },
+    {
+      "number": 33,
+      "batch": 4,
+      "case": "failing/33_macro_short_circuit",
+      "idea": "Macro duplicates an argument across short-circuit operands",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "The first argument evaluation is false, the second true; assert result true and calls=2.",
+      "finding": "Both checked argument expressions execute twice but count 1.",
+      "classification": "incorrect-count",
+      "notes": "Related to repeated-source counts in case 21. Compare case 41, where only one copy executes and the count is correct.",
+      "related_samples": [
+        21,
+        22,
+        41
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/33_macro_short_circuit.json",
+          "matching_probes": 0,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch4-stable/33_macro_short_circuit.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/33_macro_short_circuit.json",
+          "matching_probes": 0,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch4-nightly/33_macro_short_circuit.txt"
+        }
+      }
+    },
+    {
+      "number": 34,
+      "batch": 4,
+      "case": "passing/34_slice_or_guard",
+      "idea": "Slice or-pattern with a compound guard",
+      "status": "passing-control",
+      "inputs_and_assertions": "Match [0, 7], selecting the second alternative; assert result 8 and one guard evaluation.",
+      "finding": "The guard side effect, both comparisons, and selected result each count 1.",
+      "classification": "passing-control",
+      "notes": "The enum or-pattern failure does not generalize to this slice-pattern example.",
+      "related_samples": [
+        18,
+        35
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/34_slice_or_guard.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/34_slice_or_guard.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 35,
+      "batch": 4,
+      "case": "failing/35_matches_guard",
+      "idea": "Enum or-pattern guard inside matches!",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Pass Err(7); assert true and one guard side effect.",
+      "finding": "Both executed guard expressions count 0.",
+      "classification": "false-negative",
+      "notes": "A standard-macro version of case 18; not evidence of a separate compiler bug.",
+      "related_samples": [
+        18,
+        22,
+        34
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/35_matches_guard.json",
+          "matching_probes": 0,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch4-stable/35_matches_guard.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/35_matches_guard.json",
+          "matching_probes": 0,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch4-nightly/35_matches_guard.txt"
+        }
+      }
+    },
+    {
+      "number": 36,
+      "batch": 4,
+      "case": "passing/36_tokio_select_disabled",
+      "idea": "Disabled future branch in tokio::select!",
+      "status": "passing-control",
+      "inputs_and_assertions": "Poll once to Ready(8); assert created=1, polled=0, selected=1.",
+      "finding": "Future construction counts 1, disabled future body 0, and selected handler expressions 1.",
+      "classification": "passing-control",
+      "notes": "The select macro evaluates a disabled branch future expression but does not poll the resulting future. Uses biased selection and explicit polling without a runtime.",
+      "related_samples": [
+        11,
+        12
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/36_tokio_select_disabled.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/36_tokio_select_disabled.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 37,
+      "batch": 4,
+      "case": "passing/37_try_join_error",
+      "idea": "Immediate error in futures::try_join!",
+      "status": "passing-control",
+      "inputs_and_assertions": "Poll once to Ready(Err(())); assert first=1 and second=0.",
+      "finding": "First future expressions count 1; the second future body retains zero-count mappings.",
+      "classification": "passing-control",
+      "notes": "The first future immediately returns an error. Runtime assertions establish the polling order for this dependency version and input.",
+      "related_samples": [
+        11,
+        20
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/37_try_join_error.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/37_try_join_error.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 38,
+      "batch": 4,
+      "case": "failing/38_destructuring_assignment",
+      "idea": "Panic in a later destructuring-assignment target",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the bounds panic; assert values=[11], second RHS side effect=1, and after=0.",
+      "finding": "The RHS side effect counts 1 correctly; the unexecuted statement after assignment also counts 1.",
+      "classification": "false-positive",
+      "notes": "The RHS finishes before assignments begin. The first target is written before the second target panics.",
+      "related_samples": [
+        13,
+        23
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/38_destructuring_assignment.json",
+          "matching_probes": 1,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch4-stable/38_destructuring_assignment.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/38_destructuring_assignment.json",
+          "matching_probes": 1,
+          "total_probes": 2,
+          "annotated_source": "evidence/batch4-nightly/38_destructuring_assignment.txt"
+        }
+      }
+    },
+    {
+      "number": 39,
+      "batch": 4,
+      "case": "failing/39_overloaded_add_unwind",
+      "idea": "Unwind from an overloaded arithmetic operator",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the Add implementation panic; assert calls=1 and after=0.",
+      "finding": "The operator entry counts 1; the unexecuted continuation and result expression also count 1.",
+      "classification": "false-positive",
+      "notes": "Tests the unwind edge of the trait call introduced by operator lowering.",
+      "related_samples": [
+        13,
+        49
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/39_overloaded_add_unwind.json",
+          "matching_probes": 1,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch4-stable/39_overloaded_add_unwind.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/39_overloaded_add_unwind.json",
+          "matching_probes": 1,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch4-nightly/39_overloaded_add_unwind.txt"
+        }
+      }
+    },
+    {
+      "number": 40,
+      "batch": 4,
+      "case": "failing/40_unwinding_condition",
+      "idea": "Unwind while evaluating a short-circuit condition",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the condition panic; assert checks=1, yes=0, and no=0.",
+      "finding": "The unexecuted false arm counts 1; the true arm correctly counts 0.",
+      "classification": "false-positive",
+      "notes": "An incomplete condition falsely credits a sibling arm. Unlike case 24, this program unwinds and the driver catches the panic.",
+      "related_samples": [
+        13,
+        24
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4-first10.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/40_unwinding_condition.json",
+          "matching_probes": 2,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch4-stable/40_unwinding_condition.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/40_unwinding_condition.json",
+          "matching_probes": 2,
+          "total_probes": 3,
+          "annotated_source": "evidence/batch4-nightly/40_unwinding_condition.txt"
+        }
+      }
+    },
+    {
+      "number": 41,
+      "batch": 4,
+      "case": "passing/41_macro_alternative_copy",
+      "idea": "Same macro argument in mutually exclusive alternatives",
+      "status": "passing-control",
+      "inputs_and_assertions": "Choose the false branch; assert result 17 and calls=1.",
+      "finding": "Both checked source expressions count 1.",
+      "classification": "passing-control",
+      "notes": "A source argument copied into two arms is correctly reported when only one copy executes for this input.",
+      "related_samples": [
+        21,
+        33
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/41_macro_alternative_copy.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/41_macro_alternative_copy.json",
+          "matching_probes": 2,
+          "total_probes": 2
+        }
+      }
+    },
+    {
+      "number": 42,
+      "batch": 4,
+      "case": "passing/42_log_argument",
+      "idea": "Conditional argument inside a multiline logging macro",
+      "status": "passing-control",
+      "inputs_and_assertions": "Install a logger, enable Info, and log once; assert the formatted message, one record, and evaluated=1.",
+      "finding": "The side effect and condition count 1; selected and untaken values count 1 and 0.",
+      "classification": "passing-control",
+      "notes": "Tests executable argument expressions with log 0.4.34. Does not reproduce the literal-argument shape in rust-lang/rust#142291.",
+      "related_samples": [],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/142291"
+      ],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/42_log_argument.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/42_log_argument.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 43,
+      "batch": 4,
+      "case": "passing/43_lazy_lock_initializer",
+      "idea": "Runtime initialization through LazyLock",
+      "status": "passing-control",
+      "inputs_and_assertions": "Read the static twice; assert both values are 23 and one initialization.",
+      "finding": "Initializer expressions count 1 and the accessor counts 2.",
+      "classification": "passing-control",
+      "notes": "A passing comparison for the missing thread-local initializer mappings in case 27.",
+      "related_samples": [
+        27
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/43_lazy_lock_initializer.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/43_lazy_lock_initializer.json",
+          "matching_probes": 3,
+          "total_probes": 3
+        }
+      }
+    },
+    {
+      "number": 44,
+      "batch": 4,
+      "case": "failing/44_once_lock_retry",
+      "idea": "OnceLock initialization retried after a panic",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the first initialization panic and assert the cache is empty; retry successfully and assert attempts=2, after=1.",
+      "finding": "Initializer counts are correct, but the post-initialization side effect and dereference count 2 instead of 1.",
+      "classification": "incorrect-count",
+      "notes": "The caught unwind adds a false continuation count to the successful retry; the checked continuation is still covered.",
+      "related_samples": [
+        13
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/44_once_lock_retry.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-stable/44_once_lock_retry.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/44_once_lock_retry.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-nightly/44_once_lock_retry.txt"
+        }
+      }
+    },
+    {
+      "number": 45,
+      "batch": 4,
+      "case": "failing/45_await_unwind",
+      "idea": "Child future panics while awaited",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch a panic from the first parent poll; assert polls=1 and after=0.",
+      "finding": "Child poll entry counts 1 and its Ready expression 0; the unexecuted parent continuation counts 1.",
+      "classification": "false-positive",
+      "notes": "Compare correct zero-count continuations after suspension and cancellation in cases 12 and 29. This future unwinds while polling instead.",
+      "related_samples": [
+        13,
+        12,
+        29
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/45_await_unwind.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-stable/45_await_unwind.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/45_await_unwind.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-nightly/45_await_unwind.txt"
+        }
+      }
+    },
+    {
+      "number": 46,
+      "batch": 4,
+      "case": "failing/46_division_unwind",
+      "idea": "Implicit integer division panic",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Pass a black-box zero divisor; catch the panic and assert before=1, after=0.",
+      "finding": "The division operand counts 1; the following statement and result expression incorrectly count 1.",
+      "classification": "false-positive",
+      "notes": "An implicit arithmetic check interrupts execution. The zero divisor is a runtime value.",
+      "related_samples": [
+        13,
+        23
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/46_division_unwind.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-stable/46_division_unwind.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/46_division_unwind.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-nightly/46_division_unwind.txt"
+        }
+      }
+    },
+    {
+      "number": 47,
+      "batch": 4,
+      "case": "passing/47_try_fold_question_mark",
+      "idea": "Question-mark propagation inside a try_fold closure",
+      "status": "passing-control",
+      "inputs_and_assertions": "Process [\"2\", \"bad\", \"9\"]; assert an error, visited=2, and accepted=1.",
+      "finding": "Callback and parse operand counts are 2; the successful continuation and sum count 1.",
+      "classification": "passing-control",
+      "notes": "The failed parse stops iteration before the third input, while preserving zero extra continuation counts.",
+      "related_samples": [
+        3,
+        8
+      ],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/47_try_fold_question_mark.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/47_try_fold_question_mark.json",
+          "matching_probes": 4,
+          "total_probes": 4
+        }
+      }
+    },
+    {
+      "number": 48,
+      "batch": 4,
+      "case": "passing/48_dyn_default_method",
+      "idea": "Default trait method called through a trait object",
+      "status": "passing-control",
+      "inputs_and_assertions": "Dispatch through &dyn Value with false; assert result 22 and calls=1.",
+      "finding": "Entry, condition, and dispatch expression count 1; alternatives count 0 and 1.",
+      "classification": "passing-control",
+      "notes": "The default implementation retains correct selected-token counts through dynamic dispatch.",
+      "related_samples": [],
+      "references": [],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/48_dyn_default_method.json",
+          "matching_probes": 5,
+          "total_probes": 5
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/48_dyn_default_method.json",
+          "matching_probes": 5,
+          "total_probes": 5
+        }
+      }
+    },
+    {
+      "number": 49,
+      "batch": 4,
+      "case": "failing/49_index_trait_unwind",
+      "idea": "Unwind from overloaded indexing",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Index a custom value with 1; catch the trait implementation panic and assert calls=1, after=0.",
+      "finding": "Index entry counts 1 and its normal return counts 0; caller continuation expressions incorrectly count 1.",
+      "classification": "false-positive",
+      "notes": "Exercises the Index trait call rather than a built-in array bounds check.",
+      "related_samples": [
+        13,
+        23,
+        39
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/49_index_trait_unwind.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-stable/49_index_trait_unwind.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/49_index_trait_unwind.json",
+          "matching_probes": 2,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-nightly/49_index_trait_unwind.txt"
+        }
+      }
+    },
+    {
+      "number": 50,
+      "batch": 4,
+      "case": "failing/50_format_display_unwind",
+      "idea": "Display implementation panics during write!",
+      "status": "confirmed-discrepancy",
+      "inputs_and_assertions": "Catch the formatting panic; assert one Display call and after=0.",
+      "finding": "Argument construction and Display entry count 1; the formatter normal return counts 0, but the caller continuation incorrectly counts 1.",
+      "classification": "false-positive",
+      "notes": "The formatting macro invokes user code through Display. The fmt::Error expectation is not the panic source.",
+      "related_samples": [
+        13
+      ],
+      "references": [
+        "https://github.com/rust-lang/rust/issues/78544"
+      ],
+      "lockfile_snapshot": "evidence/batch4.Cargo.lock",
+      "evidence": {
+        "stable": {
+          "path": "evidence/batch4-stable/50_format_display_unwind.json",
+          "matching_probes": 3,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-stable/50_format_display_unwind.txt"
+        },
+        "nightly": {
+          "path": "evidence/batch4-nightly/50_format_display_unwind.json",
+          "matching_probes": 3,
+          "total_probes": 4,
+          "annotated_source": "evidence/batch4-nightly/50_format_display_unwind.txt"
+        }
+      }
+    }
+  ],
+  "next_batch_candidates_not_attempted": [
+    "Nightly gen blocks with suspension and early drop.",
+    "Guard let chains with or-patterns.",
+    "Nested functions inside coverage-disabled generated contexts.",
+    "Function and region summaries across multiple binaries and generic instantiations.",
+    "Inline const expressions embedded in runtime expressions.",
+    "Release-optimized versions of confirmed cases, with expectations unchanged.",
+    "Partial moves and destructor ordering across match arms."
+  ],
+  "handoff": "Final requested batch complete: ideas 31-50 produced ten failing and ten passing samples, meeting the 50% target. Both ten-idea check-ins were delivered. All twenty samples were validated on stable and the installed nightly, with matching results. Collection totals: 50 numbered cases, 21 failing and 29 passing, plus one plain comparison binary. All ten new failing samples have JSON and annotated LLVM evidence on both compilers. No further batch is active; start at idea 51 only if requested. Related reproducers are linked and must not be counted as independent bugs.",
+  "workspace_note": "No CONTRIBUTING.md was present. Git did not recognise the provided directory as a repository; files were saved on disk, not committed. The Python runner is deliberately invoked via python3 and is not executable.",
+  "batches": [
+    {
+      "number": 1,
+      "ideas": "01-10",
+      "new_discrepancies": 1,
+      "passing_controls": 9,
+      "goal": "Initial exploration"
+    },
+    {
+      "number": 2,
+      "ideas": "11-20",
+      "new_discrepancies": 2,
+      "passing_controls": 8,
+      "goal": "At least two additional samples with incorrect coverage",
+      "goal_met": true,
+      "nightly_features_needed": false
+    },
+    {
+      "number": 3,
+      "ideas": "21-30",
+      "new_discrepancies": 8,
+      "passing_controls": 2,
+      "goal": "Try ten new ideas and find at least five failing samples",
+      "goal_met": true,
+      "nightly_features_needed": false,
+      "notes": "Related reproducers are explicitly linked; eight samples do not imply eight independent compiler bugs."
+    },
+    {
+      "number": 4,
+      "ideas": "31-50",
+      "new_discrepancies": 10,
+      "passing_controls": 10,
+      "goal": "Try twenty new ideas, aiming for at least ten failing samples",
+      "goal_met": true,
+      "nightly_features_needed": false,
+      "failure_rate": 0.5,
+      "notes": "Eight new failures exercise unwind-counting limitations; two extend macro/guard counting cases. All ten passing samples are retained.",
+      "checkpoints": [
+        {
+          "through_idea": 40,
+          "batch_samples_persisted": 10,
+          "batch_failing": 5,
+          "batch_passing": 5,
+          "check_in_delivered": true
+        },
+        {
+          "through_idea": 50,
+          "batch_samples_persisted": 20,
+          "batch_failing": 10,
+          "batch_passing": 10,
+          "check_in_delivered": true
+        }
+      ],
+      "validation": {
+        "runtime_and_coverage": "All 20 new programs completed their assertions under cargo-llvm-cov on both recorded compilers.",
+        "probes_per_compiler": 67,
+        "compiler_results_agree": true,
+        "new_json_reports": 40,
+        "new_annotated_reports": 20,
+        "checks": [
+          "cargo fmt --all -- --check",
+          "cargo check --workspace --locked --offline"
+        ],
+        "evidence_integrity": "Validated all 102 saved JSON reports against source, expectation, and historical lockfile hashes; checked probe coordinates, classifications, ledger counts, and README links.",
+        "annotated_confirmation": "All discrepant batch-4 probe counts agree with the independently generated LLVM text reports on both compilers.",
+        "workspace_cases": 50,
+        "workspace_binaries": 51
+      }
+    }
+  ],
+  "lockfile_snapshots": {
+    "batch1": "evidence/batch1.Cargo.lock",
+    "batch2": "evidence/batch2.Cargo.lock",
+    "batch3": "evidence/batch3.Cargo.lock",
+    "batch4_first10": "evidence/batch4-first10.Cargo.lock",
+    "batch4": "evidence/batch4.Cargo.lock"
+  },
+  "layout": {
+    "failing": "Twenty-one cases with confirmed coverage discrepancies; case 01 includes its plain comparison variant.",
+    "passing": "Twenty-nine cases whose selected coverage expectations match.",
+    "evidence": "Historical source paths were relocated to match this layout; captured region arrays and source hashes are unchanged."
+  }
+}

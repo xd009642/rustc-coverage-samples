@@ -1,0 +1,642 @@
+{
+  "case": "14_unused_closure",
+  "variant": "original",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+stable",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_14_unused_closure",
+    "--bin",
+    "sample_14_unused_closure",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_14_unused_closure.json"
+  ],
+  "source_sha256": "1e7c6f7ebc28e5045010c64699dc415c6fea3da0c5258d1cdb07385dc1937ee2",
+  "lock_sha256": "945a85ea1c22419dd23ccaa397244da31b51a42ed84db64cb004eaee28ed4624",
+  "expectations_sha256": "cfb3cdd9cec3d52538a46b5dc5ff85df846c34cb3a6add89ef2d1a11f66b32e0",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "runs.set",
+      "count": 0,
+      "position": [
+        5,
+        9
+      ],
+      "actual": 0,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          5,
+          9,
+          5,
+          13,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "42",
+      "count": 0,
+      "position": [
+        6,
+        9
+      ],
+      "actual": 0,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          6,
+          9,
+          6,
+          11,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/14_unused_closure/src/main.rs",
+    "segments": [
+      [
+        3,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        52,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        4,
+        13,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        9,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        13,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        14,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        17,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        18,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        32,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        9,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        11,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        5,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        6,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        13,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        25,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        16,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        19,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        24,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        25,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        30,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        13,
+        13,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        13,
+        20,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        20,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        21,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        24,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        15,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        15,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 3,
+        "covered": 2,
+        "percent": 66.66666666666666
+      },
+      "instantiations": {
+        "count": 3,
+        "covered": 2,
+        "percent": 66.66666666666666
+      },
+      "lines": {
+        "count": 12,
+        "covered": 8,
+        "percent": 66.66666666666666
+      },
+      "regions": {
+        "count": 19,
+        "covered": 13,
+        "notcovered": 6,
+        "percent": 68.42105263157895
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/14_unused_closure/src/main.rs"
+      ],
+      "name": "_RNvCseandaTHT1sh_24sample_14_unused_closure4main",
+      "regions": [
+        [
+          10,
+          1,
+          10,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          9,
+          11,
+          13,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          16,
+          11,
+          25,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          9,
+          12,
+          16,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          19,
+          12,
+          24,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          25,
+          12,
+          30,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          13,
+          13,
+          20,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          5,
+          14,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          16,
+          14,
+          20,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          21,
+          14,
+          24,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          1,
+          15,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/14_unused_closure/src/main.rs"
+      ],
+      "name": "_RNvCseandaTHT1sh_24sample_14_unused_closure5build",
+      "regions": [
+        [
+          3,
+          1,
+          3,
+          52,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          1,
+          8,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 0,
+      "filenames": [
+        "passing/14_unused_closure/src/main.rs"
+      ],
+      "name": "_RNCNvCseandaTHT1sh_24sample_14_unused_closure5build0B3_",
+      "regions": [
+        [
+          4,
+          13,
+          4,
+          14,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          9,
+          5,
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          14,
+          5,
+          17,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          18,
+          5,
+          32,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          9,
+          6,
+          11,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          5,
+          7,
+          6,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

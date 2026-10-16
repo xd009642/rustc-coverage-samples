@@ -1,0 +1,17 @@
+{
+  "description": "Expected dynamic execution counts at source anchors; written before coverage assessment. These are semantic requirements, not an exact compiler-region partition.",
+  "probes": [
+    {
+      "source": "value > 0",
+      "count": 3
+    },
+    {
+      "source": "Some(value + 1)",
+      "count": 2
+    },
+    {
+      "source": "None",
+      "count": 1
+    }
+  ]
+}

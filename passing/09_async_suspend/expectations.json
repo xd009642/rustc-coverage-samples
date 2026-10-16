@@ -1,0 +1,29 @@
+{
+  "description": "Expected dynamic execution counts at source anchors; written before coverage assessment. These are semantic requirements, not an exact compiler-region partition.",
+  "probes": [
+    {
+      "source": "true;",
+      "count": 1
+    },
+    {
+      "source": "first {",
+      "count": 2
+    },
+    {
+      "source": "first = false;",
+      "count": 1
+    },
+    {
+      "source": "Poll::Pending",
+      "count": 1
+    },
+    {
+      "source": "Poll::Ready(4)",
+      "count": 1
+    },
+    {
+      "source": "value + 1",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+    1|       |use thiserror::Error;
+    2|       |
+    3|       |#[derive(Debug, Error)]
+    4|       |#[error("{}", if *.0 { "selected" } else { "untaken" })]
+    5|       |struct Failure(bool);
+    6|       |
+    7|      1|fn main() {
+    8|      1|    assert_eq!(Failure(true).to_string(), "selected");
+    9|      1|}

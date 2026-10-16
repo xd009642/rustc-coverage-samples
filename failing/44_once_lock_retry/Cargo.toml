@@ -1,0 +1,6 @@
+[package]
+name = "sample_44_once_lock_retry"
+version = "0.0.0"
+publish = false
+edition.workspace = true
+rust-version.workspace = true

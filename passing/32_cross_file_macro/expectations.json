@@ -1,0 +1,17 @@
+{
+  "description": "Expected dynamic execution counts derived from driver inputs and observable side effects before coverage assessment.",
+  "probes": [
+    {
+      "source": "flag,",
+      "count": 1
+    },
+    {
+      "source": "11 + 1",
+      "count": 0
+    },
+    {
+      "source": "22 + 2",
+      "count": 1
+    }
+  ]
+}

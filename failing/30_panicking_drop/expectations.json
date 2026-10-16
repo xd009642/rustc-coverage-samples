@@ -1,0 +1,17 @@
+{
+  "description": "Expected dynamic execution counts derived from the runtime driver before coverage assessment.",
+  "probes": [
+    {
+      "source": "self.0.set",
+      "count": 1
+    },
+    {
+      "source": "Bomb(drops)",
+      "count": 1
+    },
+    {
+      "source": "after.set",
+      "count": 0
+    }
+  ]
+}

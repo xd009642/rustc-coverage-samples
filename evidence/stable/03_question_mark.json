@@ -1,0 +1,493 @@
+{
+  "case": "03_question_mark",
+  "variant": "original",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+stable",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_03_question_mark",
+    "--bin",
+    "sample_03_question_mark",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_03_question_mark.json"
+  ],
+  "source_sha256": "a484c4460014ef6dec34a1b31a5d91c3e33b4f1ccdb3788a47bf14d9ae74127b",
+  "lock_sha256": "dea244b3e47cd2fc854c527845ac821ed5aeb5f32d498eeb8c9bf80a9778f8d2",
+  "expectations_sha256": "629376c4a014724986669510747bcd73b09401aff6503592bbd2056f693e8ca5",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "input?",
+      "count": 2,
+      "position": [
+        2,
+        17
+      ],
+      "actual": 2,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          2,
+          17,
+          2,
+          22,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "Ok(value + 1)",
+      "count": 1,
+      "position": [
+        3,
+        5
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          5,
+          3,
+          18,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/03_question_mark/src/main.rs",
+    "segments": [
+      [
+        1,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        1,
+        74,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        17,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        22,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        18,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        4,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        24,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        38,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        24,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        29,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 8,
+        "covered": 8,
+        "percent": 100.0
+      },
+      "regions": {
+        "count": 14,
+        "covered": 14,
+        "notcovered": 0,
+        "percent": 100.0
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/03_question_mark/src/main.rs"
+      ],
+      "name": "_RNvCsiihv6Wulo0f_23sample_03_question_mark4main",
+      "regions": [
+        [
+          6,
+          1,
+          6,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          5,
+          7,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          16,
+          7,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          24,
+          7,
+          38,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          5,
+          8,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          16,
+          8,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          24,
+          8,
+          29,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          1,
+          9,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "passing/03_question_mark/src/main.rs"
+      ],
+      "name": "_RNvCsiihv6Wulo0f_23sample_03_question_mark7convert",
+      "regions": [
+        [
+          1,
+          1,
+          1,
+          74,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          9,
+          2,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          17,
+          2,
+          22,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          22,
+          2,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          5,
+          3,
+          18,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          4,
+          2,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

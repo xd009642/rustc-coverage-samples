@@ -1,0 +1,46 @@
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/cases/13_unwind_continuation/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |};
+    5|       |
+    6|      1|fn may_panic(fail: bool) {
+    7|      1|    if fail {
+    8|      1|        panic!("intentional unwind");
+    9|      0|    }
+   10|      0|}
+   11|       |
+   12|      1|fn work(after: &Cell<u32>) {
+   13|      1|    may_panic(std::hint::black_box(true));
+   14|      1|    after.set(after.get() + 1);
+   15|      1|}
+   16|       |
+   17|      1|fn main() {
+   18|      1|    let after = Cell::new(0);
+   19|      1|    assert!(catch_unwind(AssertUnwindSafe(|| work(&after))).is_err());
+   20|      1|    assert_eq!(after.get(), 0);
+   21|      1|}
+
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/cases/18_or_pattern_guard/src/main.rs:
+    1|       |use std::cell::Cell;
+    2|       |
+    3|      0|fn choose(input: Result<u32, u32>, checks: &Cell<u32>) -> u32 {
+    4|      0|    match input {
+    5|      0|        Ok(value) | Err(value)
+    6|       |            if {
+    7|      0|                checks.set(checks.get() + 1);
+    8|      0|                value > 4
+    9|      0|            } =>
+   10|       |        {
+   11|      0|            value + 10
+   12|       |        }
+   13|      0|        Ok(value) => value + 20,
+   14|      0|        Err(value) => value + 30,
+   15|       |    }
+   16|      0|}
+   17|       |
+   18|      0|fn main() {
+   19|      0|    let checks = Cell::new(0);
+   20|      0|    assert_eq!(choose(Err(7), &checks), 17);
+   21|      0|    assert_eq!(checks.get(), 1);
+   22|      0|}

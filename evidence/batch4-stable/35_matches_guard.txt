@@ -1,0 +1,15 @@
+    1|       |use std::cell::Cell;
+    2|       |
+    3|      1|fn accepts(input: Result<u32, u32>, checks: &Cell<u32>) -> bool {
+    4|      1|    matches!(input, Ok(value) | Err(value) if {
+                           ^0        ^0
+    5|      0|        checks.set(checks.get() + 1);
+    6|      0|        value > 4
+    7|      0|    })
+    8|      1|}
+    9|       |
+   10|      1|fn main() {
+   11|      1|    let checks = Cell::new(0);
+   12|      1|    assert!(accepts(Err(7), &checks));
+   13|      1|    assert_eq!(checks.get(), 1);
+   14|      1|}

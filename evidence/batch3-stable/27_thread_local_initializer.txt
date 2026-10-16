@@ -1,0 +1,23 @@
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    sync::atomic::{AtomicU32, Ordering},
+    4|       |};
+    5|       |
+    6|       |static INITIALIZATIONS: AtomicU32 = AtomicU32::new(0);
+    7|       |
+    8|       |thread_local! {
+    9|       |    static VALUE: Cell<u32> = {
+   10|       |        INITIALIZATIONS.fetch_add(1, Ordering::Relaxed);
+   11|       |        Cell::new(41)
+   12|       |    };
+   13|       |}
+   14|       |
+   15|      2|fn read() -> u32 {
+   16|      2|    VALUE.with(Cell::get)
+   17|      2|}
+   18|       |
+   19|      1|fn main() {
+   20|      1|    assert_eq!(read(), 41);
+   21|      1|    assert_eq!(read(), 41);
+   22|      1|    assert_eq!(INITIALIZATIONS.load(Ordering::Relaxed), 1);
+   23|      1|}

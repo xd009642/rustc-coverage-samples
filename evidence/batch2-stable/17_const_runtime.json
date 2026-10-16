@@ -1,0 +1,445 @@
+{
+  "case": "17_const_runtime",
+  "variant": "original",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+stable",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_17_const_runtime",
+    "--bin",
+    "sample_17_const_runtime",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_17_const_runtime.json"
+  ],
+  "source_sha256": "e55b84146d19db881f4a080b87d5e9fe39f5cf45a5a71d3a195ee8d7ac03c59e",
+  "lock_sha256": "945a85ea1c22419dd23ccaa397244da31b51a42ed84db64cb004eaee28ed4624",
+  "expectations_sha256": "1154a311e948bd569a92e82744b31cc21c06ed33a2a48a13d94af0cec8f270b8",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "flag {",
+      "count": 1,
+      "position": [
+        2,
+        8
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          2,
+          8,
+          2,
+          12,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "11",
+      "count": 1,
+      "position": [
+        2,
+        15
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          2,
+          15,
+          2,
+          17,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "22",
+      "count": 0,
+      "position": [
+        2,
+        27
+      ],
+      "actual": 0,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          2,
+          27,
+          2,
+          29,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/17_const_runtime/src/main.rs",
+    "segments": [
+      [
+        1,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        1,
+        35,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        8,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        12,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        15,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        17,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        27,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        29,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        22,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        23,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        43,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 7,
+        "covered": 7,
+        "percent": 100.0
+      },
+      "regions": {
+        "count": 11,
+        "covered": 10,
+        "notcovered": 1,
+        "percent": 90.9090909090909
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/17_const_runtime/src/main.rs"
+      ],
+      "name": "_RNvCs4daxRBYMVIO_23sample_17_const_runtime4main",
+      "regions": [
+        [
+          7,
+          1,
+          7,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          5,
+          8,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          5,
+          9,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          16,
+          9,
+          22,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          23,
+          9,
+          43,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          1,
+          10,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/17_const_runtime/src/main.rs"
+      ],
+      "name": "_RNvCs4daxRBYMVIO_23sample_17_const_runtime6choose",
+      "regions": [
+        [
+          1,
+          1,
+          1,
+          35,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          8,
+          2,
+          12,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          15,
+          2,
+          17,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          27,
+          2,
+          29,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

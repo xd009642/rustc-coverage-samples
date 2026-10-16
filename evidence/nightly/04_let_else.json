@@ -1,0 +1,523 @@
+{
+  "case": "04_let_else",
+  "variant": "original",
+  "rustc": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19)\nbinary: rustc\ncommit-hash: f7d782a3be46d6bb4b9792fe69a61db389ba1769\ncommit-date: 2026-08-19\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0-nightly\nLLVM version: 23.1.0",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+nightly",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_04_let_else",
+    "--bin",
+    "sample_04_let_else",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_04_let_else.json"
+  ],
+  "source_sha256": "174eb7c394345f699d743c1c892a658fcb09775d685a333afc0f1a24b19d518e",
+  "lock_sha256": "dea244b3e47cd2fc854c527845ac821ed5aeb5f32d498eeb8c9bf80a9778f8d2",
+  "expectations_sha256": "e65f3a9f5dba0515e69ca7af40a2466e73fc82741f89d0509cd40d699b96aeba",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "input else",
+      "count": 2,
+      "position": [
+        2,
+        23
+      ],
+      "actual": 2,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          2,
+          23,
+          2,
+          28,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "10;",
+      "count": 1,
+      "position": [
+        3,
+        16
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          16,
+          3,
+          18,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "value + 1",
+      "count": 1,
+      "position": [
+        5,
+        5
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          5,
+          5,
+          5,
+          14,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/04_let_else/src/main.rs",
+    "segments": [
+      [
+        1,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        1,
+        38,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        14,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        19,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        23,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        28,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        18,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        24,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        28,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        24,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        31,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 9,
+        "covered": 9,
+        "percent": 100.0
+      },
+      "regions": {
+        "count": 14,
+        "covered": 14,
+        "notcovered": 0,
+        "percent": 100.0
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/04_let_else/src/main.rs"
+      ],
+      "name": "_RNvCsa6Ig3NSsf1U_18sample_04_let_else4main",
+      "regions": [
+        [
+          8,
+          1,
+          8,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          5,
+          9,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          16,
+          9,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          24,
+          9,
+          28,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          5,
+          10,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          16,
+          10,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          24,
+          10,
+          31,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          1,
+          11,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "passing/04_let_else/src/main.rs"
+      ],
+      "name": "_RNvCsa6Ig3NSsf1U_18sample_04_let_else7extract",
+      "regions": [
+        [
+          1,
+          1,
+          1,
+          38,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          14,
+          2,
+          19,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          23,
+          2,
+          28,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          16,
+          3,
+          18,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          5,
+          5,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          1,
+          6,
+          2,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

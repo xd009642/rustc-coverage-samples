@@ -1,0 +1,21 @@
+{
+  "description": "Expected dynamic execution counts derived from driver inputs and observable side effects before coverage assessment.",
+  "probes": [
+    {
+      "source": "first.set",
+      "count": 1
+    },
+    {
+      "source": "second.set",
+      "count": 0
+    },
+    {
+      "source": "Err::<u32, ()>",
+      "count": 1
+    },
+    {
+      "source": "Ok::<u32, ()>",
+      "count": 0
+    }
+  ]
+}

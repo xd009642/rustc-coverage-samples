@@ -1,0 +1,17 @@
+{
+  "description": "Expected dynamic execution counts derived from the runtime driver before coverage assessment.",
+  "probes": [
+    {
+      "source": "INITIALIZATIONS.fetch_add",
+      "count": 1
+    },
+    {
+      "source": "Cell::new(41)",
+      "count": 1
+    },
+    {
+      "source": "VALUE.with",
+      "count": 2
+    }
+  ]
+}

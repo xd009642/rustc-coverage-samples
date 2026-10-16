@@ -1,0 +1,18 @@
+    1|       |use std::cell::Cell;
+    2|       |
+    3|       |macro_rules! twice {
+    4|       |    ($action:expr) => {{
+    5|       |        $action;
+    6|       |        $action;
+    7|       |    }};
+    8|       |}
+    9|       |
+   10|      1|fn run(hits: &Cell<u32>) {
+   11|      1|    twice!(hits.set(hits.get() + 1));
+   12|      1|}
+   13|       |
+   14|      1|fn main() {
+   15|      1|    let hits = Cell::new(0);
+   16|      1|    run(&hits);
+   17|      1|    assert_eq!(hits.get(), 2);
+   18|      1|}

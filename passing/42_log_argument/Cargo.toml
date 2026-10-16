@@ -1,0 +1,9 @@
+[package]
+name = "sample_42_log_argument"
+version = "0.0.0"
+publish = false
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+log = "=0.4.34"

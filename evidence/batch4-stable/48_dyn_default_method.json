@@ -1,0 +1,916 @@
+{
+  "case": "48_dyn_default_method",
+  "variant": "original",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+stable",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_48_dyn_default_method",
+    "--bin",
+    "sample_48_dyn_default_method",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_48_dyn_default_method.json"
+  ],
+  "source_sha256": "c7800ccb96429d2bf8cb2293444541b320b44a7cdaf4ff1e3ea70d0987c0b165",
+  "lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+  "expectations_sha256": "650b7d449c0ab7e6ccb75dfae5fffc3e27a2421092ad90099fa2f71db6c28bc7",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "calls.set",
+      "count": 1,
+      "position": [
+        5,
+        9
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          5,
+          9,
+          5,
+          14,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "flag {",
+      "count": 1,
+      "position": [
+        6,
+        12
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          6,
+          12,
+          6,
+          16,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "11",
+      "count": 0,
+      "position": [
+        6,
+        19
+      ],
+      "actual": 0,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          6,
+          19,
+          6,
+          21,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "22",
+      "count": 1,
+      "position": [
+        6,
+        31
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          6,
+          31,
+          6,
+          33,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "value.choose",
+      "count": 1,
+      "position": [
+        14,
+        5
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          14,
+          5,
+          14,
+          10,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/48_dyn_default_method/src/main.rs",
+    "segments": [
+      [
+        4,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        59,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        15,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        18,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        19,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        34,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        12,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        16,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        19,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        21,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        31,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        33,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        6,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        13,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        13,
+        57,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        11,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        17,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        25,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        30,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        15,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        15,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        17,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        17,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        17,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        26,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        26,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        29,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        58,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
+        24,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        25,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
+        30,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        32,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
+        38,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        21,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        21,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        21,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        21,
+        21,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        21,
+        22,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        21,
+        25,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        22,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        22,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 3,
+        "covered": 3,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 3,
+        "covered": 3,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 13,
+        "covered": 13,
+        "percent": 100.0
+      },
+      "regions": {
+        "count": 27,
+        "covered": 26,
+        "notcovered": 1,
+        "percent": 96.29629629629629
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/48_dyn_default_method/src/main.rs"
+      ],
+      "name": "_RNvYNtCsfYLaSadSGSd_28sample_48_dyn_default_method6WorkerNtB4_5Value6chooseB4_",
+      "regions": [
+        [
+          4,
+          5,
+          4,
+          59,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          9,
+          5,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          15,
+          5,
+          18,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          19,
+          5,
+          34,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          12,
+          6,
+          16,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          19,
+          6,
+          21,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          31,
+          6,
+          33,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          5,
+          7,
+          6,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/48_dyn_default_method/src/main.rs"
+      ],
+      "name": "_RNvCsfYLaSadSGSd_28sample_48_dyn_default_method4main",
+      "regions": [
+        [
+          17,
+          1,
+          17,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          9,
+          18,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          17,
+          18,
+          26,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          9,
+          19,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          16,
+          19,
+          26,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          29,
+          19,
+          58,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          5,
+          20,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          16,
+          20,
+          24,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          25,
+          20,
+          30,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          32,
+          20,
+          38,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          21,
+          5,
+          21,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          21,
+          16,
+          21,
+          21,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          21,
+          22,
+          21,
+          25,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          22,
+          1,
+          22,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/48_dyn_default_method/src/main.rs"
+      ],
+      "name": "_RNvCsfYLaSadSGSd_28sample_48_dyn_default_method8dispatch",
+      "regions": [
+        [
+          13,
+          1,
+          13,
+          57,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          5,
+          14,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          11,
+          14,
+          17,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          25,
+          14,
+          30,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          1,
+          15,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

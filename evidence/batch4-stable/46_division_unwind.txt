@@ -1,0 +1,23 @@
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |};
+    5|       |
+    6|      1|fn divide(divisor: u32, before: &Cell<u32>, after: &Cell<u32>) -> u32 {
+    7|      1|    before.set(before.get() + 1);
+    8|      1|    let value = 10 / divisor;
+    9|      1|    after.set(after.get() + 1);
+   10|      1|    value + 1
+   11|      1|}
+   12|       |
+   13|      1|fn main() {
+   14|      1|    let before = Cell::new(0);
+   15|      1|    let after = Cell::new(0);
+   16|      1|    assert!(
+   17|      1|        catch_unwind(AssertUnwindSafe(|| {
+   18|      1|            divide(std::hint::black_box(0), &before, &after)
+   19|      1|        }))
+   20|      1|        .is_err()
+   21|       |    );
+   22|      1|    assert_eq!((before.get(), after.get()), (1, 0));
+   23|      1|}

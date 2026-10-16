@@ -1,0 +1,850 @@
+{
+  "case": "01_tracing_async",
+  "variant": "original",
+  "rustc": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19)\nbinary: rustc\ncommit-hash: f7d782a3be46d6bb4b9792fe69a61db389ba1769\ncommit-date: 2026-08-19\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0-nightly\nLLVM version: 23.1.0",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+nightly",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_01_tracing_async",
+    "--bin",
+    "sample_01_tracing_async",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_01_tracing_async.json"
+  ],
+  "source_sha256": "1b204b5d0a475288b1d141987a76049df4ee272f392c66468533e724b522da45",
+  "lock_sha256": "dea244b3e47cd2fc854c527845ac821ed5aeb5f32d498eeb8c9bf80a9778f8d2",
+  "expectations_sha256": "eb99c262d68f87f7b47fa61297b1fb1d38c3d56c971087c63369544bf7a0593c",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "db_get(id).await?",
+      "count": 2,
+      "position": [
+        17,
+        15
+      ],
+      "actual": null,
+      "matches": false,
+      "containing_code_regions": []
+    },
+    {
+      "source": "Ok(row)",
+      "count": 1,
+      "position": [
+        18,
+        5
+      ],
+      "actual": null,
+      "matches": false,
+      "containing_code_regions": []
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "failing/01_tracing_async/src/main.rs",
+    "segments": [
+      [
+        7,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        57,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        58,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        59,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        8,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        32,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        13,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        13,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        16,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        16,
+        56,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        16,
+        57,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        16,
+        58,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        21,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        21,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        22,
+        10,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        22,
+        12,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        22,
+        14,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        22,
+        22,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        22,
+        27,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        22,
+        78,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        23,
+        13,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        23,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        23,
+        26,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        23,
+        30,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        23,
+        31,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        23,
+        36,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        23,
+        37,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        23,
+        39,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        24,
+        13,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        24,
+        24,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        24,
+        27,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        24,
+        46,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        24,
+        47,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        24,
+        60,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        25,
+        9,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        25,
+        19,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        25,
+        20,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        25,
+        26,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        25,
+        27,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        25,
+        33,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        25,
+        36,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        25,
+        40,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        25,
+        41,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        25,
+        53,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        25,
+        56,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        25,
+        77,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        27,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        27,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 5,
+        "covered": 5,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 5,
+        "covered": 5,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 15,
+        "covered": 15,
+        "percent": 100.0
+      },
+      "regions": {
+        "count": 27,
+        "covered": 27,
+        "notcovered": 0,
+        "percent": 100.0
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "failing/01_tracing_async/src/main.rs"
+      ],
+      "name": "_RNCNvCsjSMsfhVqTjr_23sample_01_tracing_async5fetch0B3_",
+      "regions": [
+        [
+          16,
+          57,
+          16,
+          58,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          1,
+          19,
+          2,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "failing/01_tracing_async/src/main.rs"
+      ],
+      "name": "_RNCNvCsjSMsfhVqTjr_23sample_01_tracing_async6db_get0B3_",
+      "regions": [
+        [
+          7,
+          58,
+          7,
+          59,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          8,
+          8,
+          15,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          9,
+          9,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          9,
+          11,
+          32,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          1,
+          13,
+          2,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "failing/01_tracing_async/src/main.rs"
+      ],
+      "name": "_RNvCsjSMsfhVqTjr_23sample_01_tracing_async4main",
+      "regions": [
+        [
+          21,
+          1,
+          21,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          22,
+          10,
+          22,
+          12,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          22,
+          14,
+          22,
+          22,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          22,
+          27,
+          22,
+          78,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          23,
+          13,
+          23,
+          23,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          23,
+          26,
+          23,
+          30,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          23,
+          31,
+          23,
+          36,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          23,
+          37,
+          23,
+          39,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          24,
+          13,
+          24,
+          24,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          24,
+          27,
+          24,
+          46,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          24,
+          47,
+          24,
+          60,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          9,
+          25,
+          19,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          20,
+          25,
+          26,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          27,
+          25,
+          33,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          36,
+          25,
+          40,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          41,
+          25,
+          53,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          56,
+          25,
+          77,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          27,
+          1,
+          27,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "failing/01_tracing_async/src/main.rs"
+      ],
+      "name": "_RNvCsjSMsfhVqTjr_23sample_01_tracing_async5fetch",
+      "regions": [
+        [
+          16,
+          1,
+          16,
+          56,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "failing/01_tracing_async/src/main.rs"
+      ],
+      "name": "_RNvCsjSMsfhVqTjr_23sample_01_tracing_async6db_get",
+      "regions": [
+        [
+          7,
+          1,
+          7,
+          57,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

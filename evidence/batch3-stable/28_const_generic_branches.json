@@ -1,0 +1,858 @@
+{
+  "case": "28_const_generic_branches",
+  "variant": "original",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+stable",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_28_const_generic_branches",
+    "--bin",
+    "sample_28_const_generic_branches",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_28_const_generic_branches.json"
+  ],
+  "source_sha256": "5613eafe813db8193abde13923c15632540b4c89b9296bebed43784165235072",
+  "lock_sha256": "8ca42f2f7794e67fd340e4f51ca0665417ac77f64bb96f6d73de6e8ed95ca463",
+  "expectations_sha256": "05e9446b31681b2905fa9c40cb167fbd22ac14b08b70d19b56db209a1dbf32f3",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "hits.set",
+      "count": 2,
+      "position": [
+        2,
+        5
+      ],
+      "actual": 2,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          2,
+          5,
+          2,
+          9,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          5,
+          2,
+          9,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "FLAG {",
+      "count": 2,
+      "position": [
+        3,
+        8
+      ],
+      "actual": 2,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          8,
+          3,
+          12,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          8,
+          3,
+          12,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "11",
+      "count": 1,
+      "position": [
+        3,
+        15
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          15,
+          3,
+          17,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          15,
+          3,
+          17,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "22",
+      "count": 1,
+      "position": [
+        3,
+        27
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          27,
+          3,
+          29,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          27,
+          3,
+          29,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/28_const_generic_branches/src/main.rs",
+    "segments": [
+      [
+        1,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        1,
+        64,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        5,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        9,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        10,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        13,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        2,
+        14,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        28,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        8,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        12,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        15,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        17,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        27,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        29,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        4,
+        1,
+        2,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        13,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        36,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        30,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        31,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        36,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        31,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        32,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        37,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        20,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        21,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        24,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 3,
+        "covered": 3,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 10,
+        "covered": 10,
+        "percent": 100.0
+      },
+      "regions": {
+        "count": 21,
+        "covered": 20,
+        "notcovered": 1,
+        "percent": 95.23809523809523
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/28_const_generic_branches/src/main.rs"
+      ],
+      "name": "_RNvCs4uM01tUwtId_32sample_28_const_generic_branches4main",
+      "regions": [
+        [
+          6,
+          1,
+          6,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          9,
+          7,
+          13,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          16,
+          7,
+          36,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          5,
+          8,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          16,
+          8,
+          30,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          31,
+          8,
+          36,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          5,
+          9,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          16,
+          9,
+          31,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          32,
+          9,
+          37,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          5,
+          10,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          16,
+          10,
+          20,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          21,
+          10,
+          24,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          1,
+          11,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/28_const_generic_branches/src/main.rs"
+      ],
+      "name": "_RINvCs4uM01tUwtId_32sample_28_const_generic_branches6chooseKb0_EB2_",
+      "regions": [
+        [
+          1,
+          1,
+          1,
+          64,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          5,
+          2,
+          9,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          10,
+          2,
+          13,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          14,
+          2,
+          28,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          8,
+          3,
+          12,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          15,
+          3,
+          17,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          27,
+          3,
+          29,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/28_const_generic_branches/src/main.rs"
+      ],
+      "name": "_RINvCs4uM01tUwtId_32sample_28_const_generic_branches6chooseKb1_EB2_",
+      "regions": [
+        [
+          1,
+          1,
+          1,
+          64,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          5,
+          2,
+          9,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          10,
+          2,
+          13,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          14,
+          2,
+          28,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          8,
+          3,
+          12,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          15,
+          3,
+          17,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          27,
+          3,
+          29,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

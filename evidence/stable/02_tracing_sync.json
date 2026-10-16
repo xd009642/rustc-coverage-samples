@@ -1,0 +1,393 @@
+{
+  "case": "02_tracing_sync",
+  "variant": "original",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+stable",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_02_tracing_sync",
+    "--bin",
+    "sample_02_tracing_sync",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_02_tracing_sync.json"
+  ],
+  "source_sha256": "86e5c2ed7fb3371862bd45f78d8406245a9cc0f4ab77955bad149da605283a02",
+  "lock_sha256": "dea244b3e47cd2fc854c527845ac821ed5aeb5f32d498eeb8c9bf80a9778f8d2",
+  "expectations_sha256": "31a34d2462a1771cc85cb51860f834238340bbf1dc1a334c9ff332dd09286fa5",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "value == 0",
+      "count": 1,
+      "position": [
+        3,
+        8
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          8,
+          3,
+          18,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "10",
+      "count": 1,
+      "position": [
+        3,
+        21
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          21,
+          3,
+          23,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "20",
+      "count": 0,
+      "position": [
+        3,
+        33
+      ],
+      "actual": 0,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          3,
+          33,
+          3,
+          35,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/02_tracing_sync/src/main.rs",
+    "segments": [
+      [
+        2,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        2,
+        31,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        8,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        18,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        21,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        33,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        35,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        4,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        24,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 2,
+        "covered": 2,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 6,
+        "covered": 6,
+        "percent": 100.0
+      },
+      "regions": {
+        "count": 9,
+        "covered": 8,
+        "notcovered": 1,
+        "percent": 88.88888888888889
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/02_tracing_sync/src/main.rs"
+      ],
+      "name": "_RNvCsfj2oGCKGIRn_22sample_02_tracing_sync4main",
+      "regions": [
+        [
+          6,
+          1,
+          6,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          5,
+          7,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          16,
+          7,
+          24,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          1,
+          8,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/02_tracing_sync/src/main.rs"
+      ],
+      "name": "_RNvCsfj2oGCKGIRn_22sample_02_tracing_sync8classify",
+      "regions": [
+        [
+          2,
+          1,
+          2,
+          31,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          8,
+          3,
+          18,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          21,
+          3,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          33,
+          3,
+          35,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          1,
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

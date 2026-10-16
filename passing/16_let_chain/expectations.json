@@ -1,0 +1,29 @@
+{
+  "description": "Expected dynamic evaluation counts at executable source anchors, derived from driver inputs before assessment. Compile-time evaluation is excluded.",
+  "probes": [
+    {
+      "source": "first\n",
+      "count": 5
+    },
+    {
+      "source": "a > 2",
+      "count": 4
+    },
+    {
+      "source": "second\n",
+      "count": 3
+    },
+    {
+      "source": "b > a",
+      "count": 2
+    },
+    {
+      "source": "a + b",
+      "count": 1
+    },
+    {
+      "source": "99",
+      "count": 4
+    }
+  ]
+}

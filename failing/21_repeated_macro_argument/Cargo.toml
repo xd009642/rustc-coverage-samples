@@ -1,0 +1,6 @@
+[package]
+name = "sample_21_repeated_macro_argument"
+version = "0.0.0"
+publish = false
+edition.workspace = true
+rust-version.workspace = true

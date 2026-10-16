@@ -1,0 +1,56 @@
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/46_division_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |};
+    5|       |
+    6|      1|fn divide(divisor: u32, before: &Cell<u32>, after: &Cell<u32>) -> u32 {
+    7|      1|    before.set(before.get() + 1);
+    8|      1|    let value = 10 / divisor;
+    9|      1|    after.set(after.get() + 1);
+   10|      1|    value + 1
+   11|      1|}
+   12|       |
+   13|      1|fn main() {
+   14|      1|    let before = Cell::new(0);
+   15|      1|    let after = Cell::new(0);
+   16|      1|    assert!(
+   17|      1|        catch_unwind(AssertUnwindSafe(|| {
+   18|      1|            divide(std::hint::black_box(0), &before, &after)
+   19|      1|        }))
+   20|      1|        .is_err()
+   21|       |    );
+   22|      1|    assert_eq!((before.get(), after.get()), (1, 0));
+   23|      1|}
+
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/50_format_display_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    fmt::{self, Display, Write},
+    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    5|       |};
+    6|       |
+    7|       |struct Value<'a>(&'a Cell<u32>);
+    8|       |
+    9|       |impl Display for Value<'_> {
+   10|      0|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+   11|      0|        self.0.set(self.0.get() + 1);
+   12|      0|        if std::hint::black_box(true) {
+   13|      0|            panic!("formatting fails");
+   14|      0|        }
+   15|      0|        formatter.write_str("value")
+   16|      0|    }
+   17|       |}
+   18|       |
+   19|      0|fn render(calls: &Cell<u32>, after: &Cell<u32>) {
+   20|      0|    let mut output = String::new();
+   21|      0|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
+   22|      0|    after.set(after.get() + 1);
+   23|      0|}
+   24|       |
+   25|      0|fn main() {
+   26|      0|    let calls = Cell::new(0);
+   27|      0|    let after = Cell::new(0);
+   28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
+   29|      0|    assert_eq!((calls.get(), after.get()), (1, 0));
+   30|      0|}

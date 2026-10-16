@@ -1,0 +1,783 @@
+{
+  "case": "13_unwind_continuation",
+  "variant": "original",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+stable",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_13_unwind_continuation",
+    "--bin",
+    "sample_13_unwind_continuation",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_13_unwind_continuation.json"
+  ],
+  "source_sha256": "aaf79eaa25eb1b79d26f601a33e3b9fc35ef4bb0285c052336c171d7ec4447b3",
+  "lock_sha256": "945a85ea1c22419dd23ccaa397244da31b51a42ed84db64cb004eaee28ed4624",
+  "expectations_sha256": "7ba31d6d87b4b597aee85040b0f394171e5201382f2f722ed2485f64118e03fb",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "may_panic(std::hint::black_box(true))",
+      "count": 1,
+      "position": [
+        13,
+        5
+      ],
+      "actual": 1,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          13,
+          5,
+          13,
+          14,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "after.set",
+      "count": 0,
+      "position": [
+        14,
+        5
+      ],
+      "actual": 1,
+      "matches": false,
+      "containing_code_regions": [
+        [
+          14,
+          5,
+          14,
+          10,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "failing/13_unwind_continuation/src/main.rs",
+    "segments": [
+      [
+        6,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        25,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        7,
+        8,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        12,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        5,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        6,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        1,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        27,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        13,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        13,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        13,
+        15,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        13,
+        35,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        11,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        15,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        30,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        15,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        15,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        17,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        17,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        17,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        26,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        12,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        13,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        25,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        46,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        50,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        51,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        57,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        61,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        67,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
+        21,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        22,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
+        25,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        21,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        21,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 4,
+        "covered": 4,
+        "percent": 100.0
+      },
+      "instantiations": {
+        "count": 4,
+        "covered": 4,
+        "percent": 100.0
+      },
+      "lines": {
+        "count": 15,
+        "covered": 13,
+        "percent": 86.66666666666667
+      },
+      "regions": {
+        "count": 24,
+        "covered": 22,
+        "notcovered": 2,
+        "percent": 91.66666666666666
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "failing/13_unwind_continuation/src/main.rs"
+      ],
+      "name": "_RNCNvCsle0u4KsRnTD_29sample_13_unwind_continuation4main0B3_",
+      "regions": [
+        [
+          19,
+          46,
+          19,
+          50,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          51,
+          19,
+          57,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "failing/13_unwind_continuation/src/main.rs"
+      ],
+      "name": "_RNvCsle0u4KsRnTD_29sample_13_unwind_continuation4main",
+      "regions": [
+        [
+          17,
+          1,
+          17,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          9,
+          18,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          17,
+          18,
+          26,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          5,
+          19,
+          12,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          13,
+          19,
+          25,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          61,
+          19,
+          67,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          5,
+          20,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          16,
+          20,
+          21,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          20,
+          22,
+          20,
+          25,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          21,
+          1,
+          21,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "failing/13_unwind_continuation/src/main.rs"
+      ],
+      "name": "_RNvCsle0u4KsRnTD_29sample_13_unwind_continuation4work",
+      "regions": [
+        [
+          12,
+          1,
+          12,
+          27,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          5,
+          13,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          15,
+          13,
+          35,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          5,
+          14,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          11,
+          14,
+          14,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          15,
+          14,
+          30,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          1,
+          15,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "failing/13_unwind_continuation/src/main.rs"
+      ],
+      "name": "_RNvCsle0u4KsRnTD_29sample_13_unwind_continuation9may_panic",
+      "regions": [
+        [
+          6,
+          1,
+          6,
+          25,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          8,
+          7,
+          12,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          9,
+          8,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          5,
+          9,
+          6,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          1,
+          10,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

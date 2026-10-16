@@ -1,0 +1,35 @@
+    1|       |use std::cell::Cell;
+    2|       |
+    3|      3|fn step(iteration: u32, calls: &Cell<u32>) -> Result<(), u32> {
+    4|      3|    calls.set(calls.get() + 1);
+    5|      3|    if iteration == 3 {
+    6|      1|        assert_eq!(calls.get(), 3);
+    7|      1|        std::process::exit(0);
+    8|      2|    }
+    9|      2|    if iteration > 10 { Err(1) } else { Ok(()) }
+                                      ^0
+   10|      2|}
+   11|       |
+   12|      1|fn run(calls: &Cell<u32>) -> Result<(), u32> {
+   13|      1|    let mut iteration = 0;
+   14|       |    loop {
+   15|      3|        iteration += 1;
+   16|      3|        let code = match step(iteration, calls) {
+                          ^0
+   17|      3|            Ok(()) => continue,
+   18|      0|            Err(code) => code,
+   19|       |        };
+   20|      0|        match code {
+   21|  18.4E|            1 | 2 => {
+   22|  18.4E|                std::hint::black_box(code);
+   23|  18.4E|            }
+   24|      1|            _ => return Err(code),
+   25|       |        }
+   26|       |    }
+   27|      1|}
+   28|       |
+   29|      1|fn main() {
+   30|      1|    let calls = Cell::new(0);
+   31|      1|    let result = run(&calls);
+   32|      1|    panic!("run unexpectedly returned: {result:?}");
+   33|       |}

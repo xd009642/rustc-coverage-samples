@@ -1,0 +1,6 @@
+[package]
+name = "sample_30_panicking_drop"
+version = "0.0.0"
+publish = false
+edition.workspace = true
+rust-version.workspace = true

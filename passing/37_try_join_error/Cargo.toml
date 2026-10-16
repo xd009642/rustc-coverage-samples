@@ -1,0 +1,9 @@
+[package]
+name = "sample_37_try_join_error"
+version = "0.0.0"
+publish = false
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+futures = { version = "=0.3.34", default-features = false, features = ["std", "async-await"] }

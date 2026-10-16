@@ -1,0 +1,62 @@
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/23_bounds_partial_tuple/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |};
+    5|       |
+    6|      1|fn build(before: &Cell<u32>, after: &Cell<u32>, index: usize) -> (u32, u32, u32) {
+    7|      1|    (
+    8|      1|        {
+    9|      1|            before.set(before.get() + 1);
+   10|      1|            10
+   11|      1|        },
+   12|      1|        [20][index],
+   13|      1|        {
+   14|      1|            after.set(after.get() + 1);
+   15|      1|            30
+   16|      1|        },
+   17|      1|    )
+   18|      1|}
+   19|       |
+   20|      1|fn main() {
+   21|      1|    let before = Cell::new(0);
+   22|      1|    let after = Cell::new(0);
+   23|      1|    let result = catch_unwind(AssertUnwindSafe(|| {
+   24|      1|        build(&before, &after, std::hint::black_box(1))
+   25|      1|    }));
+   26|      1|    assert!(result.is_err());
+   27|      1|    assert_eq!(before.get(), 1);
+   28|      1|    assert_eq!(after.get(), 0);
+   29|      1|}
+
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/30_panicking_drop/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |};
+    5|       |
+    6|       |struct Bomb<'a>(&'a Cell<u32>);
+    7|       |
+    8|       |impl Drop for Bomb<'_> {
+    9|      0|    fn drop(&mut self) {
+   10|      0|        self.0.set(self.0.get() + 1);
+   11|      0|        if std::hint::black_box(true) {
+   12|      0|            panic!("intentional destructor panic");
+   13|      0|        }
+   14|      0|    }
+   15|       |}
+   16|       |
+   17|      0|fn work(drops: &Cell<u32>, after: &Cell<u32>) {
+   18|      0|    {
+   19|      0|        let _bomb = Bomb(drops);
+   20|      0|    }
+   21|      0|    after.set(after.get() + 1);
+   22|      0|}
+   23|       |
+   24|      0|fn main() {
+   25|      0|    let drops = Cell::new(0);
+   26|      0|    let after = Cell::new(0);
+   27|      0|    assert!(catch_unwind(AssertUnwindSafe(|| work(&drops, &after))).is_err());
+   28|      0|    assert_eq!(drops.get(), 1);
+   29|      0|    assert_eq!(after.get(), 0);
+   30|      0|}

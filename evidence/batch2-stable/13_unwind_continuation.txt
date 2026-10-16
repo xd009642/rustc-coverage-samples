@@ -1,0 +1,21 @@
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |};
+    5|       |
+    6|      1|fn may_panic(fail: bool) {
+    7|      1|    if fail {
+    8|      1|        panic!("intentional unwind");
+    9|      0|    }
+   10|      0|}
+   11|       |
+   12|      1|fn work(after: &Cell<u32>) {
+   13|      1|    may_panic(std::hint::black_box(true));
+   14|      1|    after.set(after.get() + 1);
+   15|      1|}
+   16|       |
+   17|      1|fn main() {
+   18|      1|    let after = Cell::new(0);
+   19|      1|    assert!(catch_unwind(AssertUnwindSafe(|| work(&after))).is_err());
+   20|      1|    assert_eq!(after.get(), 0);
+   21|      1|}

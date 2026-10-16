@@ -1,0 +1,62 @@
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/45_await_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    future::{Future, poll_fn},
+    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    5|       |    pin::pin,
+    6|       |    task::{Context, Poll, Waker},
+    7|       |};
+    8|       |
+    9|      1|async fn operation(polls: &Cell<u32>, after: &Cell<u32>) -> u32 {
+   10|      1|    let value = poll_fn(|_| {
+   11|      1|        polls.set(polls.get() + 1);
+   12|      1|        if std::hint::black_box(true) {
+   13|      1|            panic!("child poll fails");
+   14|      0|        }
+   15|      0|        Poll::Ready(7)
+   16|      0|    })
+   17|      1|    .await;
+   18|      1|    after.set(after.get() + 1);
+   19|      1|    value + 1
+   20|      1|}
+   21|       |
+   22|      1|fn main() {
+   23|      1|    let polls = Cell::new(0);
+   24|      1|    let after = Cell::new(0);
+   25|      1|    let mut future = pin!(operation(&polls, &after));
+   26|      1|    let mut context = Context::from_waker(Waker::noop());
+   27|      1|    assert!(catch_unwind(AssertUnwindSafe(|| future.as_mut().poll(&mut context))).is_err());
+   28|      1|    assert_eq!((polls.get(), after.get()), (1, 0));
+   29|      1|}
+
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/50_format_display_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    fmt::{self, Display, Write},
+    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    5|       |};
+    6|       |
+    7|       |struct Value<'a>(&'a Cell<u32>);
+    8|       |
+    9|       |impl Display for Value<'_> {
+   10|      0|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+   11|      0|        self.0.set(self.0.get() + 1);
+   12|      0|        if std::hint::black_box(true) {
+   13|      0|            panic!("formatting fails");
+   14|      0|        }
+   15|      0|        formatter.write_str("value")
+   16|      0|    }
+   17|       |}
+   18|       |
+   19|      0|fn render(calls: &Cell<u32>, after: &Cell<u32>) {
+   20|      0|    let mut output = String::new();
+   21|      0|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
+   22|      0|    after.set(after.get() + 1);
+   23|      0|}
+   24|       |
+   25|      0|fn main() {
+   26|      0|    let calls = Cell::new(0);
+   27|      0|    let after = Cell::new(0);
+   28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
+   29|      0|    assert_eq!((calls.get(), after.get()), (1, 0));
+   30|      0|}

@@ -1,0 +1,642 @@
+{
+  "case": "11_async_unpolled",
+  "variant": "original",
+  "rustc": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19)\nbinary: rustc\ncommit-hash: f7d782a3be46d6bb4b9792fe69a61db389ba1769\ncommit-date: 2026-08-19\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0-nightly\nLLVM version: 23.1.0",
+  "cargo_llvm_cov": "cargo-llvm-cov 0.6.16",
+  "command": [
+    "cargo",
+    "+nightly",
+    "llvm-cov",
+    "run",
+    "--locked",
+    "-p",
+    "sample_11_async_unpolled",
+    "--bin",
+    "sample_11_async_unpolled",
+    "--json",
+    "--output-path",
+    "target/coverage-exports/sample_11_async_unpolled.json"
+  ],
+  "source_sha256": "1e8342a4d1474b1b1bb667a1d38b957f5a3a638803c51f2d549cb5ac0bd0095e",
+  "lock_sha256": "945a85ea1c22419dd23ccaa397244da31b51a42ed84db64cb004eaee28ed4624",
+  "expectations_sha256": "cfb3cdd9cec3d52538a46b5dc5ff85df846c34cb3a6add89ef2d1a11f66b32e0",
+  "llvm_export_version": "3.1.0",
+  "probes": [
+    {
+      "source": "runs.set",
+      "count": 0,
+      "position": [
+        4,
+        5
+      ],
+      "actual": 0,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          4,
+          5,
+          4,
+          9,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "source": "42",
+      "count": 0,
+      "position": [
+        5,
+        5
+      ],
+      "actual": 0,
+      "matches": true,
+      "containing_code_regions": [
+        [
+          5,
+          5,
+          5,
+          7,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "file": {
+    "branches": [],
+    "mcdc_records": [],
+    "expansions": [],
+    "filename": "passing/11_async_unpolled/src/main.rs",
+    "segments": [
+      [
+        3,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        47,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        3,
+        48,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        3,
+        49,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        4,
+        5,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        9,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        4,
+        10,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        13,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        4,
+        14,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        4,
+        28,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        5,
+        5,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        5,
+        7,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        6,
+        1,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        6,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        8,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        8,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        13,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        25,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        18,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        30,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        10,
+        31,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        10,
+        36,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        9,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        10,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        16,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        20,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        21,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        24,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        13,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        13,
+        2,
+        0,
+        false,
+        false,
+        false
+      ]
+    ],
+    "summary": {
+      "branches": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "mcdc": {
+        "count": 0,
+        "covered": 0,
+        "notcovered": 0,
+        "percent": 0.0
+      },
+      "functions": {
+        "count": 3,
+        "covered": 2,
+        "percent": 66.66666666666666
+      },
+      "instantiations": {
+        "count": 3,
+        "covered": 2,
+        "percent": 66.66666666666666
+      },
+      "lines": {
+        "count": 11,
+        "covered": 7,
+        "percent": 63.63636363636363
+      },
+      "regions": {
+        "count": 19,
+        "covered": 13,
+        "notcovered": 6,
+        "percent": 68.42105263157895
+      }
+    }
+  },
+  "functions": [
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 0,
+      "filenames": [
+        "passing/11_async_unpolled/src/main.rs"
+      ],
+      "name": "_RNCNvCs6pvBCBQk4me_24sample_11_async_unpolled12never_polled0B3_",
+      "regions": [
+        [
+          3,
+          48,
+          3,
+          49,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          5,
+          4,
+          9,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          10,
+          4,
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          14,
+          4,
+          28,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          5,
+          5,
+          5,
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          1,
+          6,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/11_async_unpolled/src/main.rs"
+      ],
+      "name": "_RNvCs6pvBCBQk4me_24sample_11_async_unpolled12never_polled",
+      "regions": [
+        [
+          3,
+          1,
+          3,
+          47,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "passing/11_async_unpolled/src/main.rs"
+      ],
+      "name": "_RNvCs6pvBCBQk4me_24sample_11_async_unpolled4main",
+      "regions": [
+        [
+          8,
+          1,
+          8,
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          9,
+          9,
+          13,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          16,
+          9,
+          25,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          9,
+          10,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          18,
+          10,
+          30,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          31,
+          10,
+          36,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          5,
+          11,
+          9,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          10,
+          11,
+          16,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          5,
+          12,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          16,
+          12,
+          20,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          21,
+          12,
+          24,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          1,
+          13,
+          2,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

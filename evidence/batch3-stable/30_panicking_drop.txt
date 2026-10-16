@@ -1,0 +1,30 @@
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |};
+    5|       |
+    6|       |struct Bomb<'a>(&'a Cell<u32>);
+    7|       |
+    8|       |impl Drop for Bomb<'_> {
+    9|      1|    fn drop(&mut self) {
+   10|      1|        self.0.set(self.0.get() + 1);
+   11|      1|        if std::hint::black_box(true) {
+   12|      1|            panic!("intentional destructor panic");
+   13|      0|        }
+   14|      0|    }
+   15|       |}
+   16|       |
+   17|      1|fn work(drops: &Cell<u32>, after: &Cell<u32>) {
+   18|      1|    {
+   19|      1|        let _bomb = Bomb(drops);
+   20|      1|    }
+   21|      1|    after.set(after.get() + 1);
+   22|      1|}
+   23|       |
+   24|      1|fn main() {
+   25|      1|    let drops = Cell::new(0);
+   26|      1|    let after = Cell::new(0);
+   27|      1|    assert!(catch_unwind(AssertUnwindSafe(|| work(&drops, &after))).is_err());
+   28|      1|    assert_eq!(drops.get(), 1);
+   29|      1|    assert_eq!(after.get(), 0);
+   30|      1|}

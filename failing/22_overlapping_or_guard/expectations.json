@@ -1,0 +1,21 @@
+{
+  "description": "Expected dynamic execution counts derived from the runtime driver before coverage assessment.",
+  "probes": [
+    {
+      "source": "checks.set",
+      "count": 2
+    },
+    {
+      "source": "false",
+      "count": 2
+    },
+    {
+      "source": "10",
+      "count": 0
+    },
+    {
+      "source": "20,",
+      "count": 1
+    }
+  ]
+}

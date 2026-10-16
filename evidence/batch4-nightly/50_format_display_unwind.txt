@@ -1,0 +1,30 @@
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    fmt::{self, Display, Write},
+    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    5|       |};
+    6|       |
+    7|       |struct Value<'a>(&'a Cell<u32>);
+    8|       |
+    9|       |impl Display for Value<'_> {
+   10|      1|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+   11|      1|        self.0.set(self.0.get() + 1);
+   12|      1|        if std::hint::black_box(true) {
+   13|      1|            panic!("formatting fails");
+   14|      0|        }
+   15|      0|        formatter.write_str("value")
+   16|      0|    }
+   17|       |}
+   18|       |
+   19|      1|fn render(calls: &Cell<u32>, after: &Cell<u32>) {
+   20|      1|    let mut output = String::new();
+   21|      1|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
+   22|      1|    after.set(after.get() + 1);
+   23|      1|}
+   24|       |
+   25|      1|fn main() {
+   26|      1|    let calls = Cell::new(0);
+   27|      1|    let after = Cell::new(0);
+   28|      1|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
+   29|      1|    assert_eq!((calls.get(), after.get()), (1, 0));
+   30|      1|}

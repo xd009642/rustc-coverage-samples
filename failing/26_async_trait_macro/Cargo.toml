@@ -1,0 +1,9 @@
+[package]
+name = "sample_26_async_trait_macro"
+version = "0.0.0"
+publish = false
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+async-trait = "=0.1.92"

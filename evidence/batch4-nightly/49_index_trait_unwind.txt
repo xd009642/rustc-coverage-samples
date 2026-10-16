@@ -1,0 +1,77 @@
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/49_index_trait_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    ops::Index,
+    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    5|       |};
+    6|       |
+    7|       |struct Indexed<'a> {
+    8|       |    calls: &'a Cell<u32>,
+    9|       |    value: u32,
+   10|       |}
+   11|       |
+   12|       |impl Index<usize> for Indexed<'_> {
+   13|       |    type Output = u32;
+   14|       |
+   15|      1|    fn index(&self, index: usize) -> &u32 {
+   16|      1|        self.calls.set(self.calls.get() + 1);
+   17|      1|        if index > 0 {
+   18|      1|            panic!("no such element");
+   19|      0|        }
+   20|      0|        &self.value
+   21|      0|    }
+   22|       |}
+   23|       |
+   24|      1|fn read(items: &Indexed<'_>, index: usize, after: &Cell<u32>) -> u32 {
+   25|      1|    let value = items[index];
+   26|      1|    after.set(after.get() + 1);
+   27|      1|    value + 1
+   28|      1|}
+   29|       |
+   30|      1|fn main() {
+   31|      1|    let calls = Cell::new(0);
+   32|      1|    let after = Cell::new(0);
+   33|      1|    let items = Indexed {
+   34|      1|        calls: &calls,
+   35|      1|        value: 7,
+   36|      1|    };
+   37|      1|    assert!(
+   38|      1|        catch_unwind(AssertUnwindSafe(|| {
+   39|      1|            read(&items, std::hint::black_box(1), &after)
+   40|      1|        }))
+   41|      1|        .is_err()
+   42|       |    );
+   43|      1|    assert_eq!((calls.get(), after.get()), (1, 0));
+   44|      1|}
+
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/50_format_display_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    cell::Cell,
+    3|       |    fmt::{self, Display, Write},
+    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    5|       |};
+    6|       |
+    7|       |struct Value<'a>(&'a Cell<u32>);
+    8|       |
+    9|       |impl Display for Value<'_> {
+   10|      0|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+   11|      0|        self.0.set(self.0.get() + 1);
+   12|      0|        if std::hint::black_box(true) {
+   13|      0|            panic!("formatting fails");
+   14|      0|        }
+   15|      0|        formatter.write_str("value")
+   16|      0|    }
+   17|       |}
+   18|       |
+   19|      0|fn render(calls: &Cell<u32>, after: &Cell<u32>) {
+   20|      0|    let mut output = String::new();
+   21|      0|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
+   22|      0|    after.set(after.get() + 1);
+   23|      0|}
+   24|       |
+   25|      0|fn main() {
+   26|      0|    let calls = Cell::new(0);
+   27|      0|    let after = Cell::new(0);
+   28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
+   29|      0|    assert_eq!((calls.get(), after.get()), (1, 0));
+   30|      0|}

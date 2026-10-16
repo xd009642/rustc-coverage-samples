@@ -1,0 +1,9 @@
+[package]
+name = "sample_36_tokio_select_disabled"
+version = "0.0.0"
+publish = false
+edition.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+tokio = { version = "=1.53.2", features = ["macros"] }
