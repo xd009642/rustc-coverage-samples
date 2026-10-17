@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Failing samples — coverage reports</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
+    body { max-width: 56rem; margin: 3rem auto; padding: 0 1.25rem; line-height: 1.5; }
+    h1 { line-height: 1.2; }
+    ul { list-style: none; padding: 0; }
+    li { margin: .35rem 0; }
+    a { display: block; padding: .65rem .8rem; border-radius: .35rem; color: #1659b7; }
+    a:hover { background: #edf3fa; }
+    a:focus-visible { outline: 3px solid currentColor; outline-offset: 2px; }
+    .number { display: inline-block; min-width: 2rem; font-variant-numeric: tabular-nums; }
+    @media (prefers-color-scheme: dark) {
+      a { color: #9bc5ff; }
+      a:hover { background: #202d40; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Failing samples</h1>
+    <p>21 HTML coverage reports generated with stable Rust. Select a sample to inspect its coverage.</p>
+    <ul>
+      <li><a href="01_tracing_async/report/index.html"><span class="number">01</span> Async tracing with await and Result propagation</a></li>
+      <li><a href="13_unwind_continuation/report/index.html"><span class="number">13</span> Continuation after a panicking call</a></li>
+      <li><a href="18_or_pattern_guard/report/index.html"><span class="number">18</span> Guard shared by disjoint or-pattern alternatives</a></li>
+      <li><a href="21_repeated_macro_argument/report/index.html"><span class="number">21</span> Repeated expression argument in macro_rules</a></li>
+      <li><a href="22_overlapping_or_guard/report/index.html"><span class="number">22</span> Overlapping alternatives retry a failed guard</a></li>
+      <li><a href="23_bounds_partial_tuple/report/index.html"><span class="number">23</span> Bounds check aborts partial tuple construction</a></li>
+      <li><a href="24_exit_counter_underflow/report/index.html"><span class="number">24</span> Process exit before a function returns</a></li>
+      <li><a href="25_derive_expression/report/index.html"><span class="number">25</span> User-authored expression inside a thiserror derive attribute</a></li>
+      <li><a href="26_async_trait_macro/report/index.html"><span class="number">26</span> Async trait method transformed by async-trait</a></li>
+      <li><a href="27_thread_local_initializer/report/index.html"><span class="number">27</span> Runtime initializer inside thread_local</a></li>
+      <li><a href="30_panicking_drop/report/index.html"><span class="number">30</span> Implicit scope-exit destructor panics</a></li>
+      <li><a href="33_macro_short_circuit/report/index.html"><span class="number">33</span> Macro duplicates an argument across short-circuit operands</a></li>
+      <li><a href="35_matches_guard/report/index.html"><span class="number">35</span> Enum or-pattern guard inside matches!</a></li>
+      <li><a href="38_destructuring_assignment/report/index.html"><span class="number">38</span> Panic in a later destructuring-assignment target</a></li>
+      <li><a href="39_overloaded_add_unwind/report/index.html"><span class="number">39</span> Unwind from an overloaded arithmetic operator</a></li>
+      <li><a href="40_unwinding_condition/report/index.html"><span class="number">40</span> Unwind while evaluating a short-circuit condition</a></li>
+      <li><a href="44_once_lock_retry/report/index.html"><span class="number">44</span> OnceLock initialization retried after a panic</a></li>
+      <li><a href="45_await_unwind/report/index.html"><span class="number">45</span> Child future panics while awaited</a></li>
+      <li><a href="46_division_unwind/report/index.html"><span class="number">46</span> Implicit integer division panic</a></li>
+      <li><a href="49_index_trait_unwind/report/index.html"><span class="number">49</span> Unwind from overloaded indexing</a></li>
+      <li><a href="50_format_display_unwind/report/index.html"><span class="number">50</span> Display implementation panics during write!</a></li>
+    </ul>
+  </main>
+</body>
+</html>
