@@ -84,6 +84,10 @@ early return.
 
 This can also be seen with calling `process::exit` which is a related edge-case.
 
+I guess the good news is that panics etc for most users will result in a test failing
+and you don't care about correct coverage if your test fails. However users with: `#[should_panic]`, panic hooks 
+and potentially custom test runners might have a bad time.
+
 This is the cause of all the failures where uncovered lines are shown as covered:
 
 | Case | Code incorrectly marked covered | Source lines |
