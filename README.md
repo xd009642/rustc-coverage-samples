@@ -86,8 +86,8 @@ This can also be seen with calling `process::exit` which is a related edge-case.
 
 This is the cause of all the failures where uncovered lines are shown as covered:
 
-| Case | Code incorrectly marked covered | Source lines | 
-| --- | --- | --- | --- | --- |
+| Case | Code incorrectly marked covered | Source lines |
+| --- | --- | --- |
 | [13: unwind continuation](failing/13_unwind_continuation/src/main.rs) | Statement after a panicking call | 11 |
 | [23: partial tuple](failing/23_bounds_partial_tuple/src/main.rs) | Later tuple element after a bounds panic | 11 |
 | [24: exit counter underflow](failing/24_exit_counter_underflow/src/main.rs) | Never-taken arms after a call exits the process | 20, 22 |
