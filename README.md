@@ -106,4 +106,4 @@ This is the cause of all the failures where uncovered lines are shown as covered
 
 ## Resources
 
-- https://llvm.org/docs/CoverageMappingFormat.html 
+- https://llvm.org/docs/CoverageMappingFormat.html (if you need to know more about code regions and the expressions used to work out coverage values)
