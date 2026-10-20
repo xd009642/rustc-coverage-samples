@@ -1,0 +1,834 @@
+{
+  "functions": [
+    {
+      "expressions": [
+        {
+          "id": 0,
+          "lhs": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 2,
+            "kind": "counter"
+          }
+        },
+        {
+          "id": 1,
+          "lhs": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 0,
+            "kind": "counter"
+          }
+        }
+      ],
+      "hash_matches": true,
+      "mapping_function_hash": "bf1a0c24560ef5c8",
+      "name": "_RNvCsf3teoLVlbSz_32sample_24_exit_counter_underflow3run",
+      "name_hash": "0cf6a22cbdc18d95",
+      "profile_function_hash": "bf1a0c24560ef5c8",
+      "raw_counts": [
+        1,
+        3,
+        0
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            10,
+            43
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            10,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            11,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            11,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            11,
+            26
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            11,
+            25
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            13,
+            23
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            13,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            17
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            14,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            48
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            14,
+            26
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            30
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            14,
+            26
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            15,
+            31
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            15,
+            23
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            21
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            17
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            30
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            26
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            19
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            15
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            21,
+            14
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            22
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            22,
+            34
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            22,
+            25
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            25,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            25,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "ef36d270697f2ad2",
+      "name": "_RNvCsf3teoLVlbSz_32sample_24_exit_counter_underflow4main",
+      "name_hash": "dbd815000c700f93",
+      "profile_function_hash": "ef36d270697f2ad2",
+      "raw_counts": [
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            27,
+            10
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            27,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            28,
+            18
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            28,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            28,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            28,
+            21
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            29,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            29,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            29,
+            21
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            29,
+            18
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            29,
+            32
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            29,
+            22
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            30,
+            11
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            30,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [
+        {
+          "id": 0,
+          "lhs": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 1,
+            "kind": "counter"
+          }
+        },
+        {
+          "id": 1,
+          "lhs": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 2,
+            "kind": "expression",
+            "op": "Add"
+          }
+        },
+        {
+          "id": 2,
+          "lhs": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "op": "Add",
+          "rhs": {
+            "id": 3,
+            "kind": "counter"
+          }
+        }
+      ],
+      "hash_matches": true,
+      "mapping_function_hash": "fab9d90bbe8d165f",
+      "name": "_RNvCsf3teoLVlbSz_32sample_24_exit_counter_underflow4step",
+      "name_hash": "207f7cca8fb094fe",
+      "profile_function_hash": "fab9d90bbe8d165f",
+      "raw_counts": [
+        3,
+        1,
+        1,
+        0
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            1,
+            60
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            1,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            2,
+            16
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            2,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            3,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            3,
+            8
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            4,
+            19
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            4,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            5,
+            27
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            5,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            6,
+            6
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            6,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            7,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            7,
+            8
+          ]
+        },
+        {
+          "count": {
+            "id": 3,
+            "kind": "counter"
+          },
+          "end": [
+            7,
+            31
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            7,
+            25
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            7,
+            47
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            7,
+            41
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            8,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/24_exit_counter_underflow/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            8,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "object": "target/coverage-debug/nightly/24_exit_counter_underflow/sample_24_exit_counter_underflow",
+  "profile": "evidence/coverage-debug/nightly/24_exit_counter_underflow.profraw",
+  "profile_version": 11,
+  "source": "failing/24_exit_counter_underflow/src/main.rs",
+  "provenance": {
+    "rustc": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19)\nbinary: rustc\ncommit-hash: f7d782a3be46d6bb4b9792fe69a61db389ba1769\ncommit-date: 2026-08-19\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0-nightly\nLLVM version: 23.1.0",
+    "parser_commit": "303624482819b356acabb9aa1a666e6fcdb4cf98",
+    "parser_status": "",
+    "inspector_sha256": "7dd05c1d17c50cc781c7a490815c2cca9fb321e197950523c4e316af12f6ce03",
+    "command": [
+      "cargo",
+      "+nightly",
+      "llvm-cov",
+      "run",
+      "--locked",
+      "-p",
+      "sample_24_exit_counter_underflow",
+      "--bin",
+      "sample_24_exit_counter_underflow",
+      "--json",
+      "--output-path",
+      "target/coverage-debug-export.json"
+    ],
+    "source_sha256": "bb17a05796ad12ee0f975ef97c6ed5478501dcf5fe3cbcd8b86d271788f9875f",
+    "profile_sha256": "3e1dbc97b0e90e492f97aa1b70225bb0a87d6bca3427f2dac08d4602436e5613",
+    "object_sha256": "323f9ccf00f700e650780a42733a8752988f9ab855acd56192df288af8546272",
+    "workspace_lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+    "inspector_lock_sha256": "081bc29b65fa455dc86a7bd6e9124137ed6f7606d3048d88b9786d89c9ce120c",
+    "capture_command": [
+      "target/llvm-cov-target/debug/sample_24_exit_counter_underflow"
+    ],
+    "capture_env": {
+      "LLVM_PROFILE_FILE": "evidence/coverage-debug/nightly/24_exit_counter_underflow.profraw"
+    }
+  }
+}

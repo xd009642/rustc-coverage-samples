@@ -2,11 +2,11 @@
   "description": "Expected dynamic evaluation counts at executable source anchors, derived from driver inputs before assessment. Compile-time evaluation is excluded.",
   "probes": [
     {
-      "source": "may_panic(std::hint::black_box(true))",
+      "source": "may_panic(std::env::args().len() == 1)",
       "count": 1
     },
     {
-      "source": "after.set",
+      "source": "*after += 1",
       "count": 0
     }
   ]

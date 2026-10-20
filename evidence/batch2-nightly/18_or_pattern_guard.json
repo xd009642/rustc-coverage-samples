@@ -17,36 +17,26 @@
     "--output-path",
     "target/coverage-exports/sample_18_or_pattern_guard.json"
   ],
-  "source_sha256": "e2dae2602a6ce98addf3630ab5cd8a6f5109af3ce543d57595da8b5a6be3fafb",
-  "lock_sha256": "945a85ea1c22419dd23ccaa397244da31b51a42ed84db64cb004eaee28ed4624",
-  "expectations_sha256": "e2f4a9d2229e9a11cc0dbaff747b6f8de59f821f275ae6e9cdba69d5145e51d2",
+  "source_sha256": "8e8824487820dc254b158982ff993711bbd3d0293431927910460ea98955433d",
+  "lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+  "expectations_sha256": "55ba6f715ff8beacc1d6500f84274dadd08e3527b3d0c84600fa7307366f74f5",
   "llvm_export_version": "3.1.0",
   "probes": [
     {
-      "source": "checks.set",
+      "source": "*checks += 1",
       "count": 1,
       "position": [
-        7,
+        5,
         17
       ],
       "actual": 0,
       "matches": false,
       "containing_code_regions": [
         [
-          7,
+          5,
           17,
-          7,
-          23,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          7,
-          17,
-          7,
-          23,
+          5,
+          29,
           0,
           0,
           0,
@@ -58,26 +48,16 @@
       "source": "value > 4",
       "count": 1,
       "position": [
-        8,
+        6,
         17
       ],
       "actual": 0,
       "matches": false,
       "containing_code_regions": [
         [
-          8,
+          6,
           17,
-          8,
-          26,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          8,
-          17,
-          8,
+          6,
           26,
           0,
           0,
@@ -90,26 +70,16 @@
       "source": "value + 10",
       "count": 1,
       "position": [
-        11,
+        9,
         13
       ],
       "actual": 1,
       "matches": true,
       "containing_code_regions": [
         [
-          11,
+          9,
           13,
-          11,
-          23,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          11,
-          13,
-          11,
+          9,
           23,
           1,
           0,
@@ -122,26 +92,16 @@
       "source": "value + 20",
       "count": 0,
       "position": [
-        13,
+        11,
         22
       ],
       "actual": 0,
       "matches": true,
       "containing_code_regions": [
         [
-          13,
+          11,
           22,
-          13,
-          32,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          13,
-          22,
-          13,
+          11,
           32,
           0,
           0,
@@ -154,26 +114,16 @@
       "source": "value + 30",
       "count": 0,
       "position": [
-        14,
+        12,
         23
       ],
       "actual": 0,
       "matches": true,
       "containing_code_regions": [
         [
-          14,
+          12,
           23,
-          14,
-          33,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          14,
-          23,
-          14,
+          12,
           33,
           0,
           0,
@@ -190,7 +140,7 @@
     "filename": "failing/18_or_pattern_guard/src/main.rs",
     "segments": [
       [
-        3,
+        1,
         1,
         1,
         true,
@@ -198,15 +148,15 @@
         false
       ],
       [
-        3,
-        62,
+        1,
+        60,
         0,
         false,
         false,
         false
       ],
       [
-        4,
+        2,
         11,
         0,
         true,
@@ -214,7 +164,7 @@
         false
       ],
       [
-        4,
+        2,
         16,
         0,
         false,
@@ -222,7 +172,7 @@
         false
       ],
       [
-        5,
+        3,
         12,
         0,
         true,
@@ -230,7 +180,7 @@
         false
       ],
       [
-        5,
+        3,
         17,
         0,
         false,
@@ -238,7 +188,7 @@
         false
       ],
       [
-        5,
+        3,
         25,
         1,
         true,
@@ -246,7 +196,7 @@
         false
       ],
       [
-        5,
+        3,
         30,
         0,
         false,
@@ -254,271 +204,15 @@
         false
       ],
       [
-        7,
-        17,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        7,
-        23,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        7,
-        24,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        7,
-        27,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        7,
-        28,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        7,
-        44,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        8,
-        17,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        8,
-        26,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        9,
-        13,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        9,
-        14,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        11,
-        13,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        11,
-        23,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        13,
-        12,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        13,
-        17,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        13,
-        22,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        13,
-        32,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        14,
-        13,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        14,
-        18,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        14,
-        23,
-        0,
-        true,
-        true,
-        false
-      ],
-      [
-        14,
-        33,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        16,
-        1,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        16,
-        2,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        18,
-        1,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        18,
-        10,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        19,
-        9,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        19,
-        15,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        19,
-        18,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        19,
-        27,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        20,
         5,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        20,
-        15,
+        17,
         0,
-        false,
-        false,
-        false
-      ],
-      [
-        20,
-        16,
-        1,
         true,
         true,
         false
       ],
       [
-        20,
-        22,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        20,
-        23,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        20,
+        5,
         29,
         0,
         false,
@@ -526,63 +220,15 @@
         false
       ],
       [
-        20,
-        31,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        20,
-        38,
+        6,
+        17,
         0,
-        false,
-        false,
-        false
-      ],
-      [
-        21,
-        5,
-        1,
         true,
         true,
         false
       ],
       [
-        21,
-        15,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        21,
-        16,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        21,
-        22,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        21,
-        23,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        21,
+        6,
         26,
         0,
         false,
@@ -590,7 +236,103 @@
         false
       ],
       [
+        7,
+        13,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        7,
+        14,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        13,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
+        12,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        17,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        11,
         22,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        11,
+        32,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        13,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        18,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        23,
+        0,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        33,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
         1,
         1,
         true,
@@ -598,7 +340,151 @@
         false
       ],
       [
+        14,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        16,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        16,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        17,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        17,
+        19,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        17,
         22,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        17,
+        23,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        16,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        22,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        23,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        29,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        18,
+        31,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        18,
+        42,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        19,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        19,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        20,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        20,
         2,
         0,
         false,
@@ -625,9 +511,9 @@
         "percent": 100.0
       },
       "instantiations": {
-        "count": 4,
+        "count": 2,
         "covered": 2,
-        "percent": 50.0
+        "percent": 100.0
       },
       "lines": {
         "count": 15,
@@ -635,10 +521,10 @@
         "percent": 60.0
       },
       "regions": {
-        "count": 26,
-        "covered": 15,
-        "notcovered": 11,
-        "percent": 57.692307692307686
+        "count": 22,
+        "covered": 13,
+        "notcovered": 9,
+        "percent": 59.09090909090909
       }
     }
   },
@@ -646,298 +532,16 @@
     {
       "branches": [],
       "mcdc_records": [],
-      "count": 0,
-      "filenames": [
-        "failing/18_or_pattern_guard/src/main.rs"
-      ],
-      "name": "_RNvCsmIzKGDq9E6_26sample_18_or_pattern_guard4main",
-      "regions": [
-        [
-          18,
-          1,
-          18,
-          10,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          19,
-          9,
-          19,
-          15,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          19,
-          18,
-          19,
-          27,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
-          5,
-          20,
-          15,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
-          16,
-          20,
-          22,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
-          23,
-          20,
-          29,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
-          31,
-          20,
-          38,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          21,
-          5,
-          21,
-          15,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          21,
-          16,
-          21,
-          22,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          21,
-          23,
-          21,
-          26,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          22,
-          1,
-          22,
-          2,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "branches": [],
-      "mcdc_records": [],
-      "count": 0,
-      "filenames": [
-        "failing/18_or_pattern_guard/src/main.rs"
-      ],
-      "name": "_RNvCsmIzKGDq9E6_26sample_18_or_pattern_guard6choose",
-      "regions": [
-        [
-          3,
-          1,
-          3,
-          62,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          4,
-          11,
-          4,
-          16,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          5,
-          12,
-          5,
-          17,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          5,
-          25,
-          5,
-          30,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          7,
-          17,
-          7,
-          23,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          7,
-          24,
-          7,
-          27,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          7,
-          28,
-          7,
-          44,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          8,
-          17,
-          8,
-          26,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          9,
-          13,
-          9,
-          14,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          11,
-          13,
-          11,
-          23,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          13,
-          12,
-          13,
-          17,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          13,
-          22,
-          13,
-          32,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          14,
-          13,
-          14,
-          18,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          14,
-          23,
-          14,
-          33,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          16,
-          1,
-          16,
-          2,
-          0,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "branches": [],
-      "mcdc_records": [],
       "count": 1,
       "filenames": [
         "failing/18_or_pattern_guard/src/main.rs"
       ],
-      "name": "_RNvCsblZZq5798CS_26sample_18_or_pattern_guard4main",
+      "name": "_RNvCsdtloCQXoxuu_26sample_18_or_pattern_guard4main",
       "regions": [
         [
-          18,
+          16,
           1,
-          18,
+          16,
           10,
           1,
           0,
@@ -945,29 +549,29 @@
           0
         ],
         [
-          19,
+          17,
           9,
+          17,
           19,
-          15,
           1,
           0,
           0,
           0
         ],
         [
-          19,
+          17,
+          22,
+          17,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
           18,
-          19,
-          27,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
           5,
-          20,
+          18,
           15,
           1,
           0,
@@ -975,9 +579,9 @@
           0
         ],
         [
-          20,
+          18,
           16,
-          20,
+          18,
           22,
           1,
           0,
@@ -985,9 +589,9 @@
           0
         ],
         [
-          20,
+          18,
           23,
-          20,
+          18,
           29,
           1,
           0,
@@ -995,19 +599,19 @@
           0
         ],
         [
-          20,
+          18,
           31,
-          20,
-          38,
+          18,
+          42,
           1,
           0,
           0,
           0
         ],
         [
-          21,
+          19,
           5,
-          21,
+          19,
           15,
           1,
           0,
@@ -1015,29 +619,9 @@
           0
         ],
         [
-          21,
-          16,
-          21,
-          22,
+          20,
           1,
-          0,
-          0,
-          0
-        ],
-        [
-          21,
-          23,
-          21,
-          26,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          22,
-          1,
-          22,
+          20,
           2,
           1,
           0,
@@ -1053,22 +637,22 @@
       "filenames": [
         "failing/18_or_pattern_guard/src/main.rs"
       ],
-      "name": "_RNvCsblZZq5798CS_26sample_18_or_pattern_guard6choose",
+      "name": "_RNvCsdtloCQXoxuu_26sample_18_or_pattern_guard6choose",
       "regions": [
         [
-          3,
           1,
-          3,
-          62,
+          1,
+          1,
+          60,
           1,
           0,
           0,
           0
         ],
         [
-          4,
+          2,
           11,
-          4,
+          2,
           16,
           0,
           0,
@@ -1076,9 +660,9 @@
           0
         ],
         [
-          5,
+          3,
           12,
-          5,
+          3,
           17,
           0,
           0,
@@ -1086,9 +670,9 @@
           0
         ],
         [
-          5,
+          3,
           25,
-          5,
+          3,
           30,
           1,
           0,
@@ -1096,39 +680,19 @@
           0
         ],
         [
-          7,
+          5,
           17,
-          7,
-          23,
+          5,
+          29,
           0,
           0,
           0,
           0
         ],
         [
-          7,
-          24,
-          7,
-          27,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          7,
-          28,
-          7,
-          44,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          8,
+          6,
           17,
-          8,
+          6,
           26,
           0,
           0,
@@ -1136,9 +700,9 @@
           0
         ],
         [
-          9,
+          7,
           13,
-          9,
+          7,
           14,
           0,
           0,
@@ -1146,9 +710,9 @@
           0
         ],
         [
-          11,
+          9,
           13,
-          11,
+          9,
           23,
           1,
           0,
@@ -1156,9 +720,9 @@
           0
         ],
         [
-          13,
+          11,
           12,
-          13,
+          11,
           17,
           0,
           0,
@@ -1166,9 +730,9 @@
           0
         ],
         [
-          13,
+          11,
           22,
-          13,
+          11,
           32,
           0,
           0,
@@ -1176,9 +740,9 @@
           0
         ],
         [
-          14,
+          12,
           13,
-          14,
+          12,
           18,
           0,
           0,
@@ -1186,9 +750,9 @@
           0
         ],
         [
-          14,
+          12,
           23,
-          14,
+          12,
           33,
           0,
           0,
@@ -1196,9 +760,9 @@
           0
         ],
         [
-          16,
+          14,
           1,
-          16,
+          14,
           2,
           1,
           0,

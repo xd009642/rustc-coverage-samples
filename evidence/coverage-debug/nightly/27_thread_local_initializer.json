@@ -1,0 +1,376 @@
+{
+  "functions": [
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "5f11e642e8c80f27",
+      "name": "_RNvCshFuHfbpXQQK_34sample_27_thread_local_initializer4main",
+      "name_hash": "fbb9c7b935c1dfed",
+      "profile_function_hash": "5f11e642e8c80f27",
+      "raw_counts": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            10
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            17,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            17,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            17,
+            20
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            17,
+            16
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            20
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            16
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            19,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            19,
+            31
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            16
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            19,
+            36
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            32
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            19,
+            54
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            37
+          ]
+        },
+        {
+          "count": {
+            "id": 3,
+            "kind": "counter"
+          },
+          "end": [
+            20,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            20,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "cfd8588d9112d32c",
+      "name": "_RNvCshFuHfbpXQQK_34sample_27_thread_local_initializer4read",
+      "name_hash": "c8ba5c59421d14a3",
+      "profile_function_hash": "cfd8588d9112d32c",
+      "raw_counts": [
+        2
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            12,
+            17
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            12,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            13,
+            10
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            13,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            13,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            13,
+            11
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/27_thread_local_initializer/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            14,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "object": "target/coverage-debug/nightly/27_thread_local_initializer/sample_27_thread_local_initializer",
+  "profile": "evidence/coverage-debug/nightly/27_thread_local_initializer.profraw",
+  "profile_version": 11,
+  "source": "failing/27_thread_local_initializer/src/main.rs",
+  "provenance": {
+    "rustc": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19)\nbinary: rustc\ncommit-hash: f7d782a3be46d6bb4b9792fe69a61db389ba1769\ncommit-date: 2026-08-19\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0-nightly\nLLVM version: 23.1.0",
+    "parser_commit": "303624482819b356acabb9aa1a666e6fcdb4cf98",
+    "parser_status": "",
+    "inspector_sha256": "7dd05c1d17c50cc781c7a490815c2cca9fb321e197950523c4e316af12f6ce03",
+    "command": [
+      "cargo",
+      "+nightly",
+      "llvm-cov",
+      "run",
+      "--locked",
+      "-p",
+      "sample_27_thread_local_initializer",
+      "--bin",
+      "sample_27_thread_local_initializer",
+      "--json",
+      "--output-path",
+      "target/coverage-debug-export.json"
+    ],
+    "source_sha256": "0bbb435675a6665a8e8b55970c03028f4c9844b7a5232370781e7c40ebc31004",
+    "profile_sha256": "4fe55fe532922e3323b358c95a1368366c214f9f5087cb646f72b05e86e8886a",
+    "object_sha256": "8aa1b096b39293f60ef381595aa8c140c565f9ec843eb008ddbcf99e927ad242",
+    "workspace_lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+    "inspector_lock_sha256": "081bc29b65fa455dc86a7bd6e9124137ed6f7606d3048d88b9786d89c9ce120c",
+    "capture_command": [
+      "target/llvm-cov-target/debug/sample_27_thread_local_initializer"
+    ],
+    "capture_env": {
+      "LLVM_PROFILE_FILE": "evidence/coverage-debug/nightly/27_thread_local_initializer.profraw"
+    }
+  }
+}

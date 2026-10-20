@@ -1,0 +1,549 @@
+{
+  "functions": [
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "0dde6fabef39c79b",
+      "name": "_RNCNvCsd4nx18dpK9K_29sample_13_unwind_continuation4main0B3_",
+      "name_hash": "6ba5ab86bd517d1c",
+      "profile_function_hash": "0dde6fabef39c79b",
+      "raw_counts": [
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            50
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            46
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            61
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            51
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "0dde6fabef39c79b",
+      "name": "_RNvCsd4nx18dpK9K_29sample_13_unwind_continuation4main",
+      "name_hash": "d4813049bec79090",
+      "profile_function_hash": "0dde6fabef39c79b",
+      "raw_counts": [
+        1,
+        1,
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            10
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            14,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            15,
+            18
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            15,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            15,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            15,
+            21
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            12
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            25
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            71
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            65
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            17,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            17,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "f139306208644b80",
+      "name": "_RNvCsd4nx18dpK9K_29sample_13_unwind_continuation4work",
+      "name_hash": "6018445d6c474721",
+      "profile_function_hash": "f139306208644b80",
+      "raw_counts": [
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            9,
+            25
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            9,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            10,
+            14
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            10,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            10,
+            42
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            10,
+            15
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            11,
+            16
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            11,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            12,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            12,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [
+        {
+          "id": 0,
+          "lhs": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 1,
+            "kind": "counter"
+          }
+        }
+      ],
+      "hash_matches": true,
+      "mapping_function_hash": "bf9357e5c7f9201b",
+      "name": "_RNvCsd4nx18dpK9K_29sample_13_unwind_continuation9may_panic",
+      "name_hash": "491fd8423500fba8",
+      "profile_function_hash": "bf9357e5c7f9201b",
+      "raw_counts": [
+        1,
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            3,
+            25
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            3,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            4,
+            12
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            4,
+            8
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            5,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            5,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            6,
+            6
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            6,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            7,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/13_unwind_continuation/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            7,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "object": "target/coverage-debug/nightly/13_unwind_continuation/sample_13_unwind_continuation",
+  "profile": "evidence/coverage-debug/nightly/13_unwind_continuation.profraw",
+  "profile_version": 11,
+  "source": "failing/13_unwind_continuation/src/main.rs",
+  "provenance": {
+    "rustc": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19)\nbinary: rustc\ncommit-hash: f7d782a3be46d6bb4b9792fe69a61db389ba1769\ncommit-date: 2026-08-19\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0-nightly\nLLVM version: 23.1.0",
+    "parser_commit": "303624482819b356acabb9aa1a666e6fcdb4cf98",
+    "parser_status": "",
+    "inspector_sha256": "7dd05c1d17c50cc781c7a490815c2cca9fb321e197950523c4e316af12f6ce03",
+    "command": [
+      "cargo",
+      "+nightly",
+      "llvm-cov",
+      "run",
+      "--locked",
+      "-p",
+      "sample_13_unwind_continuation",
+      "--bin",
+      "sample_13_unwind_continuation",
+      "--json",
+      "--output-path",
+      "target/coverage-debug-export.json"
+    ],
+    "source_sha256": "08e017687e684c68a912369a358bc9764f786a9280c993baf67fe726c54fb245",
+    "profile_sha256": "33d7a9ad742903da1f9187f685969a52c24bdc843a70b48a6982d9702d8adc35",
+    "object_sha256": "b4255e4d9be6f4a87601cba8acaa9cf194de32857b713c13105d351a4fe68239",
+    "workspace_lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+    "inspector_lock_sha256": "081bc29b65fa455dc86a7bd6e9124137ed6f7606d3048d88b9786d89c9ce120c",
+    "capture_command": [
+      "target/llvm-cov-target/debug/sample_13_unwind_continuation"
+    ],
+    "capture_env": {
+      "LLVM_PROFILE_FILE": "evidence/coverage-debug/nightly/13_unwind_continuation.profraw"
+    }
+  }
+}

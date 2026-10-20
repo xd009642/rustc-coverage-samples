@@ -1,0 +1,369 @@
+{
+  "functions": [
+    {
+      "expressions": [
+        {
+          "id": 0,
+          "lhs": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 1,
+            "kind": "counter"
+          }
+        }
+      ],
+      "hash_matches": true,
+      "mapping_function_hash": "52a37b0a79dba925",
+      "name": "_RNvCs4ivQx3dDSTz_29sample_33_macro_short_circuit3run",
+      "name_hash": "dd22d1cb50d49017",
+      "profile_function_hash": "52a37b0a79dba925",
+      "raw_counts": [
+        1,
+        0
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            7,
+            32
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            7,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            8,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            8,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            9,
+            20
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            9,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            10,
+            20
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            10,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            12,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            12,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "0e8527efa7a973f0",
+      "name": "_RNvCs4ivQx3dDSTz_29sample_33_macro_short_circuit4main",
+      "name_hash": "397865f459a4e5da",
+      "profile_function_hash": "0e8527efa7a973f0",
+      "raw_counts": [
+        1,
+        1,
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            10
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            14,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            15,
+            18
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            15,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            15,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            15,
+            21
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            12
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            16
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            27
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            17
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            17,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            17,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/33_macro_short_circuit/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "object": "target/coverage-debug/nightly/33_macro_short_circuit/sample_33_macro_short_circuit",
+  "profile": "evidence/coverage-debug/nightly/33_macro_short_circuit.profraw",
+  "profile_version": 11,
+  "source": "failing/33_macro_short_circuit/src/main.rs",
+  "provenance": {
+    "rustc": "rustc 1.100.0-nightly (f7d782a3b 2026-08-19)\nbinary: rustc\ncommit-hash: f7d782a3be46d6bb4b9792fe69a61db389ba1769\ncommit-date: 2026-08-19\nhost: x86_64-unknown-linux-gnu\nrelease: 1.100.0-nightly\nLLVM version: 23.1.0",
+    "parser_commit": "303624482819b356acabb9aa1a666e6fcdb4cf98",
+    "parser_status": "",
+    "inspector_sha256": "7dd05c1d17c50cc781c7a490815c2cca9fb321e197950523c4e316af12f6ce03",
+    "command": [
+      "cargo",
+      "+nightly",
+      "llvm-cov",
+      "run",
+      "--locked",
+      "-p",
+      "sample_33_macro_short_circuit",
+      "--bin",
+      "sample_33_macro_short_circuit",
+      "--json",
+      "--output-path",
+      "target/coverage-debug-export.json"
+    ],
+    "source_sha256": "d195d715d0605ee8a53e21e6e67b0e92a19ea88369469bfde9fff4ec8d5a3858",
+    "profile_sha256": "74d6804217ef3ab8602eaa36f3bc01ad26e9aab1a7d9c99cca17363b4e50ce45",
+    "object_sha256": "c99cd8dc17a40a0949284d632ab29f79794b32062c4a0f2cf1ffce238cb9dc83",
+    "workspace_lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+    "inspector_lock_sha256": "081bc29b65fa455dc86a7bd6e9124137ed6f7606d3048d88b9786d89c9ce120c",
+    "capture_command": [
+      "target/llvm-cov-target/debug/sample_33_macro_short_circuit"
+    ],
+    "capture_env": {
+      "LLVM_PROFILE_FILE": "evidence/coverage-debug/nightly/33_macro_short_circuit.profraw"
+    }
+  }
+}

@@ -1,0 +1,565 @@
+{
+  "functions": [
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "cea482a0008d6ecd",
+      "name": "_RNvCs6LLUwCHKx0e_30sample_23_bounds_partial_tuple4main",
+      "name_hash": "d647f236808faad6",
+      "profile_function_hash": "cea482a0008d6ecd",
+      "raw_counts": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            17,
+            10
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            17,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            19
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            23
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            22
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            19,
+            18
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            19,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            21
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            20,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            20,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            20,
+            30
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            20,
+            18
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            21,
+            12
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            21,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            21,
+            19
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            21,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            21,
+            26
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            21,
+            20
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            22,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            22,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            23,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            23,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 3,
+            "kind": "counter"
+          },
+          "end": [
+            24,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            24,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "641c7489b16ef233",
+      "name": "_RNvCs6LLUwCHKx0e_30sample_23_bounds_partial_tuple5build",
+      "name_hash": "a5a258f6ecf004a3",
+      "profile_function_hash": "641c7489b16ef233",
+      "raw_counts": [
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            3,
+            77
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            3,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            6
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            4,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            6,
+            25
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            6,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            7,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            7,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            9,
+            20
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            9,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            15,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            15,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "cea482a0008d6ecd",
+      "name": "_RNCNvCs6LLUwCHKx0e_30sample_23_bounds_partial_tuple4main0B3_",
+      "name_hash": "15660c047428faa5",
+      "profile_function_hash": "cea482a0008d6ecd",
+      "raw_counts": [
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            20,
+            56
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            20,
+            51
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            20,
+            68
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            20,
+            57
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            20,
+            80
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/23_bounds_partial_tuple/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            20,
+            70
+          ]
+        }
+      ]
+    }
+  ],
+  "object": "target/coverage-debug/stable/23_bounds_partial_tuple/sample_23_bounds_partial_tuple",
+  "profile": "evidence/coverage-debug/stable/23_bounds_partial_tuple.profraw",
+  "profile_version": 10,
+  "source": "failing/23_bounds_partial_tuple/src/main.rs",
+  "provenance": {
+    "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+    "parser_commit": "303624482819b356acabb9aa1a666e6fcdb4cf98",
+    "parser_status": "",
+    "inspector_sha256": "7dd05c1d17c50cc781c7a490815c2cca9fb321e197950523c4e316af12f6ce03",
+    "command": [
+      "cargo",
+      "+stable",
+      "llvm-cov",
+      "run",
+      "--locked",
+      "-p",
+      "sample_23_bounds_partial_tuple",
+      "--bin",
+      "sample_23_bounds_partial_tuple",
+      "--json",
+      "--output-path",
+      "target/coverage-debug-export.json"
+    ],
+    "source_sha256": "29074eddd294659bd038f9d26a7e36bdedb99ae88715efc285d009bcf488571c",
+    "profile_sha256": "e4547d6751c23865e326ebaec04d0b3fc43df76773dadc33da3933ef629f927b",
+    "object_sha256": "df38be1e4e86045d7f83cf9424f02ce501c91fc52755eb3ff0f1847a92ee3a4e",
+    "workspace_lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+    "inspector_lock_sha256": "081bc29b65fa455dc86a7bd6e9124137ed6f7606d3048d88b9786d89c9ce120c",
+    "capture_command": [
+      "target/llvm-cov-target/debug/sample_23_bounds_partial_tuple"
+    ],
+    "capture_env": {
+      "LLVM_PROFILE_FILE": "evidence/coverage-debug/stable/23_bounds_partial_tuple.profraw"
+    }
+  }
+}

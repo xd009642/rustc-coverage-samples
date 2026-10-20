@@ -1,53 +1,54 @@
 /home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/33_macro_short_circuit/src/main.rs:
-    1|       |use std::cell::Cell;
-    2|       |
-    3|       |macro_rules! any_twice {
-    4|       |    ($test:expr) => {
-    5|       |        $test || $test
-    6|       |    };
-    7|       |}
-    8|       |
-    9|      1|fn run(calls: &Cell<u32>) -> bool {
-   10|      0|    any_twice!({
-   11|      1|        calls.set(calls.get() + 1);
-   12|      1|        calls.get() == 2
-   13|       |    })
-   14|      1|}
-   15|       |
-   16|      1|fn main() {
-   17|      1|    let calls = Cell::new(0);
-   18|      1|    assert!(run(&calls));
-   19|      1|    assert_eq!(calls.get(), 2);
-   20|      1|}
-
-/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/40_unwinding_condition/src/main.rs:
-    1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    panic::{AssertUnwindSafe, catch_unwind},
-    4|       |};
-    5|       |
-    6|      0|fn condition(checks: &Cell<u32>) -> bool {
-    7|      0|    checks.set(checks.get() + 1);
-    8|      0|    if std::hint::black_box(true) {
-    9|      0|        panic!("condition panic");
-   10|      0|    }
-   11|      0|    true
-   12|      0|}
+    1|       |macro_rules! any_twice {
+    2|       |    ($test:expr) => {
+    3|       |        $test || $test
+    4|       |    };
+    5|       |}
+    6|       |
+    7|      1|fn run(calls: &mut u32) -> bool {
+    8|      0|    any_twice!({
+    9|      1|        *calls += 1;
+   10|      1|        *calls == 2
+   11|       |    })
+   12|      1|}
    13|       |
-   14|      0|fn choose(checks: &Cell<u32>, yes: &Cell<u32>, no: &Cell<u32>) -> u32 {
-   15|      0|    if std::hint::black_box(true) && condition(checks) {
-   16|      0|        yes.set(yes.get() + 1);
-   17|      0|        11
-   18|       |    } else {
-   19|      0|        no.set(no.get() + 1);
-   20|      0|        22
-   21|       |    }
-   22|      0|}
-   23|       |
-   24|      0|fn main() {
-   25|      0|    let checks = Cell::new(0);
-   26|      0|    let yes = Cell::new(0);
-   27|      0|    let no = Cell::new(0);
-   28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| choose(&checks, &yes, &no))).is_err());
-   29|      0|    assert_eq!((checks.get(), yes.get(), no.get()), (1, 0, 0));
-   30|      0|}
+   14|      1|fn main() {
+   15|      1|    let mut calls = 0;
+   16|      1|    assert!(run(&mut calls));
+   17|      1|    assert_eq!(calls, 2);
+   18|      1|}
+
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/50_format_display_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    fmt::{self, Display, Write},
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |    sync::atomic::{AtomicU32, Ordering},
+    5|       |};
+    6|       |
+    7|       |struct Value<'a>(&'a AtomicU32);
+    8|       |
+    9|       |impl Display for Value<'_> {
+   10|      0|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+   11|      0|        self.0.fetch_add(1, Ordering::Relaxed);
+   12|      0|        if std::env::args().len() == 1 {
+   13|      0|            panic!("formatting fails");
+   14|      0|        }
+   15|      0|        formatter.write_str("value")
+   16|      0|    }
+   17|       |}
+   18|       |
+   19|      0|fn render(calls: &AtomicU32, after: &AtomicU32) {
+   20|      0|    let mut output = String::new();
+   21|      0|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
+   22|      0|    after.fetch_add(1, Ordering::Relaxed);
+   23|      0|}
+   24|       |
+   25|      0|fn main() {
+   26|      0|    let calls = AtomicU32::new(0);
+   27|      0|    let after = AtomicU32::new(0);
+   28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
+   29|      0|    assert_eq!(
+   30|      0|        (calls.load(Ordering::Relaxed), after.load(Ordering::Relaxed)),
+   31|       |        (1, 0)
+   32|       |    );
+   33|      0|}

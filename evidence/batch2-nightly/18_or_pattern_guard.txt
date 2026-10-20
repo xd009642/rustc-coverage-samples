@@ -1,23 +1,57 @@
-    1|       |use std::cell::Cell;
-    2|       |
-    3|      1|fn choose(input: Result<u32, u32>, checks: &Cell<u32>) -> u32 {
-    4|      0|    match input {
-    5|      1|        Ok(value) | Err(value)
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/18_or_pattern_guard/src/main.rs:
+    1|      1|fn choose(input: Result<u32, u32>, checks: &mut u32) -> u32 {
+    2|      0|    match input {
+    3|      1|        Ok(value) | Err(value)
                          ^0
-    6|       |            if {
-    7|      0|                checks.set(checks.get() + 1);
-    8|      0|                value > 4
-    9|      0|            } =>
-   10|       |        {
-   11|      1|            value + 10
-   12|       |        }
-   13|      0|        Ok(value) => value + 20,
-   14|      0|        Err(value) => value + 30,
-   15|       |    }
-   16|      1|}
-   17|       |
-   18|      1|fn main() {
-   19|      1|    let checks = Cell::new(0);
-   20|      1|    assert_eq!(choose(Err(7), &checks), 17);
-   21|      1|    assert_eq!(checks.get(), 1);
-   22|      1|}
+    4|       |            if {
+    5|      0|                *checks += 1;
+    6|      0|                value > 4
+    7|      0|            } =>
+    8|       |        {
+    9|      1|            value + 10
+   10|       |        }
+   11|      0|        Ok(value) => value + 20,
+   12|      0|        Err(value) => value + 30,
+   13|       |    }
+   14|      1|}
+   15|       |
+   16|      1|fn main() {
+   17|      1|    let mut checks = 0;
+   18|      1|    assert_eq!(choose(Err(7), &mut checks), 17);
+   19|      1|    assert_eq!(checks, 1);
+   20|      1|}
+
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/50_format_display_unwind/src/main.rs:
+    1|       |use std::{
+    2|       |    fmt::{self, Display, Write},
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |    sync::atomic::{AtomicU32, Ordering},
+    5|       |};
+    6|       |
+    7|       |struct Value<'a>(&'a AtomicU32);
+    8|       |
+    9|       |impl Display for Value<'_> {
+   10|      0|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+   11|      0|        self.0.fetch_add(1, Ordering::Relaxed);
+   12|      0|        if std::env::args().len() == 1 {
+   13|      0|            panic!("formatting fails");
+   14|      0|        }
+   15|      0|        formatter.write_str("value")
+   16|      0|    }
+   17|       |}
+   18|       |
+   19|      0|fn render(calls: &AtomicU32, after: &AtomicU32) {
+   20|      0|    let mut output = String::new();
+   21|      0|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
+   22|      0|    after.fetch_add(1, Ordering::Relaxed);
+   23|      0|}
+   24|       |
+   25|      0|fn main() {
+   26|      0|    let calls = AtomicU32::new(0);
+   27|      0|    let after = AtomicU32::new(0);
+   28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
+   29|      0|    assert_eq!(
+   30|      0|        (calls.load(Ordering::Relaxed), after.load(Ordering::Relaxed)),
+   31|       |        (1, 0)
+   32|       |    );
+   33|      0|}

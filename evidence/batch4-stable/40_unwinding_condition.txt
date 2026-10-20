@@ -1,30 +1,27 @@
-    1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    panic::{AssertUnwindSafe, catch_unwind},
-    4|       |};
-    5|       |
-    6|      1|fn condition(checks: &Cell<u32>) -> bool {
-    7|      1|    checks.set(checks.get() + 1);
-    8|      1|    if std::hint::black_box(true) {
-    9|      1|        panic!("condition panic");
-   10|      0|    }
-   11|      0|    true
-   12|      0|}
-   13|       |
-   14|      1|fn choose(checks: &Cell<u32>, yes: &Cell<u32>, no: &Cell<u32>) -> u32 {
-   15|      1|    if std::hint::black_box(true) && condition(checks) {
-   16|      0|        yes.set(yes.get() + 1);
-   17|      0|        11
-   18|       |    } else {
-   19|      1|        no.set(no.get() + 1);
-   20|      1|        22
-   21|       |    }
-   22|      1|}
-   23|       |
-   24|      1|fn main() {
-   25|      1|    let checks = Cell::new(0);
-   26|      1|    let yes = Cell::new(0);
-   27|      1|    let no = Cell::new(0);
-   28|      1|    assert!(catch_unwind(AssertUnwindSafe(|| choose(&checks, &yes, &no))).is_err());
-   29|      1|    assert_eq!((checks.get(), yes.get(), no.get()), (1, 0, 0));
-   30|      1|}
+    1|       |use std::panic::{AssertUnwindSafe, catch_unwind};
+    2|       |
+    3|      1|fn condition(checks: &mut u32) -> bool {
+    4|      1|    *checks += 1;
+    5|      1|    if std::env::args().len() == 1 {
+    6|      1|        panic!("condition panic");
+    7|      0|    }
+    8|      0|    true
+    9|      0|}
+   10|       |
+   11|      1|fn choose(checks: &mut u32, yes: &mut u32, no: &mut u32) -> u32 {
+   12|      1|    if std::env::args().len() == 1 && condition(checks) {
+   13|      0|        *yes += 1;
+   14|      0|        11
+   15|       |    } else {
+   16|      1|        *no += 1;
+   17|      1|        22
+   18|       |    }
+   19|      1|}
+   20|       |
+   21|      1|fn main() {
+   22|      1|    let mut checks = 0;
+   23|      1|    let mut yes = 0;
+   24|      1|    let mut no = 0;
+   25|      1|    assert!(catch_unwind(AssertUnwindSafe(|| choose(&mut checks, &mut yes, &mut no))).is_err());
+   26|      1|    assert_eq!((checks, yes, no), (1, 0, 0));
+   27|      1|}

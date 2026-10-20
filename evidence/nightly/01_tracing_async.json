@@ -18,7 +18,7 @@
     "target/coverage-exports/sample_01_tracing_async.json"
   ],
   "source_sha256": "1b204b5d0a475288b1d141987a76049df4ee272f392c66468533e724b522da45",
-  "lock_sha256": "dea244b3e47cd2fc854c527845ac821ed5aeb5f32d498eeb8c9bf80a9778f8d2",
+  "lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
   "expectations_sha256": "eb99c262d68f87f7b47fa61297b1fb1d38c3d56c971087c63369544bf7a0593c",
   "llvm_export_version": "3.1.0",
   "probes": [
@@ -524,103 +524,11 @@
     {
       "branches": [],
       "mcdc_records": [],
-      "count": 2,
-      "filenames": [
-        "failing/01_tracing_async/src/main.rs"
-      ],
-      "name": "_RNCNvCsjSMsfhVqTjr_23sample_01_tracing_async5fetch0B3_",
-      "regions": [
-        [
-          16,
-          57,
-          16,
-          58,
-          2,
-          0,
-          0,
-          0
-        ],
-        [
-          19,
-          1,
-          19,
-          2,
-          2,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "branches": [],
-      "mcdc_records": [],
-      "count": 2,
-      "filenames": [
-        "failing/01_tracing_async/src/main.rs"
-      ],
-      "name": "_RNCNvCsjSMsfhVqTjr_23sample_01_tracing_async6db_get0B3_",
-      "regions": [
-        [
-          7,
-          58,
-          7,
-          59,
-          2,
-          0,
-          0,
-          0
-        ],
-        [
-          8,
-          8,
-          8,
-          15,
-          2,
-          0,
-          0,
-          0
-        ],
-        [
-          9,
-          9,
-          9,
-          23,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          11,
-          9,
-          11,
-          32,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          13,
-          1,
-          13,
-          2,
-          2,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "branches": [],
-      "mcdc_records": [],
       "count": 1,
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNvCsjSMsfhVqTjr_23sample_01_tracing_async4main",
+      "name": "_RNvCs8aE9XZxPBcg_23sample_01_tracing_async4main",
       "regions": [
         [
           21,
@@ -811,7 +719,7 @@
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNvCsjSMsfhVqTjr_23sample_01_tracing_async5fetch",
+      "name": "_RNvCs8aE9XZxPBcg_23sample_01_tracing_async5fetch",
       "regions": [
         [
           16,
@@ -832,13 +740,105 @@
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNvCsjSMsfhVqTjr_23sample_01_tracing_async6db_get",
+      "name": "_RNvCs8aE9XZxPBcg_23sample_01_tracing_async6db_get",
       "regions": [
         [
           7,
           1,
           7,
           57,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "failing/01_tracing_async/src/main.rs"
+      ],
+      "name": "_RNCNvCs8aE9XZxPBcg_23sample_01_tracing_async5fetch0B3_",
+      "regions": [
+        [
+          16,
+          57,
+          16,
+          58,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          1,
+          19,
+          2,
+          2,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 2,
+      "filenames": [
+        "failing/01_tracing_async/src/main.rs"
+      ],
+      "name": "_RNCNvCs8aE9XZxPBcg_23sample_01_tracing_async6db_get0B3_",
+      "regions": [
+        [
+          7,
+          58,
+          7,
+          59,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          8,
+          8,
+          15,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          9,
+          9,
+          23,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          9,
+          11,
+          32,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          1,
+          13,
+          2,
           2,
           0,
           0,

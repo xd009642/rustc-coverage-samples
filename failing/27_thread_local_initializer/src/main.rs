@@ -1,19 +1,16 @@
-use std::{
-    cell::Cell,
-    sync::atomic::{AtomicU32, Ordering},
-};
+use std::sync::atomic::{AtomicU32, Ordering};
 
 static INITIALIZATIONS: AtomicU32 = AtomicU32::new(0);
 
 thread_local! {
-    static VALUE: Cell<u32> = {
+    static VALUE: u32 = {
         INITIALIZATIONS.fetch_add(1, Ordering::Relaxed);
-        Cell::new(41)
+        41
     };
 }
 
 fn read() -> u32 {
-    VALUE.with(Cell::get)
+    VALUE.with(|value| *value)
 }
 
 fn main() {

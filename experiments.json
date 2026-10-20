@@ -74,7 +74,8 @@
     "Batch 4 completed exactly twenty ideas (31-50), with five failures in each ten-idea group. All selected counts agree on the recorded stable and installed nightly; no nightly language features were needed.",
     "Batch 4 contributes ten failing samples: two extend macro/guard counting cases, and eight exercise the known unwind-counting family. This does not establish ten independent bugs.",
     "Cases 33 and 44 have incorrect positive counts without falsely uncovered lines. Case 35 falsely reports an executed guard as zero. The other seven new failures falsely credit unexecuted code.",
-    "Cases 31-40 use batch4-first10.Cargo.lock; cases 41-50 use batch4.Cargo.lock. Each new entry specifies its evidence lockfile snapshot."
+    "Cases 31-40 use batch4-first10.Cargo.lock; cases 41-50 use batch4.Cargo.lock. Each new entry specifies its evidence lockfile snapshot.",
+    "On 2026-10-20, simplified the 19 failing samples using Cell or black_box and regenerated their evidence and reports. All checked counts remain unchanged on both recorded compilers. Each changed sample README preserves its original source. Run conditional-panic samples without additional binary arguments."
   ],
   "prior_art": [
     {
@@ -359,8 +360,8 @@
       "case": "failing/13_unwind_continuation",
       "idea": "Continuation after a panicking call",
       "status": "confirmed-discrepancy",
-      "inputs_and_assertions": "Catch the intentional panic from work and assert its post-call Cell remains 0.",
-      "finding": "False positive: after.set on line 14 has count 1 although it never executes.",
+      "inputs_and_assertions": "Catch the intentional panic from work and assert its post-call counter remains 0.",
+      "finding": "False positive: *after += 1 on line 11 has count 1 although it never executes.",
       "evidence": {
         "stable": {
           "path": "evidence/batch2-stable/13_unwind_continuation.json",
@@ -469,8 +470,8 @@
       "case": "failing/18_or_pattern_guard",
       "idea": "Guard shared by disjoint or-pattern alternatives",
       "status": "confirmed-discrepancy",
-      "inputs_and_assertions": "Call choose(Err(7), &checks); assert result=17 and checks=1.",
-      "finding": "False negative: the guard side effect on line 7 and comparison on line 8 each have count 0 despite executing once. The selected arm body correctly counts 1.",
+      "inputs_and_assertions": "Call choose(Err(7), &mut checks); assert result=17 and checks=1.",
+      "finding": "False negative: the guard side effect on line 5 and comparison on line 6 each have count 0 despite executing once. The selected arm body correctly counts 1.",
       "evidence": {
         "stable": {
           "path": "evidence/batch2-stable/18_or_pattern_guard.json",
@@ -486,7 +487,7 @@
         }
       },
       "classification": "Incorrect coverage count: executed source reported uncovered.",
-      "notes": "The alternatives are disjoint; Err(7) matches only the second alternative, so the guard runs exactly once. An explicit Cell assertion independently proves that execution. No claim is made that this is a previously unreported compiler bug or that its exact compiler-level cause is established."
+      "notes": "The alternatives are disjoint; Err(7) matches only the second alternative, so the guard runs exactly once. An explicit counter assertion independently proves that execution. No claim is made that this is a previously unreported compiler bug or that its exact compiler-level cause is established."
     },
     {
       "number": 19,
@@ -536,7 +537,7 @@
       "case": "failing/21_repeated_macro_argument",
       "idea": "Repeated expression argument in macro_rules",
       "status": "confirmed-discrepancy",
-      "inputs_and_assertions": "Invoke twice! once and assert its Cell side effect happened twice.",
+      "inputs_and_assertions": "Invoke twice! once and assert its counter side effect happened twice.",
       "finding": "The user expression executes twice but its mapped count is 1.",
       "classification": "incorrect-count",
       "notes": "Repeated source expressions through declarative macro expansion.",
@@ -595,7 +596,7 @@
       "idea": "Bounds check aborts partial tuple construction",
       "status": "confirmed-discrepancy",
       "inputs_and_assertions": "Catch the bounds panic from the middle tuple element; assert before=1 and after=0.",
-      "finding": "The later tuple element never executes, but after.set is reported with count 1.",
+      "finding": "The later tuple element never executes, but *after += 1 is reported with count 1.",
       "classification": "false-positive",
       "notes": "Related to case 13: an implicit bounds-check panic interrupts evaluation of an aggregate.",
       "related_samples": [
@@ -683,7 +684,7 @@
       "case": "failing/26_async_trait_macro",
       "idea": "Async trait method transformed by async-trait",
       "status": "confirmed-discrepancy",
-      "inputs_and_assertions": "Poll an error call and a success call to completion; assert both results and two Cell increments.",
+      "inputs_and_assertions": "Poll an error call and a success call to completion; assert both results and two counter increments.",
       "finding": "All five checked body expressions have no mapping; the method signature is counted.",
       "classification": "missing-mapping",
       "notes": "Compare passing native async-trait case 20. Related to the macro-transformed async body gap in case 01, without tracing.",
@@ -714,7 +715,7 @@
       "idea": "Runtime initializer inside thread_local",
       "status": "confirmed-discrepancy",
       "inputs_and_assertions": "Read the thread-local value twice; assert both values and exactly one atomic initialization increment.",
-      "finding": "The executed initializer side effect and Cell construction have no mappings, while VALUE.with counts 2.",
+      "finding": "The executed initializer side effect and value expression have no mappings, while VALUE.with counts 2.",
       "classification": "missing-mapping",
       "notes": "Macro-generated initialization hides user-authored runtime expressions; this is not compile-time initialization.",
       "related_samples": [],
@@ -1283,7 +1284,7 @@
       "case": "failing/46_division_unwind",
       "idea": "Implicit integer division panic",
       "status": "confirmed-discrepancy",
-      "inputs_and_assertions": "Pass a black-box zero divisor; catch the panic and assert before=1, after=0.",
+      "inputs_and_assertions": "Pass a zero divisor; catch the panic and assert before=1, after=0.",
       "finding": "The division operand counts 1; the following statement and result expression incorrectly count 1.",
       "classification": "false-positive",
       "notes": "An implicit arithmetic check interrupts execution. The zero divisor is a runtime value.",

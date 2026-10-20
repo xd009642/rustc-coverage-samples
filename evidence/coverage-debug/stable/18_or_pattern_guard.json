@@ -1,0 +1,661 @@
+{
+  "functions": [
+    {
+      "expressions": [],
+      "hash_matches": true,
+      "mapping_function_hash": "a6fa0ccc093794de",
+      "name": "_RNvCshXj06tXMUV0_26sample_18_or_pattern_guard4main",
+      "name_hash": "1ff0b732858d1b43",
+      "profile_function_hash": "a6fa0ccc093794de",
+      "raw_counts": [
+        1,
+        1,
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            16,
+            10
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            16,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            17,
+            19
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            17,
+            9
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            17,
+            23
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            17,
+            22
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            22
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            16
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            29
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            23
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            18,
+            42
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            18,
+            31
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            19,
+            15
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            19,
+            5
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            20,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            20,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "expressions": [
+        {
+          "id": 0,
+          "lhs": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 3,
+            "kind": "counter"
+          }
+        },
+        {
+          "id": 1,
+          "lhs": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "op": "Add",
+          "rhs": {
+            "id": 2,
+            "kind": "counter"
+          }
+        },
+        {
+          "id": 2,
+          "lhs": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 5,
+            "kind": "expression",
+            "op": "Add"
+          }
+        },
+        {
+          "id": 3,
+          "lhs": {
+            "id": 3,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 2,
+            "kind": "counter"
+          }
+        },
+        {
+          "id": 4,
+          "lhs": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 5,
+            "kind": "expression",
+            "op": "Add"
+          }
+        },
+        {
+          "id": 5,
+          "lhs": {
+            "id": 3,
+            "kind": "counter"
+          },
+          "op": "Add",
+          "rhs": {
+            "id": 2,
+            "kind": "counter"
+          }
+        },
+        {
+          "id": 6,
+          "lhs": {
+            "id": 3,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 1,
+            "kind": "counter"
+          }
+        },
+        {
+          "id": 7,
+          "lhs": {
+            "id": 3,
+            "kind": "counter"
+          },
+          "op": "Subtract",
+          "rhs": {
+            "id": 1,
+            "kind": "counter"
+          }
+        }
+      ],
+      "hash_matches": true,
+      "mapping_function_hash": "65e56a90792109b9",
+      "name": "_RNvCshXj06tXMUV0_26sample_18_or_pattern_guard6choose",
+      "name_hash": "1924fc4fd9a3d4c2",
+      "profile_function_hash": "65e56a90792109b9",
+      "raw_counts": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "regions": [
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            1,
+            60
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            1,
+            1
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            2,
+            16
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            2,
+            11
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            3,
+            17
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            3,
+            12
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "counter"
+          },
+          "end": [
+            3,
+            30
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            3,
+            25
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            5,
+            29
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            5,
+            17
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            6,
+            26
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            6,
+            17
+          ]
+        },
+        {
+          "count": {
+            "id": 2,
+            "kind": "counter"
+          },
+          "end": [
+            7,
+            14
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            7,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 1,
+            "kind": "expression",
+            "op": "Add"
+          },
+          "end": [
+            9,
+            23
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            9,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 4,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            11,
+            17
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            11,
+            12
+          ]
+        },
+        {
+          "count": {
+            "id": 4,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            11,
+            32
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            11,
+            22
+          ]
+        },
+        {
+          "count": {
+            "id": 7,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            12,
+            18
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            12,
+            13
+          ]
+        },
+        {
+          "count": {
+            "id": 7,
+            "kind": "expression",
+            "op": "Subtract"
+          },
+          "end": [
+            12,
+            33
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            12,
+            23
+          ]
+        },
+        {
+          "count": {
+            "id": 0,
+            "kind": "counter"
+          },
+          "end": [
+            14,
+            2
+          ],
+          "expanded_file_id": 0,
+          "false_count": {
+            "kind": "zero"
+          },
+          "file": "failing/18_or_pattern_guard/src/main.rs",
+          "file_id": 1,
+          "kind": "Code",
+          "mcdc_params": "None",
+          "start": [
+            14,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "object": "target/coverage-debug/stable/18_or_pattern_guard/sample_18_or_pattern_guard",
+  "profile": "evidence/coverage-debug/stable/18_or_pattern_guard.profraw",
+  "profile_version": 10,
+  "source": "failing/18_or_pattern_guard/src/main.rs",
+  "provenance": {
+    "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-unknown-linux-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+    "parser_commit": "303624482819b356acabb9aa1a666e6fcdb4cf98",
+    "parser_status": "",
+    "inspector_sha256": "7dd05c1d17c50cc781c7a490815c2cca9fb321e197950523c4e316af12f6ce03",
+    "command": [
+      "cargo",
+      "+stable",
+      "llvm-cov",
+      "run",
+      "--locked",
+      "-p",
+      "sample_18_or_pattern_guard",
+      "--bin",
+      "sample_18_or_pattern_guard",
+      "--json",
+      "--output-path",
+      "target/coverage-debug-export.json"
+    ],
+    "source_sha256": "8e8824487820dc254b158982ff993711bbd3d0293431927910460ea98955433d",
+    "profile_sha256": "e5874da4e1ac76af4aac1d0446aa126ddf4161c2805d805ad265200fd1b3a111",
+    "object_sha256": "4a70161f790912622f2f3d59bda1ff0f1b086aa61b6c2a126c0ee50377ed9cae",
+    "workspace_lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+    "inspector_lock_sha256": "081bc29b65fa455dc86a7bd6e9124137ed6f7606d3048d88b9786d89c9ce120c",
+    "capture_command": [
+      "target/llvm-cov-target/debug/sample_18_or_pattern_guard"
+    ],
+    "capture_env": {
+      "LLVM_PROFILE_FILE": "evidence/coverage-debug/stable/18_or_pattern_guard.profraw"
+    }
+  }
+}

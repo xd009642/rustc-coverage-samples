@@ -1,21 +1,18 @@
-    1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    panic::{AssertUnwindSafe, catch_unwind},
-    4|       |};
-    5|       |
-    6|      1|fn may_panic(fail: bool) {
-    7|      1|    if fail {
-    8|      1|        panic!("intentional unwind");
-    9|      0|    }
-   10|      0|}
-   11|       |
-   12|      1|fn work(after: &Cell<u32>) {
-   13|      1|    may_panic(std::hint::black_box(true));
-   14|      1|    after.set(after.get() + 1);
-   15|      1|}
-   16|       |
-   17|      1|fn main() {
-   18|      1|    let after = Cell::new(0);
-   19|      1|    assert!(catch_unwind(AssertUnwindSafe(|| work(&after))).is_err());
-   20|      1|    assert_eq!(after.get(), 0);
-   21|      1|}
+    1|       |use std::panic::{AssertUnwindSafe, catch_unwind};
+    2|       |
+    3|      1|fn may_panic(fail: bool) {
+    4|      1|    if fail {
+    5|      1|        panic!("intentional unwind");
+    6|      0|    }
+    7|      0|}
+    8|       |
+    9|      1|fn work(after: &mut u32) {
+   10|      1|    may_panic(std::env::args().len() == 1);
+   11|      1|    *after += 1;
+   12|      1|}
+   13|       |
+   14|      1|fn main() {
+   15|      1|    let mut after = 0;
+   16|      1|    assert!(catch_unwind(AssertUnwindSafe(|| work(&mut after))).is_err());
+   17|      1|    assert_eq!(after, 0);
+   18|      1|}

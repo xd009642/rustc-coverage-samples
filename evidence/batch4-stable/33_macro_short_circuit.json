@@ -17,26 +17,26 @@
     "--output-path",
     "target/coverage-exports/sample_33_macro_short_circuit.json"
   ],
-  "source_sha256": "1f594a327c4393aa16291012432c5dc93f903c1b17b460c56535b1bd26d2b2f3",
-  "lock_sha256": "032fdf468e77b908e82825e102bb565b3833cac378844009e20bf79402270419",
-  "expectations_sha256": "32d9b445a87613c8b260b41ab81014f8f9dff34b15b76b591447cfe1b20205ea",
+  "source_sha256": "d195d715d0605ee8a53e21e6e67b0e92a19ea88369469bfde9fff4ec8d5a3858",
+  "lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+  "expectations_sha256": "7e92d04c78b65f899a4072e17df94284118edf98b7abb401340fafebe0d51ace",
   "llvm_export_version": "3.1.0",
   "probes": [
     {
-      "source": "calls.set",
+      "source": "*calls += 1",
       "count": 2,
       "position": [
-        11,
+        9,
         9
       ],
       "actual": 1,
       "matches": false,
       "containing_code_regions": [
         [
-          11,
           9,
-          11,
-          14,
+          9,
+          9,
+          20,
           1,
           0,
           0,
@@ -45,20 +45,20 @@
       ]
     },
     {
-      "source": "calls.get() == 2",
+      "source": "*calls == 2",
       "count": 2,
       "position": [
-        12,
+        10,
         9
       ],
       "actual": 1,
       "matches": false,
       "containing_code_regions": [
         [
-          12,
+          10,
           9,
-          12,
-          25,
+          10,
+          20,
           1,
           0,
           0,
@@ -74,7 +74,7 @@
     "filename": "failing/33_macro_short_circuit/src/main.rs",
     "segments": [
       [
-        9,
+        7,
         1,
         1,
         true,
@@ -82,15 +82,15 @@
         false
       ],
       [
-        9,
-        34,
+        7,
+        32,
         0,
         false,
         false,
         false
       ],
       [
-        10,
+        8,
         5,
         0,
         true,
@@ -98,15 +98,31 @@
         false
       ],
       [
+        8,
+        15,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        9,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        9,
+        20,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
         10,
-        15,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        11,
         9,
         1,
         true,
@@ -114,40 +130,8 @@
         false
       ],
       [
-        11,
-        14,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        11,
-        15,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        11,
-        18,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        11,
-        19,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        11,
-        34,
+        10,
+        20,
         0,
         false,
         false,
@@ -155,7 +139,7 @@
       ],
       [
         12,
-        9,
+        1,
         1,
         true,
         true,
@@ -163,22 +147,6 @@
       ],
       [
         12,
-        25,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        14,
-        1,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        14,
         2,
         0,
         false,
@@ -186,7 +154,7 @@
         false
       ],
       [
-        16,
+        14,
         1,
         1,
         true,
@@ -194,7 +162,7 @@
         false
       ],
       [
-        16,
+        14,
         10,
         0,
         false,
@@ -202,7 +170,7 @@
         false
       ],
       [
-        17,
+        15,
         9,
         1,
         true,
@@ -210,31 +178,31 @@
         false
       ],
       [
-        17,
-        14,
+        15,
+        18,
         0,
         false,
         false,
         false
       ],
       [
-        17,
-        17,
+        15,
+        21,
         1,
         true,
         true,
         false
       ],
       [
-        17,
-        26,
+        15,
+        22,
         0,
         false,
         false,
         false
       ],
       [
-        18,
+        16,
         5,
         1,
         true,
@@ -242,7 +210,7 @@
         false
       ],
       [
-        18,
+        16,
         12,
         0,
         false,
@@ -250,7 +218,7 @@
         false
       ],
       [
-        18,
+        16,
         13,
         1,
         true,
@@ -258,7 +226,7 @@
         false
       ],
       [
-        18,
+        16,
         16,
         0,
         false,
@@ -266,7 +234,7 @@
         false
       ],
       [
-        18,
+        16,
         17,
         1,
         true,
@@ -274,15 +242,15 @@
         false
       ],
       [
-        18,
-        23,
+        16,
+        27,
         0,
         false,
         false,
         false
       ],
       [
-        19,
+        17,
         5,
         1,
         true,
@@ -290,7 +258,7 @@
         false
       ],
       [
-        19,
+        17,
         15,
         0,
         false,
@@ -298,39 +266,7 @@
         false
       ],
       [
-        19,
-        16,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        19,
-        21,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        19,
-        22,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        19,
-        25,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        20,
+        18,
         1,
         1,
         true,
@@ -338,7 +274,7 @@
         false
       ],
       [
-        20,
+        18,
         2,
         0,
         false,
@@ -375,10 +311,10 @@
         "percent": 90.0
       },
       "regions": {
-        "count": 17,
-        "covered": 16,
+        "count": 13,
+        "covered": 12,
         "notcovered": 1,
-        "percent": 94.11764705882352
+        "percent": 92.3076923076923
       }
     }
   },
@@ -393,50 +329,40 @@
       "name": "_RNvCscckWkxkGj8z_29sample_33_macro_short_circuit3run",
       "regions": [
         [
-          9,
+          7,
           1,
-          9,
-          34,
+          7,
+          32,
           1,
           0,
           0,
           0
         ],
         [
-          10,
+          8,
           5,
+          8,
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          9,
+          9,
+          20,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
           10,
-          15,
-          0,
-          0,
-          0,
-          0
-        ],
-        [
-          11,
           9,
-          11,
-          14,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          11,
-          15,
-          11,
-          18,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          11,
-          19,
-          11,
-          34,
+          10,
+          20,
           1,
           0,
           0,
@@ -444,18 +370,8 @@
         ],
         [
           12,
-          9,
+          1,
           12,
-          25,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          14,
-          1,
-          14,
           2,
           1,
           0,
@@ -474,9 +390,9 @@
       "name": "_RNvCscckWkxkGj8z_29sample_33_macro_short_circuit4main",
       "regions": [
         [
-          16,
+          14,
           1,
-          16,
+          14,
           10,
           1,
           0,
@@ -484,29 +400,29 @@
           0
         ],
         [
-          17,
+          15,
           9,
-          17,
-          14,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          17,
-          17,
-          17,
-          26,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
+          15,
           18,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          21,
+          15,
+          22,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          16,
           5,
-          18,
+          16,
           12,
           1,
           0,
@@ -514,9 +430,9 @@
           0
         ],
         [
-          18,
+          16,
           13,
-          18,
+          16,
           16,
           1,
           0,
@@ -524,19 +440,19 @@
           0
         ],
         [
-          18,
+          16,
           17,
-          18,
-          23,
+          16,
+          27,
           1,
           0,
           0,
           0
         ],
         [
-          19,
+          17,
           5,
-          19,
+          17,
           15,
           1,
           0,
@@ -544,29 +460,9 @@
           0
         ],
         [
-          19,
-          16,
-          19,
-          21,
+          18,
           1,
-          0,
-          0,
-          0
-        ],
-        [
-          19,
-          22,
-          19,
-          25,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
-          1,
-          20,
+          18,
           2,
           1,
           0,

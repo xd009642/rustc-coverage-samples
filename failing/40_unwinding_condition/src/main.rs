@@ -1,30 +1,27 @@
-use std::{
-    cell::Cell,
-    panic::{AssertUnwindSafe, catch_unwind},
-};
+use std::panic::{AssertUnwindSafe, catch_unwind};
 
-fn condition(checks: &Cell<u32>) -> bool {
-    checks.set(checks.get() + 1);
-    if std::hint::black_box(true) {
+fn condition(checks: &mut u32) -> bool {
+    *checks += 1;
+    if std::env::args().len() == 1 {
         panic!("condition panic");
     }
     true
 }
 
-fn choose(checks: &Cell<u32>, yes: &Cell<u32>, no: &Cell<u32>) -> u32 {
-    if std::hint::black_box(true) && condition(checks) {
-        yes.set(yes.get() + 1);
+fn choose(checks: &mut u32, yes: &mut u32, no: &mut u32) -> u32 {
+    if std::env::args().len() == 1 && condition(checks) {
+        *yes += 1;
         11
     } else {
-        no.set(no.get() + 1);
+        *no += 1;
         22
     }
 }
 
 fn main() {
-    let checks = Cell::new(0);
-    let yes = Cell::new(0);
-    let no = Cell::new(0);
-    assert!(catch_unwind(AssertUnwindSafe(|| choose(&checks, &yes, &no))).is_err());
-    assert_eq!((checks.get(), yes.get(), no.get()), (1, 0, 0));
+    let mut checks = 0;
+    let mut yes = 0;
+    let mut no = 0;
+    assert!(catch_unwind(AssertUnwindSafe(|| choose(&mut checks, &mut yes, &mut no))).is_err());
+    assert_eq!((checks, yes, no), (1, 0, 0));
 }

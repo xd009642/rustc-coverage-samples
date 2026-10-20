@@ -1,7 +1,4 @@
-use std::{
-    cell::Cell,
-    panic::{AssertUnwindSafe, catch_unwind},
-};
+use std::panic::{AssertUnwindSafe, catch_unwind};
 
 fn may_panic(fail: bool) {
     if fail {
@@ -9,13 +6,13 @@ fn may_panic(fail: bool) {
     }
 }
 
-fn work(after: &Cell<u32>) {
-    may_panic(std::hint::black_box(true));
-    after.set(after.get() + 1);
+fn work(after: &mut u32) {
+    may_panic(std::env::args().len() == 1);
+    *after += 1;
 }
 
 fn main() {
-    let after = Cell::new(0);
-    assert!(catch_unwind(AssertUnwindSafe(|| work(&after))).is_err());
-    assert_eq!(after.get(), 0);
+    let mut after = 0;
+    assert!(catch_unwind(AssertUnwindSafe(|| work(&mut after))).is_err());
+    assert_eq!(after, 0);
 }

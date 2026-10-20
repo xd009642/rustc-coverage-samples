@@ -1,30 +1,27 @@
-use std::{
-    cell::Cell,
-    panic::{AssertUnwindSafe, catch_unwind},
-};
+use std::panic::{AssertUnwindSafe, catch_unwind};
 
-fn assign(values: &mut [u32; 1], second: &Cell<u32>, after: &Cell<u32>, index: usize) {
+fn assign(values: &mut [u32; 1], second: &mut u32, after: &mut u32, index: usize) {
     (values[0], values[index]) = (11, {
-        second.set(second.get() + 1);
+        *second += 1;
         22
     });
-    after.set(after.get() + 1);
+    *after += 1;
 }
 
 fn main() {
     let mut values = [0];
-    let second = Cell::new(0);
-    let after = Cell::new(0);
+    let mut second = 0;
+    let mut after = 0;
     assert!(
         catch_unwind(AssertUnwindSafe(|| assign(
             &mut values,
-            &second,
-            &after,
-            std::hint::black_box(1)
+            &mut second,
+            &mut after,
+            1
         )))
         .is_err()
     );
     assert_eq!(values, [11]);
-    assert_eq!(second.get(), 1);
-    assert_eq!(after.get(), 0);
+    assert_eq!(second, 1);
+    assert_eq!(after, 0);
 }

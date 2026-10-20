@@ -17,25 +17,25 @@
     "--output-path",
     "target/coverage-exports/sample_13_unwind_continuation.json"
   ],
-  "source_sha256": "aaf79eaa25eb1b79d26f601a33e3b9fc35ef4bb0285c052336c171d7ec4447b3",
-  "lock_sha256": "945a85ea1c22419dd23ccaa397244da31b51a42ed84db64cb004eaee28ed4624",
-  "expectations_sha256": "7ba31d6d87b4b597aee85040b0f394171e5201382f2f722ed2485f64118e03fb",
+  "source_sha256": "08e017687e684c68a912369a358bc9764f786a9280c993baf67fe726c54fb245",
+  "lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
+  "expectations_sha256": "a926cf44068155e513747baceacfa828cb4ece984cbdbbef9290d6cbdd4348f4",
   "llvm_export_version": "3.1.0",
   "probes": [
     {
-      "source": "may_panic(std::hint::black_box(true))",
+      "source": "may_panic(std::env::args().len() == 1)",
       "count": 1,
       "position": [
-        13,
+        10,
         5
       ],
       "actual": 1,
       "matches": true,
       "containing_code_regions": [
         [
-          13,
+          10,
           5,
-          13,
+          10,
           14,
           1,
           0,
@@ -45,20 +45,20 @@
       ]
     },
     {
-      "source": "after.set",
+      "source": "*after += 1",
       "count": 0,
       "position": [
-        14,
+        11,
         5
       ],
       "actual": 1,
       "matches": false,
       "containing_code_regions": [
         [
-          14,
+          11,
           5,
-          14,
-          10,
+          11,
+          16,
           1,
           0,
           0,
@@ -74,7 +74,7 @@
     "filename": "failing/13_unwind_continuation/src/main.rs",
     "segments": [
       [
-        6,
+        3,
         1,
         1,
         true,
@@ -82,7 +82,7 @@
         false
       ],
       [
-        6,
+        3,
         25,
         0,
         false,
@@ -90,7 +90,7 @@
         false
       ],
       [
-        7,
+        4,
         8,
         1,
         true,
@@ -98,7 +98,7 @@
         false
       ],
       [
-        7,
+        4,
         12,
         0,
         false,
@@ -106,7 +106,7 @@
         false
       ],
       [
-        8,
+        5,
         9,
         1,
         true,
@@ -114,7 +114,7 @@
         false
       ],
       [
-        8,
+        5,
         15,
         0,
         false,
@@ -122,7 +122,7 @@
         false
       ],
       [
-        9,
+        6,
         5,
         0,
         true,
@@ -130,7 +130,7 @@
         false
       ],
       [
-        9,
+        6,
         6,
         0,
         false,
@@ -138,7 +138,7 @@
         false
       ],
       [
-        10,
+        7,
         1,
         0,
         true,
@@ -146,7 +146,7 @@
         false
       ],
       [
-        10,
+        7,
         2,
         0,
         false,
@@ -154,7 +154,7 @@
         false
       ],
       [
-        12,
+        9,
         1,
         1,
         true,
@@ -162,15 +162,15 @@
         false
       ],
       [
-        12,
-        27,
+        9,
+        25,
         0,
         false,
         false,
         false
       ],
       [
-        13,
+        10,
         5,
         1,
         true,
@@ -178,7 +178,7 @@
         false
       ],
       [
-        13,
+        10,
         14,
         0,
         false,
@@ -186,7 +186,7 @@
         false
       ],
       [
-        13,
+        10,
         15,
         1,
         true,
@@ -194,127 +194,15 @@
         false
       ],
       [
-        13,
-        35,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        14,
-        5,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        14,
         10,
+        42,
         0,
         false,
         false,
         false
       ],
       [
-        14,
         11,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        14,
-        14,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        14,
-        15,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        14,
-        30,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        15,
-        1,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        15,
-        2,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        17,
-        1,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        17,
-        10,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        18,
-        9,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        18,
-        14,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        18,
-        17,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        18,
-        26,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        19,
         5,
         1,
         true,
@@ -322,7 +210,87 @@
         false
       ],
       [
-        19,
+        11,
+        16,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        12,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        12,
+        2,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        14,
+        1,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        14,
+        10,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        15,
+        9,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        15,
+        18,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        15,
+        21,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        15,
+        22,
+        0,
+        false,
+        false,
+        false
+      ],
+      [
+        16,
+        5,
+        1,
+        true,
+        true,
+        false
+      ],
+      [
+        16,
         12,
         0,
         false,
@@ -330,7 +298,7 @@
         false
       ],
       [
-        19,
+        16,
         13,
         1,
         true,
@@ -338,7 +306,7 @@
         false
       ],
       [
-        19,
+        16,
         25,
         0,
         false,
@@ -346,7 +314,7 @@
         false
       ],
       [
-        19,
+        16,
         46,
         1,
         true,
@@ -354,7 +322,7 @@
         false
       ],
       [
-        19,
+        16,
         50,
         0,
         false,
@@ -362,7 +330,7 @@
         false
       ],
       [
-        19,
+        16,
         51,
         1,
         true,
@@ -370,31 +338,31 @@
         false
       ],
       [
-        19,
-        57,
+        16,
+        61,
         0,
         false,
         false,
         false
       ],
       [
-        19,
-        61,
+        16,
+        65,
         1,
         true,
         true,
         false
       ],
       [
-        19,
-        67,
+        16,
+        71,
         0,
         false,
         false,
         false
       ],
       [
-        20,
+        17,
         5,
         1,
         true,
@@ -402,7 +370,7 @@
         false
       ],
       [
-        20,
+        17,
         15,
         0,
         false,
@@ -410,39 +378,7 @@
         false
       ],
       [
-        20,
-        16,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        20,
-        21,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        20,
-        22,
-        1,
-        true,
-        true,
-        false
-      ],
-      [
-        20,
-        25,
-        0,
-        false,
-        false,
-        false
-      ],
-      [
-        21,
+        18,
         1,
         1,
         true,
@@ -450,7 +386,7 @@
         false
       ],
       [
-        21,
+        18,
         2,
         0,
         false,
@@ -487,10 +423,10 @@
         "percent": 86.66666666666667
       },
       "regions": {
-        "count": 24,
-        "covered": 22,
+        "count": 20,
+        "covered": 18,
         "notcovered": 2,
-        "percent": 91.66666666666666
+        "percent": 90.0
       }
     }
   },
@@ -502,12 +438,12 @@
       "filenames": [
         "failing/13_unwind_continuation/src/main.rs"
       ],
-      "name": "_RNCNvCs4bX4L3PDjDc_29sample_13_unwind_continuation4main0B3_",
+      "name": "_RNCNvCsd4nx18dpK9K_29sample_13_unwind_continuation4main0B3_",
       "regions": [
         [
-          19,
+          16,
           46,
-          19,
+          16,
           50,
           1,
           0,
@@ -515,110 +451,70 @@
           0
         ],
         [
-          19,
-          51,
-          19,
-          57,
-          1,
-          0,
-          0,
-          0
-        ]
-      ]
-    },
-    {
-      "branches": [],
-      "mcdc_records": [],
-      "count": 1,
-      "filenames": [
-        "failing/13_unwind_continuation/src/main.rs"
-      ],
-      "name": "_RNvCs4bX4L3PDjDc_29sample_13_unwind_continuation4main",
-      "regions": [
-        [
-          17,
-          1,
-          17,
-          10,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          18,
-          9,
-          18,
-          14,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          18,
-          17,
-          18,
-          26,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          19,
-          5,
-          19,
-          12,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          19,
-          13,
-          19,
-          25,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          19,
-          61,
-          19,
-          67,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
-          5,
-          20,
-          15,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          20,
           16,
-          20,
-          21,
+          51,
+          16,
+          61,
+          1,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "branches": [],
+      "mcdc_records": [],
+      "count": 1,
+      "filenames": [
+        "failing/13_unwind_continuation/src/main.rs"
+      ],
+      "name": "_RNvCsd4nx18dpK9K_29sample_13_unwind_continuation4main",
+      "regions": [
+        [
+          14,
+          1,
+          14,
+          10,
           1,
           0,
           0,
           0
         ],
         [
-          20,
+          15,
+          9,
+          15,
+          18,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          21,
+          15,
           22,
-          20,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          16,
+          5,
+          16,
+          12,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          16,
+          13,
+          16,
           25,
           1,
           0,
@@ -626,9 +522,29 @@
           0
         ],
         [
-          21,
+          16,
+          65,
+          16,
+          71,
           1,
-          21,
+          0,
+          0,
+          0
+        ],
+        [
+          17,
+          5,
+          17,
+          15,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          1,
+          18,
           2,
           1,
           0,
@@ -644,72 +560,52 @@
       "filenames": [
         "failing/13_unwind_continuation/src/main.rs"
       ],
-      "name": "_RNvCs4bX4L3PDjDc_29sample_13_unwind_continuation4work",
+      "name": "_RNvCsd4nx18dpK9K_29sample_13_unwind_continuation4work",
       "regions": [
         [
-          12,
+          9,
           1,
-          12,
-          27,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          13,
-          5,
-          13,
-          14,
+          9,
+          25,
           1,
           0,
           0,
           0
         ],
         [
-          13,
-          15,
-          13,
-          35,
-          1,
-          0,
-          0,
-          0
-        ],
-        [
-          14,
-          5,
-          14,
           10,
+          5,
+          10,
+          14,
           1,
           0,
           0,
           0
         ],
         [
-          14,
+          10,
+          15,
+          10,
+          42,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
           11,
-          14,
-          14,
+          5,
+          11,
+          16,
           1,
           0,
           0,
           0
         ],
         [
-          14,
-          15,
-          14,
-          30,
+          12,
           1,
-          0,
-          0,
-          0
-        ],
-        [
-          15,
-          1,
-          15,
+          12,
           2,
           1,
           0,
@@ -725,12 +621,12 @@
       "filenames": [
         "failing/13_unwind_continuation/src/main.rs"
       ],
-      "name": "_RNvCs4bX4L3PDjDc_29sample_13_unwind_continuation9may_panic",
+      "name": "_RNvCsd4nx18dpK9K_29sample_13_unwind_continuation9may_panic",
       "regions": [
         [
-          6,
+          3,
           1,
-          6,
+          3,
           25,
           1,
           0,
@@ -738,9 +634,9 @@
           0
         ],
         [
-          7,
+          4,
           8,
-          7,
+          4,
           12,
           1,
           0,
@@ -748,9 +644,9 @@
           0
         ],
         [
-          8,
+          5,
           9,
-          8,
+          5,
           15,
           1,
           0,
@@ -758,9 +654,9 @@
           0
         ],
         [
-          9,
+          6,
           5,
-          9,
+          6,
           6,
           0,
           0,
@@ -768,9 +664,9 @@
           0
         ],
         [
-          10,
+          7,
           1,
-          10,
+          7,
           2,
           0,
           0,

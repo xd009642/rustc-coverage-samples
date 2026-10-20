@@ -1,10 +1,8 @@
-use std::cell::Cell;
-
-fn choose(input: Result<u32, u32>, checks: &Cell<u32>) -> u32 {
+fn choose(input: Result<u32, u32>, checks: &mut u32) -> u32 {
     match input {
         Ok(value) | Err(value)
             if {
-                checks.set(checks.get() + 1);
+                *checks += 1;
                 value > 4
             } =>
         {
@@ -16,7 +14,7 @@ fn choose(input: Result<u32, u32>, checks: &Cell<u32>) -> u32 {
 }
 
 fn main() {
-    let checks = Cell::new(0);
-    assert_eq!(choose(Err(7), &checks), 17);
-    assert_eq!(checks.get(), 1);
+    let mut checks = 0;
+    assert_eq!(choose(Err(7), &mut checks), 17);
+    assert_eq!(checks, 1);
 }

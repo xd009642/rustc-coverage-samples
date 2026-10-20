@@ -1,30 +1,33 @@
     1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    fmt::{self, Display, Write},
-    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    2|       |    fmt::{self, Display, Write},
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |    sync::atomic::{AtomicU32, Ordering},
     5|       |};
     6|       |
-    7|       |struct Value<'a>(&'a Cell<u32>);
+    7|       |struct Value<'a>(&'a AtomicU32);
     8|       |
     9|       |impl Display for Value<'_> {
    10|      1|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-   11|      1|        self.0.set(self.0.get() + 1);
-   12|      1|        if std::hint::black_box(true) {
+   11|      1|        self.0.fetch_add(1, Ordering::Relaxed);
+   12|      1|        if std::env::args().len() == 1 {
    13|      1|            panic!("formatting fails");
    14|      0|        }
    15|      0|        formatter.write_str("value")
    16|      0|    }
    17|       |}
    18|       |
-   19|      1|fn render(calls: &Cell<u32>, after: &Cell<u32>) {
+   19|      1|fn render(calls: &AtomicU32, after: &AtomicU32) {
    20|      1|    let mut output = String::new();
    21|      1|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
-   22|      1|    after.set(after.get() + 1);
+   22|      1|    after.fetch_add(1, Ordering::Relaxed);
    23|      1|}
    24|       |
    25|      1|fn main() {
-   26|      1|    let calls = Cell::new(0);
-   27|      1|    let after = Cell::new(0);
+   26|      1|    let calls = AtomicU32::new(0);
+   27|      1|    let after = AtomicU32::new(0);
    28|      1|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
-   29|      1|    assert_eq!((calls.get(), after.get()), (1, 0));
-   30|      1|}
+   29|      1|    assert_eq!(
+   30|      1|        (calls.load(Ordering::Relaxed), after.load(Ordering::Relaxed)),
+   31|       |        (1, 0)
+   32|       |    );
+   33|      1|}

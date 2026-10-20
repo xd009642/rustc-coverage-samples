@@ -1,27 +1,26 @@
     1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    panic::{AssertUnwindSafe, catch_unwind},
-    4|       |    sync::OnceLock,
-    5|       |};
-    6|       |
-    7|      2|fn read(cache: &OnceLock<u32>, attempts: &Cell<u32>, after: &Cell<u32>) -> u32 {
-    8|      2|    let value = cache.get_or_init(|| {
-    9|      2|        attempts.set(attempts.get() + 1);
-   10|      2|        if attempts.get() == 1 {
-   11|      1|            panic!("first initialization fails");
-   12|      1|        }
-   13|      1|        42
-   14|      1|    });
-   15|      2|    after.set(after.get() + 1);
-   16|      2|    *value
-   17|      2|}
-   18|       |
-   19|      1|fn main() {
-   20|      1|    let cache = OnceLock::new();
-   21|      1|    let attempts = Cell::new(0);
-   22|      1|    let after = Cell::new(0);
-   23|      1|    assert!(catch_unwind(AssertUnwindSafe(|| read(&cache, &attempts, &after))).is_err());
-   24|      1|    assert_eq!(cache.get(), None);
-   25|      1|    assert_eq!(read(&cache, &attempts, &after), 42);
-   26|      1|    assert_eq!((attempts.get(), after.get()), (2, 1));
-   27|      1|}
+    2|       |    panic::{AssertUnwindSafe, catch_unwind},
+    3|       |    sync::OnceLock,
+    4|       |};
+    5|       |
+    6|      2|fn read(cache: &OnceLock<u32>, attempts: &mut u32, after: &mut u32) -> u32 {
+    7|      2|    let value = cache.get_or_init(|| {
+    8|      2|        *attempts += 1;
+    9|      2|        if *attempts == 1 {
+   10|      1|            panic!("first initialization fails");
+   11|      1|        }
+   12|      1|        42
+   13|      1|    });
+   14|      2|    *after += 1;
+   15|      2|    *value
+   16|      2|}
+   17|       |
+   18|      1|fn main() {
+   19|      1|    let cache = OnceLock::new();
+   20|      1|    let mut attempts = 0;
+   21|      1|    let mut after = 0;
+   22|      1|    assert!(catch_unwind(AssertUnwindSafe(|| read(&cache, &mut attempts, &mut after))).is_err());
+   23|      1|    assert_eq!(cache.get(), None);
+   24|      1|    assert_eq!(read(&cache, &mut attempts, &mut after), 42);
+   25|      1|    assert_eq!((attempts, after), (2, 1));
+   26|      1|}

@@ -1,56 +1,56 @@
 /home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/27_thread_local_initializer/src/main.rs:
-    1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    sync::atomic::{AtomicU32, Ordering},
-    4|       |};
-    5|       |
-    6|       |static INITIALIZATIONS: AtomicU32 = AtomicU32::new(0);
-    7|       |
-    8|       |thread_local! {
-    9|       |    static VALUE: Cell<u32> = {
-   10|       |        INITIALIZATIONS.fetch_add(1, Ordering::Relaxed);
-   11|       |        Cell::new(41)
-   12|       |    };
-   13|       |}
-   14|       |
-   15|      2|fn read() -> u32 {
-   16|      2|    VALUE.with(Cell::get)
-   17|      2|}
-   18|       |
-   19|      1|fn main() {
-   20|      1|    assert_eq!(read(), 41);
-   21|      1|    assert_eq!(read(), 41);
-   22|      1|    assert_eq!(INITIALIZATIONS.load(Ordering::Relaxed), 1);
-   23|      1|}
+    1|       |use std::sync::atomic::{AtomicU32, Ordering};
+    2|       |
+    3|       |static INITIALIZATIONS: AtomicU32 = AtomicU32::new(0);
+    4|       |
+    5|       |thread_local! {
+    6|       |    static VALUE: u32 = {
+    7|       |        INITIALIZATIONS.fetch_add(1, Ordering::Relaxed);
+    8|       |        41
+    9|       |    };
+   10|       |}
+   11|       |
+   12|      2|fn read() -> u32 {
+   13|      2|    VALUE.with(|value| *value)
+   14|      2|}
+   15|       |
+   16|      1|fn main() {
+   17|      1|    assert_eq!(read(), 41);
+   18|      1|    assert_eq!(read(), 41);
+   19|      1|    assert_eq!(INITIALIZATIONS.load(Ordering::Relaxed), 1);
+   20|      1|}
 
-/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/30_panicking_drop/src/main.rs:
+/home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/50_format_display_unwind/src/main.rs:
     1|       |use std::{
-    2|       |    cell::Cell,
+    2|       |    fmt::{self, Display, Write},
     3|       |    panic::{AssertUnwindSafe, catch_unwind},
-    4|       |};
-    5|       |
-    6|       |struct Bomb<'a>(&'a Cell<u32>);
-    7|       |
-    8|       |impl Drop for Bomb<'_> {
-    9|      0|    fn drop(&mut self) {
-   10|      0|        self.0.set(self.0.get() + 1);
-   11|      0|        if std::hint::black_box(true) {
-   12|      0|            panic!("intentional destructor panic");
-   13|      0|        }
-   14|      0|    }
-   15|       |}
-   16|       |
-   17|      0|fn work(drops: &Cell<u32>, after: &Cell<u32>) {
-   18|      0|    {
-   19|      0|        let _bomb = Bomb(drops);
-   20|      0|    }
-   21|      0|    after.set(after.get() + 1);
-   22|      0|}
-   23|       |
-   24|      0|fn main() {
-   25|      0|    let drops = Cell::new(0);
-   26|      0|    let after = Cell::new(0);
-   27|      0|    assert!(catch_unwind(AssertUnwindSafe(|| work(&drops, &after))).is_err());
-   28|      0|    assert_eq!(drops.get(), 1);
-   29|      0|    assert_eq!(after.get(), 0);
-   30|      0|}
+    4|       |    sync::atomic::{AtomicU32, Ordering},
+    5|       |};
+    6|       |
+    7|       |struct Value<'a>(&'a AtomicU32);
+    8|       |
+    9|       |impl Display for Value<'_> {
+   10|      0|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+   11|      0|        self.0.fetch_add(1, Ordering::Relaxed);
+   12|      0|        if std::env::args().len() == 1 {
+   13|      0|            panic!("formatting fails");
+   14|      0|        }
+   15|      0|        formatter.write_str("value")
+   16|      0|    }
+   17|       |}
+   18|       |
+   19|      0|fn render(calls: &AtomicU32, after: &AtomicU32) {
+   20|      0|    let mut output = String::new();
+   21|      0|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
+   22|      0|    after.fetch_add(1, Ordering::Relaxed);
+   23|      0|}
+   24|       |
+   25|      0|fn main() {
+   26|      0|    let calls = AtomicU32::new(0);
+   27|      0|    let after = AtomicU32::new(0);
+   28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
+   29|      0|    assert_eq!(
+   30|      0|        (calls.load(Ordering::Relaxed), after.load(Ordering::Relaxed)),
+   31|       |        (1, 0)
+   32|       |    );
+   33|      0|}

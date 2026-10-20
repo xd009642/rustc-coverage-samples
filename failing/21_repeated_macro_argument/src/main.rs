@@ -1,5 +1,3 @@
-use std::cell::Cell;
-
 macro_rules! twice {
     ($action:expr) => {{
         $action;
@@ -7,12 +5,12 @@ macro_rules! twice {
     }};
 }
 
-fn run(hits: &Cell<u32>) {
-    twice!(hits.set(hits.get() + 1));
+fn run(hits: &mut u32) {
+    twice!(*hits += 1);
 }
 
 fn main() {
-    let hits = Cell::new(0);
-    run(&hits);
-    assert_eq!(hits.get(), 2);
+    let mut hits = 0;
+    run(&mut hits);
+    assert_eq!(hits, 2);
 }

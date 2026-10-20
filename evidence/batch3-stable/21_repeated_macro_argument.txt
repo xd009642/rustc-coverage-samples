@@ -1,18 +1,16 @@
-    1|       |use std::cell::Cell;
-    2|       |
-    3|       |macro_rules! twice {
-    4|       |    ($action:expr) => {{
-    5|       |        $action;
-    6|       |        $action;
-    7|       |    }};
-    8|       |}
-    9|       |
-   10|      1|fn run(hits: &Cell<u32>) {
-   11|      1|    twice!(hits.set(hits.get() + 1));
-   12|      1|}
-   13|       |
-   14|      1|fn main() {
-   15|      1|    let hits = Cell::new(0);
-   16|      1|    run(&hits);
-   17|      1|    assert_eq!(hits.get(), 2);
-   18|      1|}
+    1|       |macro_rules! twice {
+    2|       |    ($action:expr) => {{
+    3|       |        $action;
+    4|       |        $action;
+    5|       |    }};
+    6|       |}
+    7|       |
+    8|      1|fn run(hits: &mut u32) {
+    9|      1|    twice!(*hits += 1);
+   10|      1|}
+   11|       |
+   12|      1|fn main() {
+   13|      1|    let mut hits = 0;
+   14|      1|    run(&mut hits);
+   15|      1|    assert_eq!(hits, 2);
+   16|      1|}

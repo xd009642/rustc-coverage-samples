@@ -18,7 +18,7 @@
     "target/coverage-exports/sample_25_derive_expression.json"
   ],
   "source_sha256": "d5d5bec248102a1f433024a049a3e6ff3c089de1ff2802a304783c8edf3bab80",
-  "lock_sha256": "8ca42f2f7794e67fd340e4f51ca0665417ac77f64bb96f6d73de6e8ed95ca463",
+  "lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
   "expectations_sha256": "de97b56a0ee5072b76cf2e892f277f4a9bcc407d591bc7eea4d494907ba1e295",
   "llvm_export_version": "3.1.0",
   "probes": [

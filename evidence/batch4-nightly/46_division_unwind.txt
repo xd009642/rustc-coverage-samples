@@ -1,56 +1,51 @@
 /home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/46_division_unwind/src/main.rs:
-    1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    panic::{AssertUnwindSafe, catch_unwind},
-    4|       |};
-    5|       |
-    6|      1|fn divide(divisor: u32, before: &Cell<u32>, after: &Cell<u32>) -> u32 {
-    7|      1|    before.set(before.get() + 1);
-    8|      1|    let value = 10 / divisor;
-    9|      1|    after.set(after.get() + 1);
-   10|      1|    value + 1
-   11|      1|}
-   12|       |
-   13|      1|fn main() {
-   14|      1|    let before = Cell::new(0);
-   15|      1|    let after = Cell::new(0);
-   16|      1|    assert!(
-   17|      1|        catch_unwind(AssertUnwindSafe(|| {
-   18|      1|            divide(std::hint::black_box(0), &before, &after)
-   19|      1|        }))
-   20|      1|        .is_err()
-   21|       |    );
-   22|      1|    assert_eq!((before.get(), after.get()), (1, 0));
-   23|      1|}
+    1|       |use std::panic::{AssertUnwindSafe, catch_unwind};
+    2|       |
+    3|      1|fn divide(divisor: u32, before: &mut u32, after: &mut u32) -> u32 {
+    4|      1|    *before += 1;
+    5|      1|    let value = 10 / divisor;
+    6|      1|    *after += 1;
+    7|      1|    value + 1
+    8|      1|}
+    9|       |
+   10|      1|fn main() {
+   11|      1|    let mut before = 0;
+   12|      1|    let mut after = 0;
+   13|      1|    assert!(catch_unwind(AssertUnwindSafe(|| { divide(0, &mut before, &mut after) })).is_err());
+   14|      1|    assert_eq!((before, after), (1, 0));
+   15|      1|}
 
 /home/xd009642/personal/tarpaulin/rustc-coverage-samples/failing/50_format_display_unwind/src/main.rs:
     1|       |use std::{
-    2|       |    cell::Cell,
-    3|       |    fmt::{self, Display, Write},
-    4|       |    panic::{AssertUnwindSafe, catch_unwind},
+    2|       |    fmt::{self, Display, Write},
+    3|       |    panic::{AssertUnwindSafe, catch_unwind},
+    4|       |    sync::atomic::{AtomicU32, Ordering},
     5|       |};
     6|       |
-    7|       |struct Value<'a>(&'a Cell<u32>);
+    7|       |struct Value<'a>(&'a AtomicU32);
     8|       |
     9|       |impl Display for Value<'_> {
    10|      0|    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-   11|      0|        self.0.set(self.0.get() + 1);
-   12|      0|        if std::hint::black_box(true) {
+   11|      0|        self.0.fetch_add(1, Ordering::Relaxed);
+   12|      0|        if std::env::args().len() == 1 {
    13|      0|            panic!("formatting fails");
    14|      0|        }
    15|      0|        formatter.write_str("value")
    16|      0|    }
    17|       |}
    18|       |
-   19|      0|fn render(calls: &Cell<u32>, after: &Cell<u32>) {
+   19|      0|fn render(calls: &AtomicU32, after: &AtomicU32) {
    20|      0|    let mut output = String::new();
    21|      0|    write!(output, "{}", Value(calls)).expect("writing to String cannot return fmt::Error");
-   22|      0|    after.set(after.get() + 1);
+   22|      0|    after.fetch_add(1, Ordering::Relaxed);
    23|      0|}
    24|       |
    25|      0|fn main() {
-   26|      0|    let calls = Cell::new(0);
-   27|      0|    let after = Cell::new(0);
+   26|      0|    let calls = AtomicU32::new(0);
+   27|      0|    let after = AtomicU32::new(0);
    28|      0|    assert!(catch_unwind(AssertUnwindSafe(|| render(&calls, &after))).is_err());
-   29|      0|    assert_eq!((calls.get(), after.get()), (1, 0));
-   30|      0|}
+   29|      0|    assert_eq!(
+   30|      0|        (calls.load(Ordering::Relaxed), after.load(Ordering::Relaxed)),
+   31|       |        (1, 0)
+   32|       |    );
+   33|      0|}

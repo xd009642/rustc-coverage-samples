@@ -18,7 +18,7 @@
     "target/coverage-exports/sample_01_tracing_async.json"
   ],
   "source_sha256": "1b204b5d0a475288b1d141987a76049df4ee272f392c66468533e724b522da45",
-  "lock_sha256": "dea244b3e47cd2fc854c527845ac821ed5aeb5f32d498eeb8c9bf80a9778f8d2",
+  "lock_sha256": "d01d7e3746ae8e9d0428421121d4fa3a4bbdd1f7ddf6a2ac8fab685884e7303d",
   "expectations_sha256": "eb99c262d68f87f7b47fa61297b1fb1d38c3d56c971087c63369544bf7a0593c",
   "llvm_export_version": "3.1.0",
   "probes": [
@@ -528,7 +528,7 @@
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNvCs5m4sVCNkp96_23sample_01_tracing_async4main",
+      "name": "_RNvCslk36swFzeTo_23sample_01_tracing_async4main",
       "regions": [
         [
           21,
@@ -719,7 +719,7 @@
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNvCs5m4sVCNkp96_23sample_01_tracing_async5fetch",
+      "name": "_RNvCslk36swFzeTo_23sample_01_tracing_async5fetch",
       "regions": [
         [
           16,
@@ -740,7 +740,7 @@
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNvCs5m4sVCNkp96_23sample_01_tracing_async6db_get",
+      "name": "_RNvCslk36swFzeTo_23sample_01_tracing_async6db_get",
       "regions": [
         [
           7,
@@ -761,7 +761,7 @@
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNCNvCs5m4sVCNkp96_23sample_01_tracing_async5fetch0B3_",
+      "name": "_RNCNvCslk36swFzeTo_23sample_01_tracing_async5fetch0B3_",
       "regions": [
         [
           16,
@@ -792,7 +792,7 @@
       "filenames": [
         "failing/01_tracing_async/src/main.rs"
       ],
-      "name": "_RNCNvCs5m4sVCNkp96_23sample_01_tracing_async6db_get0B3_",
+      "name": "_RNCNvCslk36swFzeTo_23sample_01_tracing_async6db_get0B3_",
       "regions": [
         [
           7,

@@ -2,7 +2,7 @@
   "description": "Expected dynamic execution counts derived from the runtime driver before coverage assessment.",
   "probes": [
     {
-      "source": "calls.set",
+      "source": "*calls += 1",
       "count": 3
     },
     {
@@ -10,7 +10,7 @@
       "count": 3
     },
     {
-      "source": "std::hint::black_box(code)",
+      "source": "println!(\"{code}\")",
       "count": 0
     },
     {
